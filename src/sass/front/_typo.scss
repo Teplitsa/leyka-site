@@ -1,0 +1,172 @@
+/** == Typography (_typo.scss) == **/
+
+$body-font-family: dinpro, serif;
+$body-font-family-condensed-bold: dinpro-condensed-bold, serif;
+
+@mixin leyka-text-lg6 {
+    @include leyka-text-condensed-bold;
+    font-size: 72px;
+    line-height: 72px;
+    letter-spacing: -0.01em;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 40px;
+        line-height: 46px;
+    }
+}
+
+@mixin leyka-text-lg5 {
+    @include leyka-text;
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+
+@mixin leyka-text-lg4 {
+    @include leyka-text;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+
+@mixin leyka-text-lg3 {
+    @include leyka-text;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+@mixin leyka-text-lg2-cond-bold {
+    @include leyka-text-condensed-bold;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+@mixin leyka-text-lg2 {
+    @include leyka-text;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+@mixin leyka-text-lg2-bold {
+    @include leyka-text-lg3;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+@mixin leyka-text-lg1-lh24 {
+    @include leyka-text;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+@mixin leyka-text-lg1 {
+    @include leyka-text;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+@mixin leyka-text {
+    font-family: $body-font-family;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin leyka-text-condensed-bold {
+    font-family: $body-font-family-condensed-bold;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-style: normal;
+}
+
+@mixin leyka-text-sm1 {
+    @include leyka-text;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin leyka-text-sm1-cond-bold {
+    @include leyka-text-condensed-bold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin leyka-text-sm2 {
+    @include leyka-text;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+@mixin leyka-text-sm2-bold {
+    @include leyka-text-sm2;
+    font-weight: 700;
+}
+
+@mixin leyka-text-sm3() {
+    @include leyka-text;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+}
+
+@mixin leyka-text-sm4() {
+    @include leyka-text;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+// page elements
+@mixin leyka-text-body {
+    @include leyka-text;
+}
+
+@mixin leyka-text-h2 {
+    @include leyka-text-lg4;
+}
+
+@mixin leyka-text-h2-sub {
+    @include leyka-text-lg1;
+}
+
+@mixin leyka-text-link {
+    @include leyka-text-sm1;
+}
+
+@mixin leyka-text-link-iconed {
+    @include leyka-text;
+}
+
+@mixin leyka-text-btn {
+    @include leyka-text-sm1;
+}
+

@@ -1,0 +1,1533 @@
+/** == Typography (_main.scss) == **/
+
+//
+.site-content section.leyka-intro {
+    // display: none !important;
+
+    position: relative;
+    min-height: 580px;
+
+	@include media-breakpoint-down(sm) {
+		text-align: center;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: flex-start;
+	}
+
+    h1 {
+    	@include leyka-text-lg5;
+
+    	span {
+    		@include leyka-new-line;
+    		color: $leyka-color-main;
+    	}
+
+    	span:last-child {
+    		color: $leyka-color-text-dark;
+    	}
+    }
+
+    & > p {
+    	max-width: 420px;
+    	margin-top: $leyka-base * 3;
+
+    	@include media-breakpoint-down(sm) {
+    		max-width: 308px;
+    		margin-top: $leyka-base * 2;
+    	}
+    }
+
+    .action-and-stats {
+    	margin-top: $leyka-base * 7;
+    	display: flex;
+    	justify-content: flex-start;
+    	align-items: center;
+
+    	@include media-breakpoint-down(sm) {
+    		margin-top: $leyka-base * 4;
+    		flex-flow: column;
+    	}
+    }
+
+    .btn {
+    	@include leyka-text-lg2;
+    	width: 300px;
+    	height: 72px;
+    	padding-top: 12px;
+
+    	sub {
+    		@include leyka-text-sm4;
+    		line-height: 5px;
+    		display: block;
+    	}
+    }
+
+    .leyka-stats {
+    	@include leyka-text-sm1;
+    	color: $leyka-color-text;
+    	display: block;
+    	margin-left: $leyka-base * 3;
+    	margin-top: -$leyka-base * 3;
+
+    	@include media-breakpoint-down(sm) {
+    		@include leyka-text-sm2-bold;
+    		margin-top: $leyka-base * 3;
+    	}
+
+    	sub {
+    		@include leyka-text-sm4;
+    		color: $leyka-color-text-light;
+    		display: block;
+    	}
+    }
+
+    .ll-intro-ill {
+        // display: none !important;
+
+        width: 722px;
+        height: 544px;
+        position: absolute;
+        top: -$leyka-base * 4;
+        right: -$leyka-base * 6;
+
+        @include media-breakpoint-down(lg) {
+            right: -$leyka-base * 20;
+        }
+
+        @include media-breakpoint-down(md) {
+            right: -$leyka-base * 6;
+        }
+
+        @include media-breakpoint-down(sm) {
+        	width: 496px;
+			height: 489px;
+            top: 285px;
+            right: unset;
+        }
+
+        .leyka-pic {
+            width: 722px;
+            height: 544px;
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            z-index: -1;
+
+            @include media-breakpoint-down(md) {
+                width: 450px;
+                top: -80px;
+                right: -32px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 496px;
+                height: 489px;
+                top: 0;
+                right: unset;
+                left: calc(45% - 250px);
+            }
+        }
+
+        .ll-drop-lg {
+            width: 722px;
+            height: 544px;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	z-index: -2;
+
+            @include media-breakpoint-down(md) {
+                width: 650px;
+                right: -100px;
+                left: unset;
+            }
+
+			@include media-breakpoint-down(sm) {
+        		width: 496px;
+        		top: -83px;
+                left: calc(50% - 250px);
+			}
+        }
+    }
+}
+
+//
+.site-content section.leyka-h2-block.free-forever {
+    // display: none !important;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: 120px;
+	}
+
+    .icon-drop {
+        position: absolute;
+        left: 75px;
+        top: -20px;
+        z-index: -1;
+
+        @include media-breakpoint-down(sm) {
+        	display: none;
+        }
+    }
+}
+
+//
+.site-content .leyka-tstm {
+    // display: none !important;
+
+    position: relative;
+    overflow: visible;
+   	padding-top: $leyka-base * 8;
+   	padding-bottom: $leyka-base * 7;
+
+   	@include media-breakpoint-down(sm) {			
+		padding-bottom: $leyka-base * 4;
+   	}
+
+    .tstm-list {
+    	display: flex;
+    	justify-content: space-between;
+    	box-shadow: 0px 25px 80px rgba(1, 35, 9, 0.07);
+
+    	.slick-list {
+			.slick-track {
+
+			}
+    	}
+
+        article {
+			background-color: $leyka-color-white;
+        	max-width: 544px;
+        	min-height: 265px;
+        	box-shadow: 0px 20px 80px rgba(1, 35, 9, 0.07);
+			border-radius: 10px;
+			padding: 40px;
+			outline: none;
+
+			margin-left: $leyka-base * 2;
+			margin-right: $leyka-base * 2;
+
+			&:nth-child(2n) {
+			}
+
+			&:focus, &:active {
+				outline: none;
+			}
+
+			@include media-breakpoint-down(sm) {			
+				min-height: 249px;
+				padding: 24px 16px 32px 16px;
+		    	display: flex;
+		    	flex-flow: column;
+		    	align-items: center;
+			}
+
+            p {
+            	color: $leyka-color-text;
+            	display: inline-block;
+            	height: 112px;
+            	overflow: hidden;
+
+            	@include media-breakpoint-down(sm) {			
+			        font-size: 16px;
+			        line-height: 24px;
+
+            		text-align: center;
+            		height: 112px;
+            	}
+            }
+
+            .author {
+            	margin-top: $leyka-base * 3;
+            	display: flex;
+            	justify-content: flex-start;
+
+                img {
+                	max-width: 48px;
+                	max-height: 48px;
+                	border-radius: 48px;
+            		margin-right: $leyka-base * 2;
+                }
+
+                .info {
+                	@include leyka-text-sm1;
+                }
+
+                .name {
+                    color: $leyka-color-link;
+                    display: block;
+                    max-height: 24px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .org {
+                	display: block;
+                	color: $leyka-color-text-light;
+                    max-height: 24px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+
+    .nav-container {
+	    display: flex;
+	    justify-content: center;
+	    margin-top: $leyka-base * 5;
+
+	    @include media-breakpoint-down(sm) {            
+	        margin-top: $leyka-base * 4;
+	    }
+
+	    nav {
+
+	        ul {
+		        display: flex;
+		        justify-content: center;
+	        }
+
+	        li {
+	            margin-right: $leyka-base * 2;
+
+	        	button {
+					font-size: 0;
+				    line-height: 0;
+				    display: block;
+				    width: 20px;
+				    height: 20px;
+				    padding: 5px;
+				    cursor: pointer;
+				    color: transparent;
+				    border: 0;
+				    outline: none;
+				    background: transparent;
+
+	        		&:before {
+			            display: block;
+			            width: 8px;
+			            height: 8px;
+			            border-radius: 8px;
+			            border: none;
+			            background-color: $leyka-color-tstm-nav;
+			            content: " ";
+	        		}
+		        }
+
+	            &.last-child {
+	                margin-right: 0px;
+	            }
+
+	            &.slick-active {
+	            	button {
+	            		&:before {
+	                		background-color: $leyka-color-main;
+	                	}
+	                }
+	            }
+	        }
+	    }    	
+    }
+
+    .icon-drop {
+        position: absolute;
+        right: 260px;
+        top: 0px;
+
+        @include media-breakpoint-down(sm) {
+        	display: none;
+        }
+    }
+
+    .fig1 {
+    	position: absolute;
+    	width: 528px;
+    	height: 407px;
+    	left: -50px;
+    	bottom: 20px;
+    	z-index: -1;
+
+		@include media-breakpoint-down(sm) {
+	    	max-width: 700px;
+	    	width: 380px;
+	    	bottom: unset;
+	    	top: -17px;
+    		left: -22px;
+		}
+    }
+
+    .fig2 {
+    	position: absolute;
+    	width: 475px;
+    	height: 468px;
+    	right: -144px;
+    	top: -38px;
+    	z-index: -1;
+
+		@include media-breakpoint-down(sm) {
+			display: none;
+		}
+    }
+}
+
+//
+.site-content section.leyka-orgs {
+    // display: none !important;    
+
+    h4 {
+    	@include leyka-text-lg1;
+    	color: $leyka-color-text-light;
+    	text-align: center;
+
+        span {
+        	color: $leyka-color-text-dark;
+        }
+    }
+
+    .orgs {
+    	margin-top: $leyka-base * 4;
+
+        @include media-breakpoint-down(md) {
+        	overflow-x: scroll;
+    		margin-top: 0;
+        }
+
+        .orgs-row {
+        	display: flex;
+        	justify-content: center;
+            margin-left: -38px;
+            margin-right: -38px;
+
+	        @include media-breakpoint-down(md) {
+	        	min-width: 1120px;
+        		justify-content: flex-start;
+                margin-left: 0px;
+                margin-right: 0px;
+	        }
+
+        	.row-inner {
+	        	display: flex;
+	        	justify-content: center;
+                flex-wrap: wrap;
+
+                @include media-breakpoint-down(md) {
+                    flex-wrap: unset;
+                }
+
+	        	div.org-logo {
+	        		display: flex;
+	        		justify-content: center;
+	        		align-items: center;
+	        		width: 104px;
+	        		height: 71px;
+	        		margin-right: 44px;
+                    margin-left: 44px;
+                    margin-top: $leyka-base * 3;
+					border-radius: 8px;
+	        		opacity: 0.5;
+
+					-webkit-filter: grayscale(100%);
+					filter: grayscale(100%);	    
+
+                    @include media-breakpoint-down(md) {
+                        width: 77px;
+                        height: 52px;
+                        margin-right: 24px;
+                        margin-left: 24px;
+                    }
+
+	        		&:last-child {
+	        			margin-right: 0px;
+	        		} 
+
+		        	img {
+		        		max-width: 104px;
+		        		max-height: 71px;
+
+                        @include media-breakpoint-down(md) {
+                            max-width: 77px;
+                            max-height: 52px;
+                        }
+		        	}
+
+	        	}
+
+        	}
+        }
+    }
+}
+
+//
+.site-content section.leyka-h2-block.freedom-control {
+    // display: none !important;    
+
+	margin-top: 120px;
+
+    @include media-breakpoint-down(md) {
+    	margin-top: $leyka-base * 7;
+    }
+}
+
+//
+.site-content section.leyka-features {
+    // display: none !important;
+
+	margin-top: $leyka-base * 9;
+	display: flex;
+	justify-content: space-between;
+
+    @include media-breakpoint-down(md) {
+    	margin-top: $leyka-base * 4;
+    	flex-flow: column;
+    }
+
+    .screen {
+    	img:not(.active) {
+    		display: none;
+    	}
+
+        @include media-breakpoint-down(lg) {
+            img {
+                max-width: 520px;
+            }
+        }
+
+    	@include media-breakpoint-down(md) {
+            text-align: center;
+
+	    	img {
+	    		max-width: 480px;
+	    	}
+	    }
+
+        @include media-breakpoint-down(sm) {
+            img {
+                max-width: 346px;
+                margin-left: -10px;
+            }
+        }
+
+    }
+
+    .features-bar {
+    	width: 317px;
+    	margin-top: -$leyka-base;
+
+    	@include media-breakpoint-down(md) {
+    		width: unset;
+    		margin-top: $leyka-base * 3;
+		}	                
+
+        ul.features-list {
+        	border-bottom: 1px solid $leyka-color-border-light;
+        	padding-bottom: $leyka-base * 4;
+
+	    	@include media-breakpoint-down(md) {
+        		padding-bottom: 0;
+        		border-bottom: none;
+			}	                
+
+            li {
+            	display: flex;
+            	justify-content: flex-start;
+            	margin-bottom: $leyka-base * 4;
+                cursor: pointer;
+
+            	&:last-child {
+            		margin-bottom: 0;
+            	}
+
+		    	@include media-breakpoint-down(md) {
+		    		display: none;
+		    		text-align: center;
+				}	                
+
+                &.active {
+                	.ficon {
+	                    .bg {
+                    		fill: $leyka-color-main;
+						}
+
+	                    .icon {
+                    		fill: $leyka-color-white;
+						}
+					}
+
+	                .ftext {
+	                	color: $leyka-color-text;
+	                }
+
+			    	@include media-breakpoint-down(md) {
+			    		display: unset;
+					}	                
+                }
+
+                &:hover {
+                    .ftext {
+                        color: $leyka-color-text;
+                    }
+                }
+
+                .ficon {
+                	margin-right: $leyka-base * 4;
+                	margin-top: -3px;
+                	width: 64px;
+                	min-width: 64px;
+                	height: 60px;
+
+                	position: relative;
+                	display: flex;
+                	justify-content: center;
+                	align-items: center;
+
+			    	@include media-breakpoint-down(md) {
+			    		display: none;
+					}	                
+
+                    .bg {
+                    	fill: $leyka-color-bg-light;
+                    	position: absolute;
+                    	width: 64px;
+                    	height: 60px;
+                    	top: 0px;
+                    	left: 0px;
+                    	z-index: -1;
+                    }
+
+                    .icon {
+                    	fill: $leyka-color-main-light;
+                    	width: 32px;
+                    	height: 32px;
+                    }
+                }
+
+                .ftext {
+                	color: $leyka-color-text-light;
+
+			    	@include media-breakpoint-down(md) {
+			    		@include leyka-text-sm2;
+					}	                
+                }
+            }
+        }
+
+        .all-features-wrapper {
+        	margin-top: $leyka-base * 3;
+        	display: flex;
+        	justify-content: center;
+        	align-items: flex-start;
+
+        	@include media-breakpoint-down(md) {
+        		display: none;
+        	}
+
+	        .all-features {
+	        	@include leyka-text-sm1;
+	        	color: $leyka-color-link;
+
+	        	.svg-icon {
+	        		@include leyka-learn-more-arrow;
+	        	}
+	        }
+	    }
+    }
+
+    .nav-container {
+    	@include ll-nav-container;
+    	display: none;
+
+    	@include media-breakpoint-down(md) {
+    		display: block;
+			margin-top: $leyka-base * 4;
+    	}
+    }
+}
+
+//
+.site-content section.leyka-howtostart {
+    // display: none !important;    
+
+	margin-top: $leyka-base * 9;
+	background-image: url(../img/pic-wave-howtostart.svg);
+	background-size: cover;
+	background-position: left top;
+	height: 211px;
+
+    @media (min-width: 1441px) {
+        height: 290px;
+        padding-top: 32px; 
+    }
+
+    @media (min-width: 1921px) {
+        height: 340px;
+        padding-top: 48px; 
+    }
+
+    @include media-breakpoint-down(md) {
+    	margin-top: 114px;
+    	height: 311px;
+    	background-position: 0 0;
+    }
+
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+	    @include media-breakpoint-down(md) {
+	    	flex-flow: column;
+
+	    }
+	}
+
+	p {
+		@include leyka-text-lg2;
+		color: $leyka-color-link;
+		margin-left: 47px;
+
+        @include media-breakpoint-down(lg) {
+            max-width: 300px;
+        }
+
+		@include media-breakpoint-down(md) {
+			@include leyka-text;
+			text-align: center;
+			margin-left: 0;
+			max-width: 251px;
+		}
+
+		span {
+			@include leyka-new-line;
+			color: $leyka-color-text-dark;
+		}
+	}
+
+	.btn {
+		@include leyka-text;
+		margin-left: $leyka-base * 6;
+		margin-bottom: -$leyka-base * 2;
+		padding: 6px $leyka-base * 4 $leyka-base $leyka-base * 4;
+
+		@include media-breakpoint-down(md) {
+			text-align: center;
+			margin-left: 0;
+			margin-top: $leyka-base * 2;
+			margin-bottom: 0;
+		}
+	}
+
+	svg {
+		width: 289px;
+		height: 230px;
+	    margin-top: -$leyka-base * 4;
+    	margin-left: 45px;
+
+    	@include media-breakpoint-down(md) {
+			width: 231px;
+			margin-top: -90px;
+    		margin-left: -16px;
+    	}
+	}
+}
+
+//
+.site-content section.leyka-h2-block.how-it-works {
+    // display: none !important;    
+
+	margin-top: 120px;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: 82px;
+    }
+
+    .icon-drop {
+        position: absolute;
+        right: 218px;
+        top: -47px;
+        z-index: -1;
+
+        @include media-breakpoint-down(sm) {
+        	display: none;
+        }
+    }
+}
+
+//
+.site-content section.leyka-workflow {
+    // display: none !important;
+
+	margin-top: $leyka-base * 7;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: $leyka-base * 4;
+    }
+
+    .steps {
+
+        .step {
+        	display: flex;
+        	justify-content: space-between;
+        	margin-bottom: 20px;
+
+		    @include media-breakpoint-down(sm) {
+		    	flex-flow: column;
+		    }
+
+        	&:nth-child(even) {
+        		flex-flow: row-reverse;
+
+        		@include media-breakpoint-down(sm) {
+        			flex-flow: column;
+        		}
+
+				.info-col {
+					margin-right: 0;
+					margin-left: 100px;
+
+                    @include media-breakpoint-down(lg) {
+                        margin-left: 0;
+                    }
+				}        		
+        	}
+
+            &.step-download {
+                // display: none !important;
+
+            	.ill-col {
+            		position: relative;
+
+					@include media-breakpoint-down(sm) {
+		            	margin-bottom: -28px;
+		            }
+
+            		.svg-ill {
+		            	width: 418px;
+		            	height: 304px;
+		            	margin-left: 63px;
+		            	margin-top: 38px;
+
+		        		@include media-breakpoint-down(lg) {
+		        			width: 328px;
+			            	//margin-left: 0px;
+                            margin-left: calc(50% - 160px);
+			            	margin-top: -40px;
+		        		}
+		            }
+
+		            svg.icon-drop {
+		            	position: absolute;		            	
+		            	right: 105px;
+		            	bottom: 20px;
+		            	height: 34px;
+
+		            	@include media-breakpoint-down(sm) {
+		            		display: none;
+		            	}
+		            }
+		        }
+
+		        .info-col {
+		        	h3 {
+	                	max-width: 360px;
+
+                        span {
+                            @include media-breakpoint-down(sm) {
+                                @include leyka-new-line;
+                            }
+                        }
+	                }
+		        }
+		    }
+
+            &.setup-your-data {
+                // display: none !important;
+
+            	.ill-col { 
+					@include media-breakpoint-down(sm) {
+		            	margin-bottom: -4px;
+		            }
+
+            		svg.svg-ill {
+		            	width: 384px;
+		            	height: 304px;
+		            	margin-left: 65px;
+		            	margin-top: 45px;
+
+		        		@include media-breakpoint-down(lg) {
+		        			width: 328px;
+			            	// margin-left: 0px;
+                            margin-left: calc(50% - 160px);
+			            	margin-top: 18px;
+		        		}
+		            }
+		        }
+		    }
+
+		    &.connect-payment-system {
+                // display: none !important;
+
+            	.ill-col { 
+            		position: relative;
+
+            		@include media-breakpoint-down(sm) {
+						margin-bottom: -16px;
+            		}
+
+            		svg.svg-ill {
+		            	width: 435px;
+		            	height: 333px;
+		            	margin-left: 58px;
+		            	margin-top: 10px;
+
+		        		@include media-breakpoint-down(lg) {
+		        			width: 328px;
+                            margin-left: calc(50% - 160px);
+			            	// margin-left: -10px;
+			            	margin-top: -16px;
+		        		}
+		            }
+
+		            svg.icon-drop {
+		            	position: absolute;		            	
+		            	left: 32px;
+		            	top: -16px;
+
+		            	@include media-breakpoint-down(sm) {
+		            		display: none;
+		            	}
+		            }
+		        }
+		    }
+
+		    &.setup-campaign {
+                // display: none !important;
+
+            	.ill-col { 
+            		position: relative;
+
+            		@include media-breakpoint-down(sm) {
+						margin-bottom: -25px;
+            		}
+
+            		svg.svg-ill {
+		            	width: 431px;
+		            	height: 299px;
+		            	margin-left: 65px;
+		            	margin-top: 70px;
+
+		        		@include media-breakpoint-down(lg) {
+		        			width: 328px;
+			            	// margin-left: 6px;
+			            	margin-top: 15px;
+                            margin-left: calc(50% - 160px);
+		        		}
+		            }
+
+		            svg.icon-drop {
+		            	position: absolute;		            	
+		            	left: -151px;
+		            	top: 234px;
+
+		            	@include media-breakpoint-down(sm) {
+		            		display: none;
+		            	}
+		            }
+		        }
+
+				.info-col {
+		        	width: 430px;
+
+		        	@include media-breakpoint-down(sm) {
+		        		width: unset;
+		        	}
+		        }
+		    }
+
+		    &.build-relationships-with-donors {
+                // display: none !important;
+
+            	.ill-col { 
+            		@include media-breakpoint-down(sm) {
+            			margin-bottom: -15px;
+            		}
+
+            		svg.svg-ill {
+		            	width: 385px;
+		            	height: 297px;
+		            	margin-left: 95px;
+		            	margin-top: 48px;
+
+		        		@include media-breakpoint-down(lg) {
+		        			width: 302px;
+                            margin-left: calc(50% - 150px);
+			            	// margin-left: 6px;
+			            	margin-top: -5px;
+		        		}
+		            }
+		        }
+
+		        .info-col {
+		        	h3 {
+	                	max-width: 430px;
+	                }
+		        }
+		    }
+
+            .ill-col {
+            	width: 544px;
+            	height: 352px;
+
+            	@include media-breakpoint-down(sm) {
+            		width: 100%;
+            		height: auto;
+            	}
+	        }
+
+            .info-col {
+            	width: 475px;
+            	margin-right: 60px;
+
+                @include media-breakpoint-down(lg) {
+                    margin-right: 0;
+                }
+
+            	@include media-breakpoint-down(sm) {
+            		text-align: center;
+            		width: unset;
+            	}
+
+                & > span.num {
+                	@include leyka-text-sm2;
+                	color: $leyka-color-text-light;
+                }
+
+                h3 {
+                	@include leyka-text-lg3;
+                	margin-top: $leyka-base * 1.5;
+                	color: $leyka-color-text-dark;
+                	letter-spacing: -0.01em;
+
+                	@include media-breakpoint-down(sm) {
+                		@include leyka-text-lg1-lh24;
+                		margin-top: 0;
+                        text-align: center;
+                	}
+
+                	a {
+                		color: $leyka-color-link;
+                	}
+                }
+
+                p {
+                	margin-top: $leyka-base * 3;
+                	margin-bottom: $leyka-base * 4;
+
+                	@include media-breakpoint-down(sm) {
+                		@include leyka-text-sm2;
+                		margin-top: $leyka-base;
+                		margin-bottom: 0;
+                	}
+                }
+
+                ul {
+
+                }
+
+                li {
+            		margin-top: $leyka-base * 2;
+                }
+
+                .iconed-link {
+                	display: block;
+
+                	@include media-breakpoint-down(sm) {
+                		display: flex;
+                		flex-flow: column;
+                		align-items: center;
+                		justify-content: flex-start;
+                	}
+
+                	&:hover {
+                		text-decoration: none;
+
+                		span {
+                			text-decoration: underline;
+                		}
+                	}
+
+                    .svg-icon {
+                    	width: 24px;
+                    	height: 24px;
+                    	fill: $leyka-color-main;
+
+                    	@include media-breakpoint-down(sm) {
+                    		display: block;
+                    	}
+                    }
+
+                    span {
+                    	color: $leyka-color-link;
+                    	margin-left: 12px;
+
+                    	@include media-breakpoint-down(sm) {
+                    		@include leyka-text-sm1;
+                    		display: block;
+	                    	margin-left: 0;
+	                    	margin-top: $leyka-base;
+                    	}
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+.site-content section.leyka-congrats {
+    // display: none !important;
+
+	@include leyka-text-lg2;
+	color: $leyka-color-link;
+	background-image: url(../img/pic-wave-congrats.svg);
+	margin-top: -$leyka-base * 6;
+	background-size: cover;
+	background-position: center center;
+	height: 211px;
+	overflow: visible;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+    @include media-breakpoint-down(sm) {
+    	text-align: center;
+    	margin-top: 0;
+
+    	&>p {
+    		margin-top: 32px;
+    	}
+    }
+}
+
+//
+.site-content section.leyka-faq-list {
+    // display: none !important;    
+
+	margin-top: $leyka-base * 12;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: $leyka-base * 7;
+    }
+	
+    ul.faq-list {
+        li {
+        	position: relative;
+        	padding-left: $leyka-base * 8;
+        	padding-right: $leyka-base * 8;
+        	padding-top: $leyka-base * 4;
+        	padding-bottom: $leyka-base * 5;
+			background: $leyka-color-white;
+			box-shadow: 0px 20px 80px rgba(1, 35, 9, 0.07);
+			border-radius: 10px;  
+			margin-bottom: $leyka-base * 5;
+
+			@include media-breakpoint-down(sm) {
+	        	padding-left: $leyka-base * 2;
+	        	padding-right: $leyka-base * 2;
+	        	padding-top: $leyka-base * 3;
+	        	padding-bottom: $leyka-base * 4;
+				margin-bottom: $leyka-base * 2;
+			}   	
+
+            &.expanded {
+
+                .answer {
+                	display: block;
+                }
+
+                a.btn-expand {
+                    visibility: hidden;
+
+                    &.expand-sm {
+                    	display: none;
+                    }
+                }
+
+            }
+
+            h4 {
+				@include leyka-text-lg2;
+        		color: $leyka-color-text-dark;
+
+        		@include media-breakpoint-down(sm) {
+        			@include leyka-text;
+        			text-align: center;
+        		}
+            }
+
+            .answer {
+            	display: none;
+
+                @include media-breakpoint-down(sm) {
+                    text-align: center;
+                }
+
+                p {
+                	margin-top: $leyka-base;
+
+	        		@include media-breakpoint-down(sm) {
+	        			@include leyka-text-sm1;
+	        		}
+                }
+
+                .link {
+                	margin-top: $leyka-base;
+
+                	@include media-breakpoint-down(sm) {
+                		//display: none;
+                	}
+
+	                a {
+                        @include media-breakpoint-down(sm) {
+                            @include leyka-text-sm1;
+                        }
+
+			        	.svg-icon {
+	            			@include leyka-learn-more-arrow;
+
+                            @include media-breakpoint-down(sm) {
+                                width: 16px;
+                                height: 8px;
+                                margin-left: 8px;
+                            }
+			        	}
+	                }
+                }
+            }
+
+            & > a.btn-expand {
+            	display: block;
+            	width: 40px;
+            	height: 40px;
+            	border-radius: 40px;
+            	background-color: $leyka-color-main;
+            	position: absolute;
+            	right: $leyka-base * 4;
+            	top: $leyka-base * 4;
+
+            	@include media-breakpoint-down(sm) {
+            		display: none;
+            	}
+
+            	&.expand-sm {
+	            	width: 24px;
+	            	height: 24px;
+            		display: none;
+            		position: unset;
+
+            		@include media-breakpoint-down(sm) {
+            			display: block;
+            			margin: $leyka-base auto 0 auto;
+            		}
+
+	            	svg {
+	            		width: 24px;
+	            		height: 24px;
+	            		fill: $leyka-color-white;
+	            		display: block;
+	            	}
+            	}
+
+            	&:hover {
+	            	text-decoration: none;
+	            }
+
+            	svg {
+            		width: 40px;
+            		height: 40px;
+            		fill: $leyka-color-white;
+            	}
+            }
+
+        }
+    }
+}
+
+//
+.site-content section.leyka-news {
+    // display: none !important;    
+
+	margin-top: $leyka-base * 10;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: 101px;
+    }
+
+	.leyka-news-inner {
+		padding-left: $leyka-base * 8;
+
+		@include media-breakpoint-down(sm) {
+			padding-left: 0;
+			text-align: center;
+		}
+	}
+
+	h4 {
+		@include leyka-text;
+		color: $leyka-color-text-dark;
+	}
+
+	.subscription {
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 8px;
+
+		@include media-breakpoint-down(sm) {
+			flex-flow: column;
+			margin-top: $leyka-base * 2;
+		}
+
+		& > span {
+			@include leyka-text-sm3;
+			color: $leyka-color-text-light;
+
+			@include media-breakpoint-down(sm) {
+				display: block;
+			}
+		}
+
+		ul {
+			display: flex;
+			justify-content: flex-start;
+
+			@include media-breakpoint-down(sm) {
+				justify-content: center;
+				margin-top: $leyka-base;
+			}
+
+			li {
+				margin-left: $leyka-base * 2;
+
+				@include leyka-text-sm3;
+				color: $leyka-color-link;
+
+				@include media-breakpoint-down(sm) {
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+
+				a {
+					&:hover {
+						text-decoration: none;
+
+						span {
+							text-decoration: underline;
+						}
+					}
+
+					svg {
+						width: 12px;
+						height: 12px;
+						fill: $leyka-color-link;
+						margin-right: 4px;
+						margin-top: -2px;
+					}
+
+					span {
+
+					}
+				}
+			}
+		}
+	}
+
+	.news-list {
+		margin-left: -15px;
+		margin-right: -15px;
+		margin-top: $leyka-base * 3;
+
+		@include media-breakpoint-down(sm) {
+			margin-top: $leyka-base * 2;
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+	    .row {
+			.news-underline {
+				height: 0px;
+				border-bottom: 1px solid $leyka-color-border-light;
+				margin-top: $leyka-base * 4;
+				margin-left: 15px;
+				margin-right: 15px;
+
+				@include media-breakpoint-down(sm) {
+					margin-top: $leyka-base * 3;
+				}
+			}
+
+	        article.news-item {
+            	@include media-breakpoint-down(sm) {
+            		margin-bottom: $leyka-base * 3;
+            	}
+
+	            .news-tag {
+	            	@include leyka-text-sm4;
+	            	color: $leyka-color-link;
+	            	background-color: $leyka-color-bg-light;
+	            	padding: 4px 8px;
+	            	border-radius: 100px;
+
+	                &.hot {
+	                	color: $leyka-color-hot;
+	                	background-color: $leyka-color-hot-bg;
+	                }
+	            }
+
+	            p, & > a {
+	            	@include leyka-text-sm2;
+	            	margin-top: $leyka-base * 2;
+	            	min-height: 60px;
+
+	            	@include media-breakpoint-down(sm) {
+	            		margin-top: $leyka-base;
+	            	}
+	            }
+
+	            & > a {
+	            	color: $leyka-color-text;
+	            	display: block;
+
+	            	&:hover {
+	            		color: $leyka-color-text-dark;
+	            	}
+	            }
+
+	            time {
+	            	display: block;
+	            	@include leyka-text-sm3;
+	            	color: $leyka-color-text-light;
+	            	margin-top: $leyka-base * 2;
+	            	text-transform: capitalize;
+
+	            	@include media-breakpoint-down(sm) {
+	            		margin-top: $leyka-base;
+	            	}
+	            }
+	        }
+	    }
+	}
+}
+
+//
+.site-content section.leyka-news.leyka-fundraising-advices {
+    // display: none !important;
+
+	margin-top: $leyka-base * 3;
+
+    @include media-breakpoint-down(sm) {
+    	margin-top: $leyka-base * 6;
+    }
+}
+
+//
+.site-content section.leyka-general-stats {
+    // display: none !important;    
+
+	background-image: url(../img/pic-wave-stats.svg);
+	margin-top: 44px;
+	background-size: cover;
+	background-position: left top;
+	height: 283px;
+	overflow: visible;
+	padding-top: $leyka-base * 7;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: flex-start;
+
+    @media (min-width: 1441px) {
+        height: 395px;
+        padding-top: $leyka-base * 12;
+    }
+
+    @media (min-width: 1921px) {
+        height: 450px;
+        padding-top: $leyka-base * 16;
+    }
+
+	@include media-breakpoint-down(md) {
+		flex-flow: column;
+		background-position: -420px 0px;
+		padding-top: 36px;
+		margin-top: 32px;
+		height: 360px;
+    }
+
+    .stats-list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include media-breakpoint-down(md) {
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+        .stats-item {
+    		@include media-breakpoint-down(md) {
+    			width: 40%;
+    			text-align: center;
+    			margin-bottom: 20px;
+    		}
+
+        	&:not(:last-child) {
+        		margin-right: 66px;
+
+        		@include media-breakpoint-down(md) {
+        			margin-right: 0;
+        		}
+        	}
+
+            .data {
+            	color: $leyka-color-main;
+            	@include leyka-text-lg6;
+
+                sup {
+                	@include leyka-text-lg2-cond-bold;
+                	vertical-align: super;
+                	margin-left: 3px;
+
+                	@include media-breakpoint-down(sm) {
+                		@include leyka-text-sm1-cond-bold;
+                		vertical-align: bottom;
+                	}
+                }
+            }
+
+            .label {
+            	@include leyka-text-sm1;
+            	margin-top: $leyka-base;
+            	display: block;
+            	text-align: center;
+            }
+        }
+    }
+
+    .btn {
+    	@include leyka-text-lg1;
+    	margin-top: $leyka-base * 4;
+    	padding: 6px 31px 10px 30px;
+
+    	@include media-breakpoint-down(md) {
+    		margin-top: $leyka-base;
+    	}
+    }
+}
+

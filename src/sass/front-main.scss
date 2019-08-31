@@ -1,0 +1,393 @@
+// Styles fot frontend
+
+//dependencies
+@import 'bootstrap';
+
+@import 'utils/reset';
+@import 'utils/fonts';
+@import 'front/presets';
+@import 'front/typo';
+@import 'front/mixins';
+
+@import 'front/_main';
+@import 'front/_main_components';
+
+// general
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.screen-reader-text {
+    @include screen-reader;
+}
+
+body {
+    @include leyka-text-body;
+    color: $leyka-color-text;
+
+    .all-svg {
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+    }
+
+    a {
+        color: $leyka-color-link;
+
+        &:hover {
+            color: $leyka-color-main;
+        }
+    }
+
+    .site-content {
+        @include media-breakpoint-only(lg) {
+            padding-top: 50px;
+            margin-top: -50px;
+        }
+
+        @include media-breakpoint-down(lg) {
+            overflow: hidden;
+        }
+    }
+
+    .leyka-landing {
+        .site-content {
+            @include media-breakpoint-only(lg) {
+                padding-top: 50px;
+                margin-top: -50px;
+            }
+        }
+    }
+}
+
+// custom container width
+@media (min-width: 1200px) {
+    body.leyka-landing {
+        .container{
+            max-width: 1150px;
+        }
+    }
+}
+
+// header
+.site-header {
+    svg {
+        display: block;
+    }
+
+    nav {
+        margin-top: 38px;
+        margin-bottom: 95px;
+        height: 42px;
+
+        .nav-menus {
+            display: flex;
+        }
+
+        &.ll-nav-desktop {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            .ll-open-mob-menu-btn {
+                display: none;
+            }
+
+            @include media-breakpoint-down(md) {
+                .nav-menus {
+                    display: none;
+                }
+
+                .ll-install-leyka-btn {
+                    display: none;
+                }
+
+                .ll-open-mob-menu-btn {
+                    display: block;
+
+
+                    svg {
+                        width: 32px;
+                        height: 32px;
+                        fill: $leyka-color-text;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-top: 18px;
+            margin-bottom: 40px;
+        }
+
+        .text-menu {
+            @include leyka-text-link;
+
+            li {
+                margin-left: $leyka-base * 3;
+
+                &:last-child {
+                    display: none;
+                }
+
+                a {
+                    color: $leyka-color-text-light;
+                    white-space: nowrap;
+
+                    &[href*="//github.com/Teplitsa/leyka"] {
+                        @include ll-primary-menu-iconed-link;
+                        background-image: url(../img/icon-github.svg);
+                        margin-left: $leyka-base * 3;
+                    }
+
+                    &[href*="//ru.wordpress.org/plugins/leyka"] {
+                        @include ll-primary-menu-iconed-link;
+                        background-image: url(../img/icon-wp.svg);
+                    }
+                }
+            }
+        }
+
+        .logo-link {
+            display: block;
+            margin-bottom: 5px;
+
+            .ll-logo-label-hor {
+                width: 129px;
+                height: 42px;
+
+                @include media-breakpoint-down(md) {
+                    width: 98px;
+                    height: 32px;
+                }
+            }
+        }
+
+        .btn {
+            @include leyka-text-link;
+            height: 40px;
+            width: 179px;
+            margin-bottom: -8px;
+        }
+
+    }
+}
+
+// mobile
+.site-header {
+    nav.ll-nav-mobile {
+        display: none;
+        position: fixed;
+        background-color: $leyka-color-white;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        margin-top: 0px;
+        z-index: $zindex-fixed;
+        width: 50%;
+        left: 50%;
+
+        @include media-breakpoint-down(sm) {
+            width: 80%;
+            left: 20%;
+        }
+
+        .ll-close-mob-menu {
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                display: block;
+                padding: $leyka-base;
+                margin-top: $leyka-base * 3;
+                margin-right: $leyka-base * 2;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    fill: $leyka-color-text;
+                }
+            }
+        }
+
+        ul {
+
+            padding-left: $leyka-base * 4;
+            
+            li {
+                padding-top: $leyka-base * 2;
+                padding-bottom: $leyka-base * 2;
+                border-bottom: 1px solid $leyka-color-border-light;
+
+                &:last-child {
+                    a {
+                        &[href*="//ru.wordpress.org/plugins/leyka"] {
+                            background-image: none;
+                        }
+                    }
+                }
+
+                a {
+                    color: $leyka-color-text-light;
+
+                    &[href*="//github.com/Teplitsa/leyka"] {
+                        @include ll-primary-mobile-menu-iconed-link;
+                        background-image: url(../img/icon-github.svg);
+                    }
+
+                    &[href*="//ru.wordpress.org/plugins/leyka"] {
+                        @include ll-primary-mobile-menu-iconed-link;
+                        background-image: url(../img/icon-wp.svg);
+                    }
+
+                    &.ll-install-leyka-btn {
+                    }
+                }
+
+            }
+        }
+    }
+
+    .nav-mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: $zindex-fixed;
+    }
+
+    &.ll-mob-menu-open {
+        .nav-mobile-overlay {
+            display: block;
+        }
+
+        nav.ll-nav-mobile {
+            display: block;
+        }
+    }
+}
+
+
+//
+.site-footer {
+    margin-top: $leyka-base * 10;
+    margin-bottom: $leyka-base * 11;
+
+    @include media-breakpoint-down(md) {
+        margin-top: $leyka-base * 7;
+        margin-bottom: $leyka-base * 9;
+    }
+
+    .row .col-6 {
+        @include media-breakpoint-down(md) {
+            margin-bottom: $leyka-base * 2;            
+        }
+    }
+
+    .ll-mobile-menu-title {
+        display: none;
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: 0;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    h2 {
+        @include leyka-text-sm2-bold;
+        color: $leyka-color-main;
+    }
+
+    .widget.widget_nav_menu {
+
+        .widget-title {
+            text-transform: uppercase;
+            
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+
+            &:empty {
+                height: 20px;
+            }
+        }
+
+        &>div {
+
+        }
+
+        ul.menu {
+            margin-top: $leyka-base * 2.5;
+
+            @include media-breakpoint-down(md) {
+                margin-top: 0;
+            }
+
+            li.menu-item {
+                @include leyka-text-sm2;
+                margin-top: $leyka-base * 1.5;
+
+                @include media-breakpoint-down(md) {
+                    @include leyka-text-sm3;
+                    text-align: center;
+                    margin-top: $leyka-base;
+                }
+
+                a {
+                    @include leyka-text-sm2;
+                    color: $leyka-color-text;
+
+                    &[href*="//github.com/Teplitsa/leyka"] {
+                        @include ll-footer-iconed-link;
+                        background-image: url(../img/icon-github.svg);
+                    }
+
+                    &[href*="//ru.wordpress.org/plugins/leyka"] {
+                        @include ll-footer-iconed-link;
+                        background-image: url(../img/icon-wp.svg);
+                    }
+                }
+            }
+        }
+    }
+
+    .about-tst {
+        @include media-breakpoint-down(md) {
+            text-align: center;
+            margin-top: $leyka-base * 4;
+        }
+
+        .logo-set {
+            margin-bottom: $leyka-base * 2;
+
+            .ll-logo-label-vert {
+                width: 52px;
+                height: 61px;
+                margin-right: $leyka-base * 6;
+
+                @include media-breakpoint-down(md) {
+                    margin-right: 44px;
+                }
+            }
+
+            .ll-test-logo-label-hor {
+                width: 106px;
+                height: 58px;
+            }
+        }
+
+        & > p {
+            @include leyka-text-sm3;
+            color: $leyka-color-text-light;
+            margin-top: $leyka-base;
+
+            &.leyka-created-by {
+                color: $leyka-color-text-dark;
+            }
+        }
+    }
+}

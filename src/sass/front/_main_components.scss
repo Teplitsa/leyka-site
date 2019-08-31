@@ -1,0 +1,80 @@
+/** == Typography (_main_components.scss) == **/
+
+// header with sub
+.site-content section.leyka-h2-block {
+    position: relative;
+    text-align: center;
+    padding-bottom: $leyka-base;
+    
+    &>h2 {
+        @include leyka-text-h2;
+        color: $leyka-color-text-dark;
+        margin-bottom: $leyka-base * 2;
+    }
+
+    &>p {
+        @include leyka-text-h2-sub;
+        color: $leyka-color-text;
+    }
+}
+
+//
+.icon-drop {
+    width: 33px;
+    height: 31px;
+    
+    &.color001 {
+        fill: #F5EBFF;
+    }
+    
+    &.color002 {
+        fill: #FDEDEA;
+    }
+
+    &.color003 {
+        fill: #E6FCFF;
+    }
+
+    &.color004 {
+        fill: #E8FCE6;
+    }
+
+    &.color005 {
+        fill: #FFF3F5;
+    }
+
+    &.color-intro-drop-lg {
+        fill: #E8F9F8;
+        @include media-breakpoint-down(sm) {
+            fill: #F2F9FD;
+        }
+    }
+}
+
+//
+.btn {
+    cursor: pointer;
+    border-radius: 100px;
+    
+    &.btn-primary {
+        @include button-variant($leyka-color-main, $leyka-color-main);
+        color: $leyka-color-white;
+    }
+
+    &.btn-outline-primary {
+        @include button-outline-variant($leyka-color-main-light, $color-hover: $leyka-color-main-light);
+        color: $leyka-color-link;
+
+        &:hover {
+            color: $leyka-color-white;
+        }
+    }
+    
+}
+
+//
+.ll-mobile-break {
+    @include media-breakpoint-down(sm) {
+        @include leyka-new-line;
+    }
+}

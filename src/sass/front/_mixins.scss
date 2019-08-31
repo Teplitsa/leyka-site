@@ -1,0 +1,95 @@
+/** == Mixins (_donors_mixins.scss) == **/
+
+@mixin screen-reader {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin leyka-new-line {
+    &:before {
+        display: block;
+        content: " ";
+        height: 0px;
+        width: 0px;
+        line-height: 0px;
+    }
+}
+
+@mixin leyka-learn-more-arrow {
+    display: inline-block;
+    width: 24px;
+    height: 12px;
+    fill: $leyka-color-link;
+    margin-left: $leyka-base * 1.5;
+}
+
+@mixin ll-nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: $leyka-base * 6;
+
+    @include media-breakpoint-down(sm) {            
+        margin-top: $leyka-base * 4;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+
+        a {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background-color: $leyka-color-tstm-nav;
+            margin-right: $leyka-base * 2;
+
+            &.last-child {
+                margin-right: 0px;
+            }
+
+            &.active {
+                background-color: $leyka-color-main;
+            }
+        }
+    }
+}
+
+@mixin ll-primary-menu-iconed-link {
+    background-size: cover;
+    background-position: center center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    white-space: nowrap;
+    text-indent: -9999px;
+}
+
+@mixin ll-primary-mobile-menu-iconed-link {
+    @include ll-primary-menu-iconed-link;
+    background-position: right center;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    width: unset;
+    width: unset;
+    padding-right: 40px;
+    text-indent: 0;
+}
+
+@mixin ll-footer-iconed-link {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 4px;
+    background-size: 16px 16px;
+    padding-right: 24px;
+    display: inline-block;
+
+    @include media-breakpoint-down(md) {
+        background-size: 12px 12px;
+        background-position: right 5px;
+        padding-right: 20px;
+    }
+}
