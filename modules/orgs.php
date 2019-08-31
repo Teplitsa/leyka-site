@@ -46,7 +46,7 @@ function ll_orgs_custom_post_type() {
         //'rewrite'             => array('slug' => 'project', 'with_front' => false),
         'hierarchical'        => false,
         'menu_position'       => 6,
-        'menu_icon'           => 'dashicons-format-quote',
+        'menu_icon'           => 'dashicons-building',
         'supports'            => array('title', 'thumbnail', 'page-attributes'),
         'taxonomies'          => array(),
     ));
