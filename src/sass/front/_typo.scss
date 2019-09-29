@@ -1,7 +1,7 @@
 /** == Typography (_typo.scss) == **/
 
-$body-font-family: dinpro, serif;
-$body-font-family-condensed-bold: dinpro-condensed-bold, serif;
+$body-font-family: dinpro, arial;
+$body-font-family-condensed-bold: dinpro-condensed-bold, arial;
 
 @mixin leyka-text-lg6 {
     @include leyka-text-condensed-bold;
@@ -63,9 +63,8 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, serif;
 }
 
 @mixin leyka-text-lg2-bold {
-    @include leyka-text-lg3;
+    @include leyka-text-lg2;
     font-weight: 700;
-    letter-spacing: -0.01em;
 }
 
 @mixin leyka-text-lg1-lh24 {
@@ -109,6 +108,11 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+}
+
+@mixin leyka-text-sm1-bold {
+    @include leyka-text-sm1;
+    font-weight: 700;
 }
 
 @mixin leyka-text-sm1-cond-bold {

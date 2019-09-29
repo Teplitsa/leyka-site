@@ -1,0 +1,200 @@
+/** == Typography (_main.scss) == **/
+
+// page header
+.leyka-landing.page {
+    .site-header {
+        nav.ll-nav-desktop {
+            margin-bottom: $leyka-base * 6;
+        }
+    }
+
+    .ll-site-header-separator {
+        display: block;
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid $leyka-color-border-light;
+        margin-bottom: $leyka-base * 5;
+    }
+
+    .ll-page-header {
+        h1.ll-header {
+            @include leyka-text-lg4;
+            color: $leyka-color-text-dark;
+            margin-top: $leyka-base;
+            text-align: center;
+        }
+
+        h2.ll-supheader {
+            @include leyka-text-sm1-bold;
+            color: $leyka-color-main;
+            text-align: center;
+        }
+
+        .ll-subheader {
+            @include leyka-text-lg1;
+            color: $leyka-color-text;
+            margin-top: $leyka-base * 3;
+            text-align: center;
+        }
+    }
+}
+
+// page content and sidebar
+.leyka-landing .ll-page-content {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: $leyka-base * 6;
+
+    .ll-sidebar {
+        flex-basis: 200px;
+        min-width: 200px;
+    }
+
+    .ll-content {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin-left: $leyka-base * 7;
+        padding-left: $leyka-base * 4;
+    }
+}
+
+// prices page
+.leyka-landing.page.slug-prices {
+    .ll-sidebar {
+        .ll-prices-description {
+            @include leyka-text;
+            color: $leyka-color-text-light;
+            margin-top: $leyka-base * 2;
+        }
+    }
+
+    .ll-content {
+
+        &.quick-start-price {
+            background-color: $leyka-color-price-quick-start;
+            padding-top: $leyka-base * 5;
+            padding-bottom: $leyka-base * 6;
+            border-radius: 10px;
+        }
+
+        &.other-prices {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            border: 1px solid $leyka-color-border-light;
+            border-radius: 10px;
+            padding-left: 0;
+
+            .ll-price {
+                display: block;
+                position: relative;
+                padding-top: $leyka-base * 5;
+                padding-left: $leyka-base * 4;
+                padding-right: $leyka-base * 4;
+                padding-bottom: $leyka-base * 16;
+
+                &:not(:last-child) {
+                    border-right: 1px solid $leyka-color-border-light;
+                }
+
+                .btn {
+                    position: absolute;
+                    bottom: $leyka-base * 6;
+                }
+
+                .price {
+                    margin-left: 0;
+                }
+
+                .points {
+                    margin-left: 0;
+                    margin-top: 8px;
+                }
+            }
+        }
+
+        .ll-price {
+            display: flex;
+            justify-content: flex-start;
+
+            .price {
+                margin-left: $leyka-base;
+
+                h4 {
+                    @include leyka-text;
+                    color: $leyka-color-link;
+                    margin-left: $leyka-base * 3;
+                }
+
+                h3 {
+                    @include leyka-text-lg6;
+                    color: $leyka-color-text-dark;
+                    margin-left: $leyka-base * 3;
+                    margin-top: 4px;
+
+                    sup {
+                        @include leyka-text-sm2;
+                        color: $leyka-color-text-light;
+                        vertical-align: super;
+                        margin-left: 8px;
+                        top: -16px;
+                    }
+                }
+            }
+
+            .btn {
+                @include leyka-text-btn;
+                width: 224px;
+                height: 40px;
+                margin-top: $leyka-base * 3;
+            }
+
+            .points {
+                @include leyka-text-sm1;
+                color: $leyka-color-text-light;
+                margin-left: $leyka-base * 9;
+                margin-top: 8px;
+
+                li {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    min-height: $leyka-base * 4;
+
+                    &:not(:last-child) {
+                        margin-bottom: $leyka-base * 2;
+                    }
+
+                    span {
+                        display: block;
+                        margin-top: 0px;
+                        max-width: 260px;
+                    }
+
+                    svg.svg-icon {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 2px;
+                        fill: $leyka-color-main;
+                        margin-right: $leyka-base;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// faq page
+.leyka-landing.page.slug-faq {
+
+    .site-content section.leyka-faq-list {
+        margin-top: $leyka-base * 9;
+    }
+
+    section.leyka-howtostart {
+        margin-top: $leyka-base * 13;
+        margin-bottom: -$leyka-base;
+    }
+}
+

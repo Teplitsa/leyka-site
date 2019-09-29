@@ -9,8 +9,9 @@
 @import 'front/typo';
 @import 'front/mixins';
 
-@import 'front/_main';
-@import 'front/_main_components';
+@import 'front/main';
+@import 'front/main_components';
+@import 'front/faq';
 
 // general
 svg:not(:root) {
@@ -73,6 +74,10 @@ body {
 .site-header {
     svg {
         display: block;
+    }
+
+    .ll-nav-separator {
+        display: none;
     }
 
     nav {

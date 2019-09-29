@@ -1,6 +1,6 @@
 <?php /** Leyka - common utility functions for procedures running. */
 
-function leyka_get_wp_core_path() {
+function ll_get_wp_core_path() {
 
     $current_script_dir = dirname(__FILE__);
     do {
@@ -13,4 +13,4 @@ function leyka_get_wp_core_path() {
 
 }
 
-require_once leyka_get_wp_core_path().'/wp-load.php';
+require_once ll_get_wp_core_path().'/wp-load.php';

@@ -10,7 +10,8 @@ if ( ! defined( 'WPINC' ) ) {
 
 const LL_FUNDRAIZING_ADVICES_SLUG = 'fundraising_advices';
 
-require_once( get_template_directory() . '/core/extras.php' );
+require_once( get_template_directory() . '/core/utils.php' );
+require_once( get_template_directory() . '/core/hooks.php' );
 require_once( get_template_directory() . '/core/class-cssjs.php' );
 require_once( get_template_directory() . '/core/customizer.php' );
 

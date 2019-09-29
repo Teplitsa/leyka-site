@@ -13,6 +13,11 @@ $tstm_list = $tstm_service->get_short_list();
 $orgs_service = new LL_Orgs_Service();
 $orgs_list = $orgs_service->get_short_list();
 
+$faq_tempaltes = new LL_Faq_Templates();
+
+$faq_service = new LL_Faq_Service();
+$faq_list = $faq_service->get_all();
+
 get_header(); ?>
 
 <section class="leyka-intro container">
@@ -308,52 +313,7 @@ get_header(); ?>
 </section>
 
 <section class="leyka-faq-list container">
-	<ul class="faq-list">
-		<li class="expanded">
-			<h4>А если у меня нет сайта?</h4>
-			<div class="answer">
-    			<p>«Кандинский» поможет быстро запустить красивый сайт НКО без финансовых затрат и программирования. Начните работать на своем новом сайте уже сегодня.</p>
-    			<div class="link">
-    				<a href="https://knd.te-st.ru/install/" target="_blank">Инструкция по установке<svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
-    			</div>
-			</div>
-			<a href="#" class="btn-expand"><span></span></a>
-			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
-		</li>
-		<li>
-			<h4>Кажется это сложно... Мне может кто-нибудь помочь?</h4>
-			<div class="answer">
-    			<p>«Кандинский» поможет быстро запустить красивый сайт НКО без финансовых затрат и программирования. Начните работать на своем новом сайте уже сегодня.</p>
-    			<div class="link">
-    				<a href="#">Инструкция по установке<svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
-    			</div>
-			</div>
-			<a href="#" class="btn-expand"><svg><use xlink:href="#icon-galka-right" /></svg></a>
-			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
-		</li>
-		<li>
-			<h4>Кто сделал Лейку и почему всё бесплатно?</h4>
-			<div class="answer">
-    			<p>«Кандинский» поможет быстро запустить красивый сайт НКО без финансовых затрат и программирования. Начните работать на своем новом сайте уже сегодня.</p>
-    			<div class="link">
-    				<a href="#">Инструкция по установке<svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
-    			</div>
-			</div>
-			<a href="#" class="btn-expand"><svg><use xlink:href="#icon-galka-right" /></svg></a>
-			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
-		</li>
-		<li>
-			<h4>Хочу быстро начать собирать деньги, как это сделать?</h4>
-			<div class="answer">
-    			<p>«Кандинский» поможет быстро запустить красивый сайт НКО без финансовых затрат и программирования. Начните работать на своем новом сайте уже сегодня.</p>
-    			<div class="link">
-    				<a href="#">Инструкция по установке<svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
-    			</div>
-			</div>
-			<a href="#" class="btn-expand"><svg><use xlink:href="#icon-galka-right" /></svg></a>
-			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
-		</li>
-	</ul>
+	<?php $faq_tempaltes->show_list($faq_list);?>
 </section>
 
 <section class="leyka-news container">

@@ -48,5 +48,7 @@
 	
 </header>
 
+<div class="ll-site-header-separator"></div>
+
 <div id="site_content" class="site-content">
 

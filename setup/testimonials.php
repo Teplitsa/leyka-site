@@ -1,6 +1,6 @@
 <?php /** The default procedure of Donor Metadata Cache total refresh. */
 
-require_once 'procedures-common.php';
+require_once 'common.php';
 
 if( !defined('WPINC') ) die;
 
