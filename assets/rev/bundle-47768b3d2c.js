@@ -4522,3 +4522,23 @@ jQuery( document ).ready(function( $ ) {
     $(this).closest('li').addClass('expanded');
   });
 }); //jQuery
+
+
+// prices
+jQuery( document ).ready(function( $ ) {
+  var $pricesInfo = $('#ll-prices-info-page-content');
+  var $pricesSubmitOrderForm = $('#ll-prices-form-page-content');
+
+  $('.ll-back-to-prices').click(function(e){
+    e.preventDefault();
+    $pricesInfo.show();
+    $pricesSubmitOrderForm.hide();
+  });
+
+  $('.ll-open-make-order-form').click(function(e){
+    e.preventDefault();
+    $pricesInfo.hide();
+    $pricesSubmitOrderForm.show();
+  });
+
+}); //jQuery

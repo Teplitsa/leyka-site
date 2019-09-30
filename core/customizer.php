@@ -98,11 +98,11 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_price2_price', esc_html__( 'Price', 'll' ), 'll_price2_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price2_point1', esc_html__( 'Point 1', 'll' ), 'll_price2_labels' );
+//     $ll_customizer->add_label_setting( 'll_label_price2_point1', esc_html__( 'Point 1', 'll' ), 'll_price2_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price2_point2', esc_html__( 'Point 2', 'll' ), 'll_price2_labels' );
+//     $ll_customizer->add_label_setting( 'll_label_price2_point2', esc_html__( 'Point 2', 'll' ), 'll_price2_labels' );
 
-    $ll_customizer->add_label_setting( 'll_label_price2_point3', esc_html__( 'Point 3', 'll' ), 'll_price2_labels' );
+    $ll_customizer->add_label_setting( 'll_label_price2_point3', esc_html__( 'Extra Point 3', 'll' ), 'll_price2_labels' );
     
     $wp_customize->add_section(
         'll_price3_labels',
@@ -116,13 +116,13 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_price3_price', esc_html__( 'Price', 'll' ), 'll_price3_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price3_point1', esc_html__( 'Point 1', 'll' ), 'll_price3_labels' );
+//     $ll_customizer->add_label_setting( 'll_label_price3_point1', esc_html__( 'Point 1', 'll' ), 'll_price3_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price3_point2', esc_html__( 'Point 2', 'll' ), 'll_price3_labels' );
+//     $ll_customizer->add_label_setting( 'll_label_price3_point2', esc_html__( 'Point 2', 'll' ), 'll_price3_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price3_point3', esc_html__( 'Point 3', 'll' ), 'll_price3_labels' );
+//     $ll_customizer->add_label_setting( 'll_label_price3_point3', esc_html__( 'Point 3', 'll' ), 'll_price3_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Point 4', 'll' ), 'll_price3_labels' );
+    $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Extra Point 4', 'll' ), 'll_price3_labels' );
     
 }
 

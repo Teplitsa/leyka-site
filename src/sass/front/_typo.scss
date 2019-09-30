@@ -174,3 +174,23 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, arial;
     @include leyka-text-sm1;
 }
 
+@mixin leyka-text-price-header {
+    @include leyka-text-condensed-bold;
+    font-size: 72px;
+    line-height: 72px;
+    letter-spacing: -0.01em;
+
+    @include media-breakpoint-only(lg) {
+        font-size: 64px;
+        line-height: 64px;
+    }
+}
+
+@mixin leyka-text-price-header-sup {
+    @include leyka-text-sm2;
+
+    @include media-breakpoint-only(lg) {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}

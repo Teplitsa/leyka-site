@@ -93,3 +93,10 @@
         padding-right: 20px;
     }
 }
+
+@mixin ll-placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
+}
