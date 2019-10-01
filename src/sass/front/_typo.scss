@@ -194,3 +194,10 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, arial;
         line-height: 16px;
     }
 }
+
+@mixin leyka-text-watermark-section-number {
+    @include leyka-text-condensed-bold;
+    font-size: 160px;
+    line-height: 160px;
+    letter-spacing: -0.01em;
+}

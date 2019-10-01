@@ -1,6 +1,6 @@
 /** == Typography (_main.scss) == **/
 
-// page header
+// page
 .leyka-landing.page {
     .site-header {
         nav.ll-nav-desktop {
@@ -25,17 +25,23 @@
     }
 
     .ll-page-header {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+
         h1.ll-header {
             @include leyka-text-lg4;
             color: $leyka-color-text-dark;
             margin-top: $leyka-base;
             text-align: center;
+            max-width: 600px;
         }
 
-        h2.ll-supheader {
+        .ll-supheader {
             @include leyka-text-sm1-bold;
             color: $leyka-color-main;
             text-align: center;
+            display: block;
         }
 
         .ll-subheader {
@@ -43,45 +49,48 @@
             color: $leyka-color-text;
             margin-top: $leyka-base * 3;
             text-align: center;
+            max-width: 730px;
         }
     }
 
     .site-footer {
         margin-top: $leyka-base * 9;
     }    
-}
 
-// page content and sidebar
-.leyka-landing .ll-page-content {
-    margin-top: $leyka-base * 5;
-
-    @include media-breakpoint-up(lg) {
-        display: flex;
-        justify-content: flex-start;
-        margin-top: $leyka-base * 6;
-    }
-
-    .ll-sidebar {
-        text-align: center;
+    .ll-page-content {
+        margin-top: $leyka-base * 5;
 
         @include media-breakpoint-up(lg) {
-            flex-basis: 200px;
-            min-width: 200px;
-            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: $leyka-base * 6;
         }
-    }
 
-    .ll-content {
-        margin-top: $leyka-base * 3;
+        .ll-sidebar {
+            text-align: center;
 
-        @include media-breakpoint-up(lg) {
-            flex-grow: 1;
-            flex-shrink: 1;
-            margin-left: $leyka-base * 7;
-            padding-left: $leyka-base * 4;
-            margin-top: 0;
+            @include media-breakpoint-up(lg) {
+                flex-basis: 200px;
+                min-width: 200px;
+                text-align: left;
+            }
         }
-    }
+
+        .ll-content {
+            margin-top: $leyka-base * 3;
+
+            @include media-breakpoint-up(lg) {
+                flex-grow: 1;
+                flex-shrink: 1;
+                margin-top: 0;
+
+                &:not(.ll-content-fuild) {
+                    margin-left: $leyka-base * 7;
+                    padding-left: $leyka-base * 4;
+                }
+            }
+        }
+    }    
 }
 
 // prices page
@@ -321,8 +330,10 @@
                 margin-left: -54px;
             }
 
-            & > p, & > a {
-                display: none;
+            .container {
+                & > p, & > a {
+                    display: none;
+                }
             }
         }
     }
@@ -333,6 +344,7 @@
     position: relative;
 
     .leyka-pic {
+        display: none;
         position: absolute;
         width: 459px;
         height: 185px;
@@ -344,8 +356,8 @@
             right: $leyka-base * 6;
         }
 
-        @include media-breakpoint-down(lg) {
-            display: none;
+        @include media-breakpoint-up(lg) {
+            display: block;
         }
     }
 
@@ -443,3 +455,108 @@
     }
 }
 
+// capabilities
+.leyka-landing.page.slug-capabilities {
+    .ll-page-content {
+        margin-top: $leyka-base * 6;
+    }
+
+    .leyka-howtostart {
+        margin-top: $leyka-base * 15;
+    }
+
+    .ll-capability {
+        display: flex;
+        flex-flow: column;
+
+        @include media-breakpoint-up(lg) {
+            flex-flow: row;
+            align-items: stretch;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: $leyka-base * 7;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: $leyka-base * 11;
+            }
+        }
+
+        &:nth-child(even) {
+            @include media-breakpoint-up(lg) {
+                flex-flow: row-reverse;
+
+                .ll-info {
+                    margin-right: $leyka-base * 4;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        img {
+            display: block;
+            width: 544px;
+            border-radius: 5px;
+        }
+
+        .ll-info {
+            @include leyka-text;
+            position: relative;
+            margin-top: $leyka-base * 3;
+            text-align: left;
+            text-align: center;
+
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                margin-top: $leyka-base;
+                margin-left: $leyka-base * 4;
+                max-width: 352px;
+                text-align: left;
+            }
+        }
+
+        h2 {
+            @include leyka-text-lg1;
+            color: $leyka-color-text-dark;
+            max-width: 288px;
+            z-index: 3;
+            position: relative;
+        }
+
+        p {
+            margin-top: $leyka-base;
+            z-index: 3;
+            position: relative;
+            width: 95%;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: $leyka-base * 2;
+                width: unset;
+            }
+        }
+
+        a {
+            display: block;
+            margin-top: $leyka-base * 2;
+            z-index: 3;
+            position: relative;
+        }
+
+        .ll-num {
+            @include leyka-text-watermark-section-number;
+            color: $leyka-color-price-quick-start;
+            position: absolute;
+            bottom: -18px;
+            right: $leyka-base * 2;
+            z-index: 2;
+
+            @include media-breakpoint-up(lg) {
+                right: $leyka-base;
+            }
+        }
+    }
+}

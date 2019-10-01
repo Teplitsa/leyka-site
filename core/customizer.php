@@ -9,6 +9,7 @@ function ll_customize_register( WP_Customize_Manager $wp_customize ) {
     
     ll_customize_register_home_page_labels($wp_customize, $ll_customizer);
     ll_customize_register_prices_page_labels($wp_customize, $ll_customizer);
+    ll_customize_register_capabilities_page_labels($wp_customize, $ll_customizer);
     
     //     $ll_customizer->add_label_setting( '', esc_html__( '', 'll' ), '',
     //         array( 'type' => 'textarea' ));
@@ -16,115 +17,6 @@ function ll_customize_register( WP_Customize_Manager $wp_customize ) {
     //     $ll_customizer->add_label_setting( '', esc_html__( '', 'll' ), '' );
 }
 add_action( 'customize_register', 'll_customize_register', 15 );
-
-function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer) {
-    
-    $wp_customize->add_panel(
-        'll_prices_page_labels',
-        array(
-            'priority' => 30,
-            'capability' => 'edit_theme_options',
-            'theme_supports' => '',
-            'title' => esc_html__( 'Prices page labels', 'll' ) 
-            
-        ));
-    
-    // quick start
-    $wp_customize->add_section(
-        'll_common_prices_labels',
-        array(
-            'title' => esc_html__( 'Common labels', 'll' ),
-            'capability' => 'edit_theme_options',
-            'panel' => 'll_prices_page_labels'
-        ));
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_description', esc_html__( 'Best price description', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
-
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_currency', esc_html__( 'Best price currency', 'll' ), 'll_common_prices_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_other_prices_description', esc_html__( 'Other prices description', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
-    
-    $ll_customizer->add_label_setting( 'll_label_other_prices_currency', esc_html__( 'Other prices currency', 'll' ), 'll_common_prices_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
-    
-    
-    // quick start
-    $wp_customize->add_section(
-        'll_quick_start_price_labels',
-        array(
-            'title' => esc_html__( 'Quick start', 'll' ),
-            'capability' => 'edit_theme_options',
-            'panel' => 'll_prices_page_labels' 
-        ));
-            
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_title', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_price', esc_html__( 'Price', 'll' ), 'll_quick_start_price_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point1', esc_html__( 'Point 1', 'll' ), 'll_quick_start_price_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point2', esc_html__( 'Point 2', 'll' ), 'll_quick_start_price_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point3', esc_html__( 'Point 3', 'll' ), 'll_quick_start_price_labels' );
-            
-
-    // subscriptions
-    $wp_customize->add_section(
-        'll_price1_labels',
-        array(
-            'title' => esc_html__( 'Price1', 'll' ),
-            'capability' => 'edit_theme_options',
-            'panel' => 'll_prices_page_labels'
-        ));
-    
-    $ll_customizer->add_label_setting( 'll_label_price1_title', esc_html__( 'Title', 'll' ), 'll_price1_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price1_price', esc_html__( 'Price', 'll' ), 'll_price1_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price1_point1', esc_html__( 'Point 1', 'll' ), 'll_price1_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price1_point2', esc_html__( 'Point 2', 'll' ), 'll_price1_labels' );
-    
-    $wp_customize->add_section(
-        'll_price2_labels',
-        array(
-            'title' => esc_html__( 'Price2', 'll' ),
-            'capability' => 'edit_theme_options',
-            'panel' => 'll_prices_page_labels'
-        ));
-    
-    $ll_customizer->add_label_setting( 'll_label_price2_title', esc_html__( 'Title', 'll' ), 'll_price2_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price2_price', esc_html__( 'Price', 'll' ), 'll_price2_labels' );
-    
-//     $ll_customizer->add_label_setting( 'll_label_price2_point1', esc_html__( 'Point 1', 'll' ), 'll_price2_labels' );
-    
-//     $ll_customizer->add_label_setting( 'll_label_price2_point2', esc_html__( 'Point 2', 'll' ), 'll_price2_labels' );
-
-    $ll_customizer->add_label_setting( 'll_label_price2_point3', esc_html__( 'Extra Point 3', 'll' ), 'll_price2_labels' );
-    
-    $wp_customize->add_section(
-        'll_price3_labels',
-        array(
-            'title' => esc_html__( 'Price3', 'll' ),
-            'capability' => 'edit_theme_options',
-            'panel' => 'll_prices_page_labels'
-        ));
-    
-    $ll_customizer->add_label_setting( 'll_label_price3_title', esc_html__( 'Title', 'll' ), 'll_price3_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price3_price', esc_html__( 'Price', 'll' ), 'll_price3_labels' );
-    
-//     $ll_customizer->add_label_setting( 'll_label_price3_point1', esc_html__( 'Point 1', 'll' ), 'll_price3_labels' );
-    
-//     $ll_customizer->add_label_setting( 'll_label_price3_point2', esc_html__( 'Point 2', 'll' ), 'll_price3_labels' );
-    
-//     $ll_customizer->add_label_setting( 'll_label_price3_point3', esc_html__( 'Point 3', 'll' ), 'll_price3_labels' );
-    
-    $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Extra Point 4', 'll' ), 'll_price3_labels' );
-    
-}
 
 function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
         
@@ -354,6 +246,147 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_footer_licence', esc_html__( 'Licence', 'll' ), 'll_footer_labels',
         array( 'type' => 'textarea' ));
 
+}
+
+function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer) {
+    
+    $wp_customize->add_panel(
+        'll_prices_page_labels',
+        array(
+            'priority' => 30,
+            'capability' => 'edit_theme_options',
+            'theme_supports' => '',
+            'title' => esc_html__( 'Prices page labels', 'll' )
+            
+        ));
+    
+    // quick start
+    $wp_customize->add_section(
+        'll_common_prices_labels',
+        array(
+            'title' => esc_html__( 'Common labels', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_description', esc_html__( 'Best price description', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_currency', esc_html__( 'Best price currency', 'll' ), 'll_common_prices_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_other_prices_description', esc_html__( 'Other prices description', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
+    
+    $ll_customizer->add_label_setting( 'll_label_other_prices_currency', esc_html__( 'Other prices currency', 'll' ), 'll_common_prices_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
+    
+    
+    // quick start
+    $wp_customize->add_section(
+        'll_quick_start_price_labels',
+        array(
+            'title' => esc_html__( 'Quick start', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_title', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_price', esc_html__( 'Price', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point1', esc_html__( 'Point 1', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point2', esc_html__( 'Point 2', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_point3', esc_html__( 'Point 3', 'll' ), 'll_quick_start_price_labels' );
+    
+    
+    // subscriptions
+    $wp_customize->add_section(
+        'll_price1_labels',
+        array(
+            'title' => esc_html__( 'Price1', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_price1_title', esc_html__( 'Title', 'll' ), 'll_price1_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price1_price', esc_html__( 'Price', 'll' ), 'll_price1_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price1_point1', esc_html__( 'Point 1', 'll' ), 'll_price1_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price1_point2', esc_html__( 'Point 2', 'll' ), 'll_price1_labels' );
+    
+    $wp_customize->add_section(
+        'll_price2_labels',
+        array(
+            'title' => esc_html__( 'Price2', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_price2_title', esc_html__( 'Title', 'll' ), 'll_price2_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price2_price', esc_html__( 'Price', 'll' ), 'll_price2_labels' );
+    
+    //     $ll_customizer->add_label_setting( 'll_label_price2_point1', esc_html__( 'Point 1', 'll' ), 'll_price2_labels' );
+    
+    //     $ll_customizer->add_label_setting( 'll_label_price2_point2', esc_html__( 'Point 2', 'll' ), 'll_price2_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price2_point3', esc_html__( 'Extra Point 3', 'll' ), 'll_price2_labels' );
+    
+    $wp_customize->add_section(
+        'll_price3_labels',
+        array(
+            'title' => esc_html__( 'Price3', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_price3_title', esc_html__( 'Title', 'll' ), 'll_price3_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price3_price', esc_html__( 'Price', 'll' ), 'll_price3_labels' );
+    
+    //     $ll_customizer->add_label_setting( 'll_label_price3_point1', esc_html__( 'Point 1', 'll' ), 'll_price3_labels' );
+    
+    //     $ll_customizer->add_label_setting( 'll_label_price3_point2', esc_html__( 'Point 2', 'll' ), 'll_price3_labels' );
+    
+    //     $ll_customizer->add_label_setting( 'll_label_price3_point3', esc_html__( 'Point 3', 'll' ), 'll_price3_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Extra Point 4', 'll' ), 'll_price3_labels' );
+    
+}
+
+function ll_customize_register_capabilities_page_labels($wp_customize, $ll_customizer) {
+    
+//     $wp_customize->add_panel(
+//         'll_capabilities_page_labels',
+//         array(
+//             'priority' => 30,
+//             'capability' => 'edit_theme_options',
+//             'theme_supports' => '',
+//             'title' => esc_html__( 'Capabilities page labels', 'll' )
+            
+//         ));
+    
+    // quick start
+    $wp_customize->add_section(
+        'll_capabilities_labels',
+        array(
+            'title' => esc_html__( 'Capabilities', 'll' ),
+            'capability' => 'edit_theme_options',
+            'priority' => 30,
+            #'panel' => 'll_capabilities_page_labels'
+        ));
+    
+    
+    for($i = 1; $i <= LL_Capability_Service::$number; $i++) {
+        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_title', esc_html__( 'Capability title', 'll' ), 'll_capabilities_labels' );
+        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_description', esc_html__( 'Capability description', 'll' ), 'll_capabilities_labels', array( 'type' => 'textarea' ) );
+        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_title', esc_html__( 'Link title', 'll' ), 'll_capabilities_labels' );
+        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_url', esc_html__( 'Link URL', 'll' ), 'll_capabilities_labels' );
+    }
+    
 }
 
 class LL_Customizer {

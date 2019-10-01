@@ -30,7 +30,7 @@ class LL_Page_Templates {
         ?>
         
         <div class="ll-page-header">
-            <h2 class="ll-supheader"><?php echo $super_title;?></h2>        
+            <span class="ll-supheader"><?php echo $super_title;?></span>        
             <h1 class="ll-header"><?php echo get_the_title($post);?></h1>
             
             <?php if(trim($post->post_excerpt)):?>
