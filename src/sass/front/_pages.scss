@@ -468,6 +468,7 @@
     .ll-capability {
         display: flex;
         flex-flow: column;
+        align-items: center;
 
         @include media-breakpoint-up(lg) {
             flex-flow: row;
