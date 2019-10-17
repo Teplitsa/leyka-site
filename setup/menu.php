@@ -16,6 +16,7 @@ $capabilities_url = get_the_permalink(ll_get_post('capabilities', 'page'));
 $orgs_url = get_the_permalink(ll_get_post('orgs', 'page'));
 $prices_url = get_the_permalink(ll_get_post('prices', 'page'));
 $itv_paseka_url = get_the_permalink(ll_get_post('itv-paseka', 'page'));
+$faq_url = get_the_permalink(ll_get_post('faq', 'page'));
 $docs_url = get_the_permalink(ll_get_post('sistemnye-trebovaniya', LL_Docs_Service::$post_type));
 
 $menu_service = new LL_Menu_Service();
@@ -42,7 +43,7 @@ wp_update_nav_menu_item($menu_id, 0, $item_data);
 
 $item_data = array(
     'menu-item-title' => "Помощь",
-    'menu-item-url' => "https://leyka.te-st.ru/support/",
+    'menu-item-url' => $faq_url,
     'menu-item-status' => 'publish',
     'menu-item-type' => 'custom',
     'menu-item-position' => 20,
