@@ -150,7 +150,6 @@ $item_data = array(
     'menu-item-status' => 'publish',
     'menu-item-type' => 'custom',
     'menu-item-position' => 10,
-    'menu-item-target' => '_blank',
 );
 wp_update_nav_menu_item($menu_id, 0, $item_data);
 
