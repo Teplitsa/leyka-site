@@ -19,7 +19,7 @@ $posts_data = array(
     ),
 );
 
-LL_Utils::setup_posts_data($posts_data, 'page');
+LL_Setup_Utils::setup_posts_data($posts_data, 'page');
 
 // common prices
 ll_set_theme_mod_safe('ll_label_quick_start_price_description', "Мы можем помочь вам быстро стартовать со сбором средств");
@@ -33,6 +33,11 @@ ll_set_theme_mod_safe('ll_label_other_prices_currency', "₽/мес.");
 ll_set_theme_mod_safe('ll_label_quick_start_price_submit_caption', "Отправить заявку");
 
 ll_set_theme_mod_safe('ll_label_quick_start_price_submit_url', site_url("/"));
+
+ll_set_theme_mod_safe('ll_label_back_to_prices_caption', "Вернуться к тарифам");
+
+ll_set_theme_mod_safe('ll_label_order_form_privacy_policy_explain', "Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href=\"#\">политики конфиденциальности</a>");
+
 
 // quick start
 ll_set_theme_mod_safe('ll_label_quick_start_price_title', "Быстрый старт");

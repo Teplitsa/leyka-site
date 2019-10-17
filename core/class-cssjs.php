@@ -83,13 +83,13 @@ class LKL_CssJs {
 		
 		// front
 		wp_enqueue_script( 
-			'frl-front', 
+			'lkl-front', 
 			$url . '/assets/rev/' . $this->get_rev_filename( 'bundle.js' ), 
 			$script_dependencies, 
 			null, 
 			true );
 		
-		wp_localize_script( 'lkl-front', 'frontend', array(
+		wp_localize_script( 'lkl-front', 'leykaSiteFrontend', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'lang' => array(
                 'error' => esc_html__('Error!', 'lkl'),

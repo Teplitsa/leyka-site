@@ -17,7 +17,7 @@ $posts_data = array(
         'meta' => array('ll_page_super_title' => 'Лейка'),
     ),
 );
-LL_Utils::setup_posts_data($posts_data, 'page');
+LL_Setup_Utils::setup_posts_data($posts_data, 'page');
 
 // questions
 $posts_data = array(
@@ -46,4 +46,4 @@ $posts_data = array(
         'meta' => array('ll_faq_show_on_main_page' => 'on'),
     ),
 );
-LL_Utils::setup_posts_data($posts_data, LL_Faq_Service::$post_type);
+LL_Setup_Utils::setup_posts_data($posts_data, LL_Faq_Service::$post_type);

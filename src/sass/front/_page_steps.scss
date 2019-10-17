@@ -1,0 +1,388 @@
+// steps
+.main-steps {
+    background-color: rgba(242, 249, 253, 0.5);
+    border-radius: 10px;
+    padding: $leyka-base * 4 0px $leyka-base * 4 0px;
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        padding: $leyka-base * 4 $leyka-base * 5 $leyka-base * 4 0px;
+    }
+
+    h4 {
+        text-align: center;
+        color: $leyka-color-text;
+        margin-bottom: $leyka-base * 3;
+        padding-left: $leyka-base * 3;
+        padding-right: $leyka-base * 3;
+
+        @include media-breakpoint-up(lg) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    .connection-line {
+        width: 100%;
+        height: 1px;
+        border: 1px solid $leyka-color-border-light;
+        position: absolute;
+        top: 202px;
+        left: 70px;
+        width: 810px;
+        z-index: 1; 
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }           
+    }
+
+    .steps-list {
+        display: flex;
+        justify-content: center;
+
+        @include media-breakpoint-up(lg) {
+            justify-content: flex-start;
+        }
+
+        .step-item {
+            flex-basis: 220px;
+            text-align: center;
+            z-index: 2; 
+            display: none;
+            min-height: 255px;
+
+            @include media-breakpoint-up(lg) {
+                flex-basis: 192px;
+                display: block;
+                margin-right: $leyka-base * 5;
+                min-height: unset;
+            }
+
+            &.active {
+                display: block;
+
+                @include media-breakpoint-up(lg) {
+                }
+
+                .step-check {
+                    background-color: $leyka-color-main;
+                    border-color: transparent;
+
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    background-size: 16px;
+                    background-position: center center;
+                    background-image: url(../img/icon-check-step.svg);
+                }
+
+                h5 {
+                    a {
+                        color: $leyka-color-link;
+                    }
+                }
+            }
+
+            &:not(.active) {
+                img.step-ill {
+                    opacity: 0.5;
+                    -webkit-filter: grayscale(100%);
+                    filter: grayscale(100%);        
+                }
+            }
+
+            .step-check {
+                display: inline-block;
+                z-index: 2; 
+                width: 32px;
+                height: 32px;
+                margin-top: $leyka-base;
+                border-radius: 100px;
+                border: 2px solid $leyka-color-border-light;
+                background-color: $leyka-color-white;
+            }
+
+            h5 {
+                @include leyka-text-sm2-bold;
+                margin-top: $leyka-base * 2;
+
+                a {
+                    color: $leyka-color-text;
+                    &:hover {
+                        color: $leyka-color-text-light;
+                    }
+                }
+            }
+
+            h6 {
+                @include leyka-text-sm2;
+                margin-top: $leyka-base;
+
+                a {
+                    color: $leyka-color-text;
+                    &:hover {
+                        color: $leyka-color-text-light;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-container {
+        @include ll-nav-container;
+        display: none;
+
+        nav {
+            a {
+                display: block;
+                width: 12px;
+                height: 12px;
+                border-radius: 12px;
+                background-color: $leyka-color-border-light;
+                margin-right: $leyka-base * 3;
+
+                &.active {
+                    background-color: $leyka-color-text-light;
+                }
+            }            
+        }
+
+        @include media-breakpoint-down(md) {
+            display: block;
+            margin-top: $leyka-base * 4;
+        }
+    }
+
+}
+
+.leyka-landing.single.single-step {
+    .ll-page-header, .ll-page-content.step-content {
+        max-width: 736px;
+    }
+
+    .ll-page-content.step-content {
+        position: relative;
+        margin-top: $leyka-base * 4;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: $leyka-base * 5;
+        }
+
+        .steps-sidebar-inner {
+            @include leyka-text-sm1;
+            text-align: left;
+            margin-top: $leyka-base * 3;
+            margin-bottom: -$leyka-base;
+
+            @include media-breakpoint-up(lg) {
+                text-align: right;
+                width: 140px;
+                float: right;
+                margin-top: 0px;
+
+                &:after {
+                    float: none;
+                    clear: both;
+                }
+            }
+
+            & > span {
+                color: $leyka-color-text-light;
+                display: block;
+                margin-bottom: $leyka-base;
+
+                @include media-breakpoint-up(lg) {
+                    margin-bottom: $leyka-base * 2;
+                    margin-top: $leyka-base * 15;
+                }
+            }
+
+            .steps-other-categories {
+                a {
+                    display: block;
+                    color: $leyka-color-link;
+                    margin-bottom: $leyka-base;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-bottom: $leyka-base * 2;
+                    }
+                }
+            }
+        }
+
+
+        .ll-sidebar {
+            z-index: 2;
+
+            @include media-breakpoint-up(lg) {
+                width: 160px;
+                margin-left: -270px;
+            }
+
+        }
+
+        .ll-content {
+            z-index: 2;
+
+            @include media-breakpoint-up(lg) {
+                margin-left: $leyka-base * 4;
+            }
+
+            .post-content {
+                p {
+                    &:first-child {
+                        position: relative;
+                        padding-top: 56%;
+                    }
+                }
+
+                iframe[src*="//www.youtube.com/"] {
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    width:100%;
+                    height:100%;
+                    border-radius: 10px;
+
+                    @include media-breakpoint-up(lg) {
+                        border-radius: 10px;
+                    }
+                }
+
+                ol {
+                  list-style: none;
+                  counter-reset: step-list-counter;
+                  margin-top: $leyka-base * 6;
+                  overflow: auto;
+                }
+
+                ol li {
+                    counter-increment: step-list-counter;
+                    margin-bottom: $leyka-base * 4;
+                    float: left;
+                    padding-left: $leyka-base * 8;
+
+                    h4 {
+                        @include leyka-text-lg1-fixed;
+                        color: $leyka-color-text-dark;
+                        margin-bottom: $leyka-base;
+                    }
+
+                    &::before {
+                      content: counter(step-list-counter);
+                      @include leyka-text-step-list-item-num;
+                      color: $leyka-color-border-light;
+                      margin-right: $leyka-base * 4;
+                      display: inline-block;
+                      float: left;
+                      margin-left: -$leyka-base * 8;
+                    }
+
+                    &::after {
+                        float: none;
+                        clear: both;
+                    }
+                }
+            }
+
+            .nav-prev-next {
+                margin-top: $leyka-base;
+                text-align: center;
+
+                @include media-breakpoint-up(lg) {
+                    margin-top: $leyka-base * 2;
+                    text-align: left;
+                }
+
+                a {
+                    @include leyka-text-lg1-fixed;
+                    padding: $leyka-base 20px;
+                    display: inline-block;
+
+                    .svg-icon {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+
+                a.prev-step {
+                    color: $leyka-color-main;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-left: 50px;
+                    }
+
+                    .svg-icon {
+                        fill: $leyka-color-main;
+                        margin-right: $leyka-base * 2;
+                        transform: rotate(180deg);
+                    }
+                }                
+
+                a.next-step {
+                    color: $leyka-color-white;
+                    margin-top: $leyka-base * 4;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-top: 0px;
+                        float: right;
+                        &:after {
+                            float: none;
+                            clear: both;
+                        }
+                    }
+
+                    .svg-icon {
+                        fill: $leyka-color-white;
+                        margin-left: $leyka-base * 2;
+                    }
+                }                
+            }
+        }
+
+        .icon-drop {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .drop1 {
+            width: 67px;
+            height: 64px;
+            left: -140px;
+            top: 460px;            
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+
+        .drop2 {
+            width: 69px;
+            height: 65px;
+            right: -180px;
+            bottom: 30px;
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+
+        .drop3 {
+            width: 699px;
+            height: 646px;
+            right: -370px;
+            top: -250px;
+            z-index: -1;
+
+            @include media-breakpoint-up(lg) {
+                right: -200px;
+                top: -110px;
+                z-index: 1;
+            }     
+        }
+    }
+}
+

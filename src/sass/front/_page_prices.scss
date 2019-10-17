@@ -1,0 +1,250 @@
+// prices page
+.leyka-landing.page.slug-prices {
+
+    .ll-prices-info-page-content {
+        display: none;
+    }
+
+    .ll-prices-form-page-content {
+        display: block;
+        // display: none;
+    }
+
+    .ll-sidebar {
+        z-index: 2;
+
+        .ll-prices-description {
+            @include leyka-text;
+            color: $leyka-color-text-light;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: $leyka-base * 2;
+            }
+        }
+    }
+
+    .ll-content {
+        z-index: 2;
+        background-color: $leyka-color-white;
+
+        &.quick-start-price {
+            background-color: $leyka-color-price-quick-start;
+            padding-top: $leyka-base * 5;
+            padding-bottom: $leyka-base * 6;
+            border-radius: 10px;
+        }
+
+        &.other-prices {
+            padding-left: 0;
+
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                border: 1px solid $leyka-color-border-light;
+                border-radius: 10px;
+            }
+
+            .ll-price {
+                display: flex;
+
+                border: 1px solid $leyka-color-border-light;
+                border-radius: 10px;
+                margin-top: $leyka-base * 2;
+                padding-top: $leyka-base * 4;
+                padding-left: $leyka-base * 3;
+                padding-right: $leyka-base * 3;
+                padding-bottom: $leyka-base * 6;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                    position: relative;
+                    border: none;
+                    margin-top: 0;
+                    border-radius: unset;
+                    padding-top: $leyka-base * 5;
+                    padding-left: $leyka-base * 4;
+                    padding-right: $leyka-base * 4;
+                    padding-bottom: $leyka-base * 16;
+                }
+
+                &:not(:last-child) {
+                    border-right: 1px solid $leyka-color-border-light;
+                }
+
+                .btn {
+                    margin-top: $leyka-base * 4;
+
+                    @include media-breakpoint-up(lg) {
+                        position: absolute;
+                        bottom: $leyka-base * 6;
+                        margin-top: 0;
+                    }
+                }
+
+                .price {
+                    margin-left: 0;
+
+                    h3 {
+                        margin-left: $leyka-base * 3;
+
+                        @include media-breakpoint-only(lg) {
+                            margin-left: $leyka-base;
+                        }
+                    }
+                }
+
+                .points {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .ll-price {
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+
+            @include media-breakpoint-up(lg) {
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-flow: row;
+            }
+
+            .price {
+                margin-left: $leyka-base;
+
+                h4 {
+                    @include leyka-text;
+                    color: $leyka-color-link;
+                    text-align: center;
+
+                    @include media-breakpoint-up(lg) {
+                        text-align: left;
+                        margin-left: $leyka-base * 3;
+                    }
+                }
+
+                h3 {
+                    @include leyka-text-price-header;
+                    color: $leyka-color-text-dark;
+                    margin-top: 4px;
+                    margin-left: $leyka-base * 2;
+                    text-align: center;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-left: $leyka-base * 3;
+                        text-align: left;
+                    }
+
+                    @include media-breakpoint-only(lg) {
+                        text-align: center;
+                    }
+
+                    sup {
+                        @include leyka-text-price-header-sup;
+                        color: $leyka-color-text-light;
+                        vertical-align: super;
+                        margin-left: $leyka-base;
+                        top: -16px;
+
+                        @include media-breakpoint-only(lg) {
+                            margin-left: $leyka-base / 2;
+                        }
+                    }
+                }
+            }
+
+            .btn {
+                @include leyka-text-btn;
+                width: 224px;
+                height: 40px;
+                margin-top: $leyka-base * 3;
+
+                @include media-breakpoint-only(lg) {
+                    width: unset;
+                    padding-left: $leyka-base * 2;
+                    padding-right: $leyka-base * 2;
+                }
+
+                &.mobile {
+                    margin-top: $leyka-base * 4;
+                    display: block;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-top: $leyka-base * 3;
+                        display: none;
+                    }
+                }
+
+                &.desktop {
+                    display: none;                        
+
+                    @include media-breakpoint-up(lg) {
+                        display: block;
+                    }
+                }
+
+            }
+
+            .points {
+                @include leyka-text-sm1;
+                color: $leyka-color-text-light;
+                margin-top: $leyka-base * 4;                
+
+                @include media-breakpoint-up(lg) {
+                    margin-top: 8px;
+                    margin-left: $leyka-base * 9;
+                }
+
+                li {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    min-height: $leyka-base * 4;
+
+                    &:not(:last-child) {
+                        margin-bottom: $leyka-base * 2;
+                    }
+
+                    span {
+                        display: block;
+                        margin-top: 0px;
+                        max-width: 260px;
+                    }
+
+                    svg.svg-icon {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 2px;
+                        fill: $leyka-color-main;
+                        margin-right: $leyka-base;
+                    }
+                }
+            }
+        }
+    }
+
+    .leyka-howtostart {
+        @include media-breakpoint-up(lg) {
+            margin-top: -150px;
+            z-index: 1;
+
+            svg {
+                margin-left: -54px;
+            }
+
+            .container {
+                & > p, & > a {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// prices form
+.leyka-landing.page.slug-prices .ll-prices-form-page-content {
+    @include ll-form-page-content;
+}

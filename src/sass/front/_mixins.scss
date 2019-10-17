@@ -100,3 +100,229 @@
     &::-moz-placeholder          {@content}
     &:-ms-input-placeholder      {@content}
 }
+
+@mixin ll-btn-padding {
+    padding: 8px 16px;
+}
+
+@mixin ll-outline-none {
+    outline: 0 !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+@mixin ll-a($mod: default) {
+    text-decoration: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: transparent;
+    padding-bottom: 1px;
+
+    &:active, &:focus {
+        text-decoration: none;
+        border-bottom-style: solid;
+        border-color: transparent;
+    }
+
+    &:hover {
+        text-decoration: none;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+    
+    @if $mod == dashed {
+        border-bottom-style: dashed;
+
+        &:active, &:focus {
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+        }
+
+        &:hover {
+            border-color: transparent;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+    }
+    
+}
+
+@mixin ll-internal-link {
+    @include ll-a(dashed);
+}
+
+@mixin leyka-form-control {
+    background-color: $leyka-color-price-quick-start;
+    border: 1px solid $leyka-color-border-light;
+    padding: $leyka-base $leyka-base * 2;
+    color: $leyka-color-text-dark;
+
+    @include ll-placeholder {
+        color: $leyka-color-text-light;
+    }
+}
+
+@mixin ll-page-form-section {
+    margin-top: $leyka-base * 6;
+    z-index: 4;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: $leyka-base * 12;
+    }
+
+    .ll-form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form {
+            width: 544px;
+
+            .form-group {
+                margin-top: $leyka-base * 3;
+                color: $leyka-color-text;
+
+                .form-control {
+                    @include leyka-text();
+                }
+
+                select.form-control {
+                    background-color: $leyka-color-price-quick-start;
+                    border: 1px solid $leyka-color-border-light;
+                }
+
+                input.form-control,
+                textarea.form-control {
+                    @include leyka-form-control;
+                }
+
+                textarea.form-control {
+                }
+            }
+
+            .ll-form-actions {
+                margin-top: $leyka-base * 4;
+                text-align: center;
+
+                button {
+                    width: 100%;
+                }
+
+                .ll-go-back {
+                    @include leyka-text-sm2;
+                    color: $leyka-color-main;
+                    margin-top: $leyka-base * 3;
+                    display: inline-block;
+                }
+
+                @include media-breakpoint-up(md) {
+                    text-align: left;
+
+                    button {
+                        width: 256px;
+                    }
+
+                    .ll-go-back {
+                        margin-left: $leyka-base * 4;
+                        margin-top: 0px;
+                    }
+                }
+
+            }
+        }
+
+        .ll-form-explain {
+            @include leyka-text-sm2;
+            color: $leyka-color-text-light;
+            margin-top: $leyka-base * 4;
+
+            a {
+                color: $leyka-color-main;
+            }
+        }
+
+    }
+}
+
+@mixin ll-form-page-content {
+    .leyka-pic {
+        display: block;
+        position: relative;
+        width: 459px;
+        height: 185px;
+        right: 0px;
+        bottom: $leyka-base * 0;
+        z-index: 5;
+        // margin-top: $leyka-base * 6;
+        // margin-bottom: -$leyka-base * 10;
+        z-index: 5;
+        margin: $leyka-base * 6 auto 0px auto;
+
+        @media (max-width: 520px) {
+            margin-left: -5%;
+        }
+
+        @media (max-width: 480px) {
+            margin-left: -10%;
+        }
+
+        @media (max-width: 420px) {
+            margin-left: -20%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0px;
+            position: absolute;
+            right: -10%;
+        }
+    }
+
+    .icon-drop.drop1 {
+        position: absolute;
+        width: 124px;
+        height: 104px;
+        display: none;
+        top: 28%;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+            left: -10%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            left: 2%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            left: 10%;
+        }
+    }
+
+    .icon-drop.drop2 {
+        position: absolute;        
+        width: 35px;
+        height: 33px;
+        display: none;
+        top: 20%;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+            right: 0px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            right: 10%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            right: 16%;
+        }
+    }
+
+    .ll-form-section {
+        position: relative;
+        @include ll-page-form-section;
+    }    
+}

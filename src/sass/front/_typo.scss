@@ -86,6 +86,13 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, arial;
     }
 }
 
+@mixin leyka-text-lg1-fixed {
+    @include leyka-text;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
 @mixin leyka-text {
     font-family: $body-font-family;
     font-size: 18px;
@@ -199,5 +206,12 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, arial;
     @include leyka-text-condensed-bold;
     font-size: 160px;
     line-height: 160px;
+    letter-spacing: -0.01em;
+}
+
+@mixin leyka-text-step-list-item-num {
+    @include leyka-text-condensed-bold;
+    font-size: 72px;
+    line-height: 72px;
     letter-spacing: -0.01em;
 }

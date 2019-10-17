@@ -8,7 +8,7 @@ $prices_service = new LL_Price_Service();
 
 get_header();?>
 
-<?php $page_templates->show_header(get_post());?>
+<?php $page_templates->show_page_header(get_post());?>
 
 <div class="ll-page-content container">
 	<div class="ll-content ll-content-fuild">

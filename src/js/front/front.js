@@ -77,6 +77,47 @@ jQuery( document ).ready(function( $ ) {
 }); //jQuery
 
 
+// steps nav
+jQuery( document ).ready(function( $ ) {
+  var $fl = $('.main-steps');
+
+  if(!$fl.length) {
+    return;
+  }
+
+  var $navMobile = $fl.find('.nav-mobile');
+  var $steps = $fl.find('.steps-list');  
+
+  $navMobile.on('click', 'a', function(e){
+    e.preventDefault();
+    $navMobile.find('a').removeClass('active');
+    $(this).addClass('active');
+
+    $steps.find('.step-item').removeClass('active');
+    $steps.find('.step-item').eq($(this).index()).addClass('active');
+  });
+
+}); //jQuery
+
+// steps ui custom
+jQuery( document ).ready(function( $ ) {
+  var $line = $('#steps-connection-line');
+
+  if($line.css('display') == 'none') {
+    var $sidebar = $('.steps-sidebar-inner');
+
+    $('.ll-content .post-content p').each(function(){
+      var $iframe = $(this).find('iframe');
+      if($iframe.length > 0) {
+        $iframe.parent().after($sidebar);
+        return false;
+      }
+    });
+    
+  }
+}); //jQuery
+
+
 // faq
 jQuery( document ).ready(function( $ ) {
   var $faqList = $('.leyka-faq-list');
@@ -92,7 +133,7 @@ jQuery( document ).ready(function( $ ) {
   var $pricesInfo = $('#ll-prices-info-page-content');
   var $pricesSubmitOrderForm = $('#ll-prices-form-page-content');
 
-  $('.ll-back-to-prices').click(function(e){
+  $pricesSubmitOrderForm.find('.ll-go-back').click(function(e){
     e.preventDefault();
     $pricesInfo.show();
     $pricesSubmitOrderForm.hide();
@@ -105,3 +146,62 @@ jQuery( document ).ready(function( $ ) {
   });
 
 }); //jQuery
+
+// orgs page
+jQuery( document ).ready(function( $ ) {
+  var $orgs = $('#orgs_items_container');
+  var $loadMoreLink = $('#show_more_orgs_link');
+
+  $loadMoreLink.on('click', function(e){
+    e.preventDefault();
+
+    var page = $orgs.data('last_page');
+    if(!page) {
+      page = 1;
+    }
+    page = parseInt(page) + 1;
+
+    $.get( leykaSiteFrontend.ajaxurl, { action: "ll_load_more_orgs", paged: page } )
+      .done(function(content){
+        console.log(content);
+        $orgs.data('last_page', page);
+        if(content) {
+          $orgs.append(content);
+        }
+        else {
+          $loadMoreLink.parent().hide();
+        }
+      });
+  });
+
+  var $orgsListSection = $('#ll-orgs-list-page-content');
+  var $formSection = $('#ll-new-org-form-page-content');
+
+  $formSection.find('.ll-go-back').click(function(e){
+    e.preventDefault();
+    $orgsListSection.show();
+    $formSection.hide();
+  });
+
+  $orgsListSection.find('.ll-add-your-org-button').click(function(e){
+    e.preventDefault();
+    $orgsListSection.hide();
+    $formSection.show();
+  });
+
+}); //jQuery
+
+// custom input
+jQuery( document ).ready(function( $ ) {
+  $('.ll-custom-file-input').on('click', function(){
+    $(this).parent().find('input[type="file"]').trigger('click');
+  });
+});
+
+// docs
+jQuery( document ).ready(function( $ ) {
+  $('.docs-categories-mobile-toggle').on('click', function(){
+    $(this).closest('.ll-sidebar').find('.docs-categories').toggle();
+    $(this).toggleClass('open');
+  });
+});

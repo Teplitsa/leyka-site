@@ -10,6 +10,7 @@ function ll_customize_register( WP_Customize_Manager $wp_customize ) {
     ll_customize_register_home_page_labels($wp_customize, $ll_customizer);
     ll_customize_register_prices_page_labels($wp_customize, $ll_customizer);
     ll_customize_register_capabilities_page_labels($wp_customize, $ll_customizer);
+    ll_customize_register_orgs_page_labels($wp_customize, $ll_customizer);
     
     //     $ll_customizer->add_label_setting( '', esc_html__( '', 'll' ), '',
     //         array( 'type' => 'textarea' ));
@@ -277,7 +278,11 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_other_prices_currency', esc_html__( 'Other prices currency', 'll' ), 'll_common_prices_labels' );
     
+    $ll_customizer->add_label_setting( 'll_label_order_form_privacy_policy_explain', esc_html__( 'Order form privacy policy explanation', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
+    
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_back_to_prices_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );    
     
     
     // quick start
@@ -386,6 +391,55 @@ function ll_customize_register_capabilities_page_labels($wp_customize, $ll_custo
         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_title', esc_html__( 'Link title', 'll' ), 'll_capabilities_labels' );
         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_url', esc_html__( 'Link URL', 'll' ), 'll_capabilities_labels' );
     }
+    
+}
+
+function ll_customize_register_orgs_page_labels($wp_customize, $ll_customizer) {
+//     $wp_customize->add_panel(
+//         'll_orgs_page_labels_panel',
+//         array(
+//             'priority' => 30,
+//             'capability' => 'edit_theme_options',
+//             'theme_supports' => '',
+//             'title' => esc_html__( 'Orgs page labels', 'll' )
+            
+//         ));
+    
+    $wp_customize->add_section(
+        'll_orgs_page_labels_common_section',
+        array(
+            'title' => esc_html__( 'Orgs page labels', 'll' ),
+            'capability' => 'edit_theme_options',
+            'priority' => 30,
+            #'panel' => 'll_orgs_page_labels_panel'
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_orgs_what_category', esc_html__( 'What category select item', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_upload_org_logo_file_details', esc_html__( 'File format details', 'll' ), 'll_capabilities_labels', array( 'type' => 'textarea' ) );
+    $ll_customizer->add_label_setting( 'll_label_orgs_upload_file', esc_html__( 'Upload file button caption', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_orgs_submit_new', esc_html__( 'Submit button caption', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_back_to_orgs_list_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );
+    
+}
+
+function ll_customize_register_docs_page_labels($wp_customize, $ll_customizer) {
+    
+    $wp_customize->add_section(
+        'll_docs_page_labels_common_section',
+        array(
+            'title' => esc_html__( 'Orgs page labels', 'll' ),
+            'capability' => 'edit_theme_options',
+            'priority' => 30,
+        ));
+    
+    $ll_customizer->add_label_setting( 'll_label_docs_page_title', esc_html__( 'Page title', 'll' ), 'll_docs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_docs_page_super_title', esc_html__( 'Page super title', 'll' ), 'll_docs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_docs_page_sidebar_useful_link1_title', esc_html__( 'Useful link1 title', 'll' ), 'll_docs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_docs_page_sidebar_useful_link1_url', esc_html__( 'Useful link1 URL', 'll' ), 'll_docs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_docs_page_sidebar_useful_link2_title', esc_html__( 'Useful link1 title', 'll' ), 'll_docs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_label_docs_page_sidebar_useful_link2_url', esc_html__( 'Useful link1 URL', 'll' ), 'll_docs_page_labels_common_section' );
+    
+    $ll_customizer->add_label_setting( 'll_label_search_results', esc_html__( 'Search results title', 'll' ), 'll_docs_page_labels_common_section' );
     
 }
 

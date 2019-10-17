@@ -18,7 +18,7 @@ $posts_data = array(
     ),
 );
 
-LL_Utils::setup_posts_data($posts_data, 'page');
+LL_Setup_Utils::setup_posts_data($posts_data, 'page');
 
 // common
 for($i = 1; $i <= LL_Capability_Service::$number; $i++) {

@@ -1,0 +1,212 @@
+// docs
+.leyka-landing.single.single-document .ll-page-content,
+.leyka-landing.search .ll-page-content {
+    margin-bottom: $leyka-base * 16;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: $leyka-base * 12;
+    }
+
+    .ll-sidebar {
+        flex-basis: 232px;
+
+        .doc-search-form {
+            display: block;
+
+            @include media-breakpoint-up(lg) {            
+                display: none;
+            }
+        }
+
+        .docs-useful-links {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
+            a {
+                @include leyka-text-sm1;
+                @include ll-footer-iconed-link;
+                color: $leyka-color-text;
+                padding-right: 0px;
+                padding-left: $leyka-base * 3;
+                background-position: left 4px;
+
+                &:not(:last-child) {
+                    margin-bottom: $leyka-base;
+                }
+
+                &[href*="//github.com/Teplitsa/leyka"] {
+                    background-image: url(../img/icon-github-light.svg);
+                }                
+
+                &[href*="//t.me/leykadev"] {
+                    background-image: url(../img/icon-tg-light.svg);
+                }                
+            }
+        }
+
+        .docs-categories-mobile-toggle-wrapper {
+            text-align: left;
+            margin-bottom: $leyka-base * 3;
+
+            display: block;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+
+            .docs-categories-mobile-toggle {
+                color: $leyka-color-link;
+
+                &.open {
+                    svg {
+                        transform: rotate(90deg);
+                    }
+                }
+
+                svg {
+                    fill: $leyka-color-link;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                span {
+                    line-height: 24px;
+                    margin-left: 12px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .docs-categories {
+            text-align: left;
+            display: none;
+            margin-top: $leyka-base * 3;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                margin-top: $leyka-base * 5;
+            }
+
+            .docs-category {
+                margin-bottom: $leyka-base * 4;
+
+                &.active {
+                    @include media-breakpoint-up(lg) {
+                        margin-bottom: $leyka-base * 13;
+                    }
+                }
+
+                h4 {
+                    @include leyka-text-lg1;
+                    color: $leyka-color-text-dark;
+                }
+
+                .category-docs {
+                    a {
+                        @include leyka-text-sm1;
+                        color: $leyka-color-text;
+
+                        &.active {
+                            color: $leyka-color-main;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ll-content {
+        max-width: 736px;
+        padding-left: 0px;
+
+        .doc-search-form {
+            display: none;
+
+            @include media-breakpoint-up(lg) {            
+                display: block;
+            }
+        }
+
+        h1.post-title {
+            @include leyka-text-lg2;
+            color: $leyka-color-text-dark;
+            margin-bottom: $leyka-base * 2;
+        }
+
+        .post-content {
+            @include leyka-text;
+            color: $leyka-color-text;
+
+            h1, h2, h3 {
+                margin-top: $leyka-base * 4;
+                margin-bottom: $leyka-base * 2;
+            }
+
+            h2 {
+                @include leyka-text-lg1;
+            }
+
+            img {
+                margin-top: $leyka-base * 2;
+                &:not(:last-child) {
+                    margin-bottom: $leyka-base * 2;
+                }
+            }
+
+            ul > li, ol > li {
+                &:not(:last-child) {
+                    margin-bottom: $leyka-base;
+                }
+            }
+
+            &>p, &>ol, &>ul {
+                &:not(:last-child) {
+                    margin-bottom: $leyka-base * 2;
+                }
+            }
+        }
+    }
+}
+
+.leyka-landing {
+    .doc-search-form {
+        margin-bottom: $leyka-base * 5;
+        input[type="search"] {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right $leyka-base * 3 top 12px;
+            background-size: 32px 32px;
+            display: inline-block;
+            background-image: url(../img/icon-search.svg);
+
+            @include leyka-form-control;
+            @include leyka-text-lg2;
+            padding-left: $leyka-base * 3;
+            padding-right: $leyka-base * 8;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-radius: 4px;
+            width: 100%;
+        }
+    }
+}
+
+// search
+.leyka-landing.search .ll-page-content {
+    .ll-content {
+        article {
+            margin-bottom: $leyka-base * 4;
+
+            header {
+                margin-bottom: $leyka-base;
+
+                h2 {
+                    @include leyka-text-lg2;
+                }
+            }
+        }
+    }
+}

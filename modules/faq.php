@@ -37,7 +37,7 @@ class LL_Faq_Service {
     }
     
     // static methods
-    public static function init_custom_post_type() {
+    public static function register_post_type() {
         
         register_post_type(self::$post_type, array(
             'labels' => array(
@@ -102,7 +102,7 @@ class LL_Faq_Service {
     
 } // class end
 
-add_action('init', 'LL_Faq_Service::init_custom_post_type', 20);
+add_action('init', 'LL_Faq_Service::register_post_type', 20);
 add_action( 'cmb2_admin_init', 'LL_Faq_Service::register_cmb2_metabox' );
 
 // templates

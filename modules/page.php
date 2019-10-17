@@ -25,16 +25,39 @@ add_action( 'cmb2_admin_init', 'LL_Page_Service::register_cmb2_metabox' );
 // templates
 class LL_Page_Templates {
     
-    function show_header($post) {
+    function show_page_header($post) {
         $super_title = get_post_meta($post->ID, 'll_page_super_title', true);
+        $this->show_header(get_the_title($post), $super_title, get_the_excerpt($post));
+    }
+    
+    function show_header($title, $super_title='', $description='') {
         ?>
         
-        <div class="ll-page-header">
-            <span class="ll-supheader"><?php echo $super_title;?></span>        
-            <h1 class="ll-header"><?php echo get_the_title($post);?></h1>
+        <div class="ll-page-header container">
+        	<?php if($super_title){?>
+            <span class="ll-supheader"><?php echo $super_title;?></span>
+            <?php }?>        
+            <h1 class="ll-header"><?php echo $title;?></h1>
             
-            <?php if(trim($post->post_excerpt)):?>
-        	<div class="ll-subheader"><?php echo nl2br(get_the_excerpt($post));?></div>
+            <?php if(trim($description)):?>
+        	<div class="ll-subheader"><?php echo nl2br($description);?></div>
+            <?php endif;?>
+        </div>
+        
+        <?php
+    }
+
+    function show_header_no_h1($title, $super_title='', $description='') {
+        ?>
+        
+        <div class="ll-page-header container">
+        	<?php if($super_title){?>
+            <span class="ll-supheader"><?php echo $super_title;?></span>
+            <?php }?>        
+            <p class="ll-header"><?php echo $title;?></p>
+            
+            <?php if(trim($description)):?>
+        	<div class="ll-subheader"><?php echo nl2br($description);?></div>
             <?php endif;?>
         </div>
         

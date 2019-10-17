@@ -11,7 +11,7 @@ $faq_list = $faq_service->get_all();
 
 get_header();?>
 
-<?php $page_templates->show_header(get_post());?>
+<?php $page_templates->show_page_header(get_post());?>
 
 <section class="leyka-faq-list container">
 	<?php $faq_tempaltes->show_list($faq_list);?>
