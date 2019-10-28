@@ -17,6 +17,7 @@ $orgs_url = get_the_permalink(ll_get_post('orgs', 'page'));
 $prices_url = get_the_permalink(ll_get_post('prices', 'page'));
 $itv_paseka_url = get_the_permalink(ll_get_post('itv-paseka', 'page'));
 $faq_url = get_the_permalink(ll_get_post('faq', 'page'));
+$sla_url = get_the_permalink(ll_get_post('sla', 'page'));
 $docs_url = get_the_permalink(ll_get_post('sistemnye-trebovaniya', LL_Docs_Service::$post_type));
 
 $menu_service = new LL_Menu_Service();
@@ -207,7 +208,7 @@ wp_update_nav_menu_item($menu_id, 0, $item_data);
 
 $item_data = array(
     'menu-item-title' => "Условия использования",
-    'menu-item-url' => "https://leyka.te-st.ru/sla/",
+    'menu-item-url' => $sla_url,
     'menu-item-status' => 'publish',
     'menu-item-type' => 'custom',
     'menu-item-position' => 20,

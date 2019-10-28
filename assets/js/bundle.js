@@ -4576,10 +4576,17 @@ jQuery( document ).ready(function( $ ) {
     $pricesSubmitOrderForm.hide();
   });
 
+  $('.price-selector').change(function(e){
+    e.preventDefault();
+    $(this).siblings('.text-price').val($(this).find('option:selected').text());
+  });
+
   $('.ll-open-make-order-form').click(function(e){
     e.preventDefault();
     $pricesInfo.hide();
     $pricesSubmitOrderForm.show();
+    var priceName = $(this).data('price');
+    $pricesSubmitOrderForm.find('.price-selector').val(priceName).change();
   });
 
 }); //jQuery
@@ -4588,27 +4595,46 @@ jQuery( document ).ready(function( $ ) {
 jQuery( document ).ready(function( $ ) {
   var $orgs = $('#orgs_items_container');
   var $loadMoreLink = $('#show_more_orgs_link');
+  var orgs_list_state = {page: 2, category_id: null};
 
-  $loadMoreLink.on('click', function(e){
-    e.preventDefault();
+  function ll_load_orgs(params) {
+    var ajax_params = {action: "ll_load_orgs"};
+    ajax_params = Object.assign(ajax_params, params);
 
-    var page = $orgs.data('last_page');
-    if(!page) {
-      page = 1;
-    }
-    page = parseInt(page) + 1;
-
-    $.get( leykaSiteFrontend.ajaxurl, { action: "ll_load_more_orgs", paged: page } )
+    $.get( leykaSiteFrontend.ajaxurl, ajax_params)
       .done(function(content){
-        console.log(content);
-        $orgs.data('last_page', page);
-        if(content) {
+        if(ajax_params.page > 1) {
           $orgs.append(content);
+        }
+        else {
+          $orgs.html(content);
+        }
+
+        if(content) {
+          $loadMoreLink.parent().show();
         }
         else {
           $loadMoreLink.parent().hide();
         }
+
+        orgs_list_state.page += 1;
       });
+  }
+
+  // load more
+  $loadMoreLink.on('click', function(e){
+    e.preventDefault();
+    ll_load_orgs(orgs_list_state);
+  });
+
+  // filter by category
+  $('.ll-filter-orgs-by-category').on('click', function(e){
+    e.preventDefault();
+    orgs_list_state.category_id = $(this).data('category_id');
+    orgs_list_state.page = 1;
+    ll_load_orgs(orgs_list_state);
+    $(this).parent().find('a.active').removeClass('active');
+    $(this).addClass('active');
   });
 
   var $orgsListSection = $('#ll-orgs-list-page-content');
@@ -4632,6 +4658,11 @@ jQuery( document ).ready(function( $ ) {
 jQuery( document ).ready(function( $ ) {
   $('.ll-custom-file-input').on('click', function(){
     $(this).parent().find('input[type="file"]').trigger('click');
+  });
+
+  $('input[type="file"].ll-file-input-to-customize').change(function(e){
+    var fileName = e.target.files[0].name;
+    $('.ll-custom-file-input label').html(fileName);
   });
 });
 

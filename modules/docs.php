@@ -65,7 +65,7 @@ class LL_Docs_Hooks {
             'show_in_admin_bar'   => true,
             'capability_type'     => 'post',
             'has_archive'         => true,
-            'rewrite'             => array('slug' => 'document', 'with_front' => false),
+            'rewrite'             => array('slug' => 'docs', 'with_front' => false),
             'hierarchical'        => false,
             'menu_position'       => 6,
             'menu_icon'           => 'dashicons-admin-post',

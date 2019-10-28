@@ -8,20 +8,24 @@ $orgs_service = new LL_Orgs_Service();
 $orgs_templates = new LL_Orgs_Templates();
 $orgs_categories = $orgs_service->get_categories();
 
+$submit_status = !empty($_REQUEST['submit_status']) ? $_REQUEST['submit_status'] : null;
+$submit_message = !empty($_REQUEST['submit_message']) ? $_REQUEST['submit_message'] : null;
+$form_submitted_class = $submit_status ? "form-submitted" : "";
+
 get_header();?>
 
 <?php $page_templates->show_page_header(get_post());?>
 
-<div class="ll-orgs-list-page-content" id="ll-orgs-list-page-content">
+<div class="ll-orgs-list-page-content <?php echo $form_submitted_class;?>" id="ll-orgs-list-page-content">
 
     <div class="ll-page-content container">
     	<div class="ll-content ll-content-fuild">
     		<div>
         		<nav>
         			<div class="links">
-            			<a href="#" class="active"><?php echo get_theme_mod('ll_label_all_organizations');?></a>
+            			<a href="#" class="ll-filter-orgs-by-category active" data-category_id=""><?php echo get_theme_mod('ll_label_all_organizations');?></a>
                 		<?php foreach($orgs_categories as $term){?>
-                        	<a href="#"><?php echo $term->name?></a>
+                        	<a href="#" class="ll-filter-orgs-by-category" data-category_id="<?php echo $term->term_id?>"><?php echo $term->name?></a>
                 		<?php }?>
         			</div>
         			<a href="#" class="btn btn-primary ll-add-your-org-button"><?php echo get_theme_mod('ll_label_add_your_org');?></a>
@@ -43,36 +47,35 @@ get_header();?>
     	<svg class="icon-drop drop2 color006"><use xlink:href="#icon-drop-lg-002" /></svg>
     </div>
     
-    <section class="leyka-howtostart container-fluid">
-    	<div class="container">
-    		<svg><use xlink:href="#pic-howtostart-ill" /></svg>
-        	<p><?php echo get_theme_mod('ll_label_quick_start_needed');?></p>
-        	<a href="<?php echo get_theme_mod('ll_quick_start_know_how_to_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_quick_start_know_how_to');?></a>
-    	</div>
-    </section>
+	<?php get_template_part( 'template-parts/section-howtostart' );?>
 
 </div>
 
-<div class="ll-new-org-form-page-content" id="ll-new-org-form-page-content">
+<div class="ll-new-org-form-page-content <?php echo $form_submitted_class;?> submitted-<?php echo $submit_status;?>" id="ll-new-org-form-page-content">
 	<section class="ll-form-section container">
 		<div class="ll-form-wrapper">
-    		<form action="">
+    		<?php if($submit_status) {?>
+    			<div class="alert alert-<?php echo esc_html($submit_status);?> ll-form-message"><?php echo get_theme_mod($submit_message);?></div>
+    		<?php }?>
+		
+    		<form action="<?php echo add_query_arg( array('action' => 'll_submit_org'), admin_url('admin-post.php') );?>" method="post" enctype="multipart/form-data">
+    			<?php wp_nonce_field('ll_submit_org', 'nonce');?>
                 <div class="form-group">
-                    <select class="form-control">
-                        <option><?php echo get_theme_mod('ll_label_orgs_what_category');?></option>
+                    <select class="form-control" required>
+                        <option value=""><?php echo get_theme_mod('ll_label_orgs_what_category');?></option>
                 		<?php foreach($orgs_categories as $term){?>
-                        	<option><?php echo $term->name?></option>
+                        	<option value="<?php echo $term->term_id?>"><?php echo $term->name?></option>
                 		<?php }?>
                     </select>
                 </div>    		
                 <div class="form-group">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Название организации">
+                    <input type="text" class="form-control" name="title" placeholder="Название организации" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Адрес вашего ресурса">
+                    <input type="text" class="form-control" name="url" placeholder="Адрес вашего ресурса" required>
                 </div>
                 <div class="form-group">
-                    <input type="file" class="ll-file-input-to-customize">
+                    <input type="file" name="logo" class="ll-file-input-to-customize">
                     <div class="ll-custom-file-input">
                     	<button type="button"><?php echo get_theme_mod('ll_label_orgs_upload_file');?></button>
                     	<label>
@@ -81,7 +84,7 @@ get_header();?>
                     </div>
                 </div>
                 <div class="form-group">
-                	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Краткое описание деятельности"></textarea>
+                	<textarea class="form-control" name="description" rows="3" placeholder="Краткое описание деятельности" required></textarea>
                 </div>
                 <div class="ll-form-actions">
                     <button type="submit" class="btn btn-primary"><?php echo get_theme_mod('ll_label_orgs_submit_new');?></button>

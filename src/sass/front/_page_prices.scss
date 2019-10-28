@@ -2,12 +2,30 @@
 .leyka-landing.page.slug-prices {
 
     .ll-prices-info-page-content {
-        display: none;
+        // display: none;
+
+        &.form-submitted {
+            display: none;
+        }
     }
 
     .ll-prices-form-page-content {
-        display: block;
-        // display: none;
+        // display: block;
+        display: none;
+        
+        &.form-submitted {
+            display: block;
+
+            &.submitted-success {
+                .alert {
+                    margin-bottom: $leyka-base * 20;
+                }
+
+                form {
+                    display: none;
+                }
+            }
+        }
     }
 
     .ll-sidebar {

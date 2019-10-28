@@ -9,6 +9,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 const LL_FUNDRAIZING_ADVICES_SLUG = 'fundraising_advices';
+const LL_FORCE_THEME_MOD_SETUP = true;
 
 require_once( get_template_directory() . '/core/utils.php' );
 require_once( get_template_directory() . '/core/hooks.php' );

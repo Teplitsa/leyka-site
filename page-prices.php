@@ -4,13 +4,17 @@
  */
 
 $page_templates = new LL_Page_Templates();
-$prices_service = new LL_Price_Service();
+$prices_service = new LL_Prices_Service();
+
+$submit_status = !empty($_REQUEST['submit_status']) ? $_REQUEST['submit_status'] : null;
+$submit_message = !empty($_REQUEST['submit_message']) ? $_REQUEST['submit_message'] : null;
+$form_submitted_class = $submit_status ? "form-submitted" : "";
 
 get_header();?>
 
 <?php $page_templates->show_page_header(get_post());?>
 
-<div class="ll-prices-info-page-content" id="ll-prices-info-page-content">
+<div class="ll-prices-info-page-content <?php echo $form_submitted_class;?>" id="ll-prices-info-page-content">
 
     <div class="ll-page-content container">
     	<section class="ll-sidebar">
@@ -22,14 +26,14 @@ get_header();?>
     			<div class="price">
         			<h4><?php echo get_theme_mod('ll_label_quick_start_price_title');?></h4>
         			<h3><?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price_price'));?><sup><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></sup></h3>
-        			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" class="btn btn-primary desktop ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+        			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start" class="btn btn-primary desktop ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
     			</div>
     			<ul class="points">
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price_point1');?></span></li>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price_point2');?></span></li>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price_point3');?></span></li>
     			</ul>
-    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" class="btn btn-primary mobile ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start" class="btn btn-primary mobile ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
     		</div>
     	</section>
     </div>
@@ -49,7 +53,7 @@ get_header();?>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price1_point1');?></span></li>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price1_point2');?></span></li>
     			</ul>
-    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="first-aid" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
     		</div>
     		
     		<div class="ll-price">
@@ -62,7 +66,7 @@ get_header();?>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price1_point2');?></span></li>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price2_point3');?></span></li>
     			</ul>
-    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="priority" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
     		</div>
     		
     		<div class="ll-price">
@@ -76,45 +80,45 @@ get_header();?>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price2_point3');?></span></li>
     				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_price3_point4');?></span></li>
     			</ul>
-    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+    			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="analyst" class="btn btn-primary ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
     		</div>
     		
     	</section>
     </div>
     
-    <section class="leyka-howtostart container-fluid">
-    	<div class="container">
-    		<svg><use xlink:href="#pic-howtostart-ill" /></svg>
-        	<p><?php echo get_theme_mod('ll_label_quick_start_needed');?></p>
-        	<a href="<?php echo get_theme_mod('ll_quick_start_know_how_to_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_quick_start_know_how_to');?></a>
-    	</div>
-    </section>
+	<?php get_template_part( 'template-parts/section-howtostart' );?>
 
 </div>
 
-<div class="ll-prices-form-page-content" id="ll-prices-form-page-content">
+<div class="ll-prices-form-page-content <?php echo $form_submitted_class;?> submitted-<?php echo $submit_status;?>" id="ll-prices-form-page-content">
 	<section class="ll-form-section container">
 		<div class="ll-form-wrapper">
-    		<form action="">
+    		<?php if($submit_status) {?>
+    			<div class="alert alert-<?php echo esc_html($submit_status);?> ll-form-message"><?php echo get_theme_mod($submit_message);?></div>
+    		<?php }?>
+		
+    		<form action="<?php echo add_query_arg( array('action' => 'll_submit_order'), admin_url('admin-post.php') );?>" method="post">
+    			<?php wp_nonce_field('ll_submit_order', 'nonce');?>
                 <div class="form-group">
-                    <select class="form-control">
-                        <option><?php echo get_theme_mod('ll_label_quick_start_price_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price_price'));?><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></option>
-                        <option><?php echo get_theme_mod('ll_label_price1_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price1_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
-                        <option><?php echo get_theme_mod('ll_label_price2_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price2_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
-                        <option><?php echo get_theme_mod('ll_label_price3_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price3_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
+                    <select class="form-control price-selector">
+                        <option value="quick-start"><?php echo get_theme_mod('ll_label_quick_start_price_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price_price'));?><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></option>
+                        <option value="first-aid"><?php echo get_theme_mod('ll_label_price1_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price1_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
+                        <option value="priority"><?php echo get_theme_mod('ll_label_price2_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price2_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
+                        <option value="analyst"><?php echo get_theme_mod('ll_label_price3_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price3_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
                     </select>
+                    <input type="hidden" name="price" class="text-price">
                 </div>    		
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Имя">
+                    <input type="text" name="fname" class="form-control" placeholder="Имя" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Фамилия">
+                    <input type="text" name="sname" class="form-control" placeholder="Фамилия" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Название организации">
+                    <input type="text" name="org" class="form-control" placeholder="Название организации" required>
                 </div>
                 <div class="ll-form-explain">
                 	<?php echo get_theme_mod('ll_label_order_form_privacy_policy_explain');?>

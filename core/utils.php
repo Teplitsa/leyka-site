@@ -19,7 +19,7 @@ function ll_get_post( $post_id, $post_type = 'post' ) {
 }
 
 function ll_set_theme_mod_safe($name, $val) {
-    if(!get_theme_mod($name)) {
+    if(!get_theme_mod($name) || LL_FORCE_THEME_MOD_SETUP) {
         set_theme_mod($name, $val);
     }
 }

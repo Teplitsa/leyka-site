@@ -176,6 +176,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-flow: column;
+
+        .ll-form-message {
+            &:empty {
+                display: none;
+            }
+        }
 
         form {
             width: 544px;

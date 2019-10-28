@@ -284,7 +284,6 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_back_to_prices_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );    
     
-    
     // quick start
     $wp_customize->add_section(
         'll_quick_start_price_labels',
@@ -360,6 +359,24 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Extra Point 4', 'll' ), 'll_price3_labels' );
     
+    // submit order
+    $wp_customize->add_section(
+        'll_submit_order_form_labels',
+        array(
+            'title' => esc_html__( 'Submit order labels', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_prices_page_labels'
+        ));
+    
+    
+    $ll_customizer->add_label_setting( 'll_message_order_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_submit_order_form_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_message_order_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_submit_order_form_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_message_order_submitted_email_subject', esc_html__( 'Email subject', 'll' ), 'll_submit_order_form_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_message_order_submitted_email_body', esc_html__( 'Email body', 'll' ), 'll_submit_order_form_labels', array( 'type' => 'textarea' ) );
+    
 }
 
 function ll_customize_register_capabilities_page_labels($wp_customize, $ll_customizer) {
@@ -419,6 +436,8 @@ function ll_customize_register_orgs_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_orgs_upload_file', esc_html__( 'Upload file button caption', 'll' ), 'll_orgs_page_labels_common_section' );
     $ll_customizer->add_label_setting( 'll_label_orgs_submit_new', esc_html__( 'Submit button caption', 'll' ), 'll_orgs_page_labels_common_section' );
     $ll_customizer->add_label_setting( 'll_label_back_to_orgs_list_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_common_prices_labels' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_common_prices_labels' );
     
 }
 

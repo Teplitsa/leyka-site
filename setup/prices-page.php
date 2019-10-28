@@ -38,6 +38,20 @@ ll_set_theme_mod_safe('ll_label_back_to_prices_caption', "Вернуться к 
 
 ll_set_theme_mod_safe('ll_label_order_form_privacy_policy_explain', "Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href=\"#\">политики конфиденциальности</a>");
 
+ll_set_theme_mod_safe('ll_message_order_submitted_ok', "Ваша заявка отправлена. Наши специалисты свяжутся с вами в ближайшее время.");
+
+ll_set_theme_mod_safe('ll_message_order_submitted_error', "При отправке заявки произошла ошибка. Попробуйте еще раз позднее.");
+
+ll_set_theme_mod_safe('ll_message_order_submitted_email_subject', "Новая заявка с сайта Лейки");
+
+ll_set_theme_mod_safe('ll_message_order_submitted_email_body', "Детали заявки:
+
+Имя: {fname} {sname}
+Email: {email}
+Организация: {org}
+Тарифный план: {price} 
+");
+
 
 // quick start
 ll_set_theme_mod_safe('ll_label_quick_start_price_title', "Быстрый старт");

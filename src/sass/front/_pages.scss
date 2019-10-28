@@ -225,11 +225,29 @@
 
     .ll-orgs-list-page-content {
         // display: none;
+
+        &.form-submitted {
+            display: none;
+        }
     }
 
     .ll-new-org-form-page-content {
         // display: block;
         display: none;
+
+        &.form-submitted {
+            display: block;
+
+            &.submitted-success {
+                .alert {
+                    margin-bottom: $leyka-base * 20;
+                }
+
+                form {
+                    display: none;
+                }
+            }
+        }
     }
 
 
