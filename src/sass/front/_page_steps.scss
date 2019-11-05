@@ -232,6 +232,9 @@
             .post-content {
                 p {
                     &:first-child {
+                    }
+
+                    &.ll-iframe-wrapper {
                         position: relative;
                         padding-top: 56%;
                     }

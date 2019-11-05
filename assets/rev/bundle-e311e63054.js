@@ -4712,3 +4712,10 @@ jQuery( document ).ready(function( $ ) {
     $(this).toggleClass('open');
   });
 });
+
+// auto height of iframe for videos in steps
+jQuery( document ).ready(function( $ ) {
+  $('.post-content > p:first-child iframe').each(function(i, el){
+    $(el).closest('.post-content > p:first-child').addClass('ll-iframe-wrapper');
+  });
+});
