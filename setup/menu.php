@@ -8,9 +8,9 @@ ini_set('max_execution_time', 0);
 set_time_limit(0);
 ini_set('memory_limit', 268435456); // 256 Mb, just in case
 
-$setup_on_wp_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$main_steps_cat), get_the_permalink(ll_get_post('step-setup-on-wp', LL_Steps_Service::$post_type)));
-$setup_on_tilda_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$tilda_site_cat), get_the_permalink(ll_get_post('step-setup-on-tilda-etc', LL_Steps_Service::$post_type)));
-$setup_on_knd_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$no_site_cat), get_the_permalink(ll_get_post('step-setup-on-knd', LL_Steps_Service::$post_type)));
+$setup_on_wp_url = get_the_permalink(ll_get_post('step-setup-on-wp', LL_Steps_Service::$post_type));
+$setup_on_tilda_url = get_the_permalink(ll_get_post('step-setup-on-tilda-etc', LL_Steps_Service::$post_type));
+$setup_on_knd_url = get_the_permalink(ll_get_post('step-setup-on-knd', LL_Steps_Service::$post_type));
 
 $capabilities_url = get_the_permalink(ll_get_post('vozmozhnosti', 'page'));
 $orgs_url = get_the_permalink(ll_get_post('orgs', 'page'));

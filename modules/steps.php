@@ -166,9 +166,22 @@ class LL_Steps_Hooks {
     }
     
     public static function setup_steps_cat() {
-        if(!empty($_REQUEST['ll-set-steps-cat'])) {
-            $steps_service = new LL_Steps_Service();
-            $steps_service->set_current_category($_REQUEST['ll-set-steps-cat']);
+        global $post;
+        
+        if(!$post) {
+            return;
+        }
+        
+        $steps_service = new LL_Steps_Service();
+        $steps_category_switcher = array(
+            'step-setup-on-wp' => LL_Steps_Service::$main_steps_cat,
+            'step-setup-on-knd' => LL_Steps_Service::$no_site_cat,
+            'step-setup-on-tilda-etc' => LL_Steps_Service::$tilda_site_cat,
+        );
+        foreach($steps_category_switcher as $page_slug => $category_slug) {
+            if(is_singular( LL_Steps_Service::$post_type ) && $post->post_name == $page_slug) {
+                $steps_service->set_current_category($category_slug);
+            }
         }
     }
     
@@ -176,4 +189,4 @@ class LL_Steps_Hooks {
 
 add_action('init', 'LL_Steps_Hooks::register_custom_taxonomy', 20);
 add_action('init', 'LL_Steps_Hooks::register_post_type', 20);
-add_action('init', 'LL_Steps_Hooks::setup_steps_cat', 20);
+add_action('wp', 'LL_Steps_Hooks::setup_steps_cat', 20);
