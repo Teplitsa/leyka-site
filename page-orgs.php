@@ -61,7 +61,7 @@ get_header();?>
     		<form action="<?php echo add_query_arg( array('action' => 'll_submit_org'), admin_url('admin-post.php') );?>" method="post" enctype="multipart/form-data">
     			<?php wp_nonce_field('ll_submit_org', 'nonce');?>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select class="form-control" name="org_category" required>
                         <option value=""><?php echo get_theme_mod('ll_label_orgs_what_category');?></option>
                 		<?php foreach($orgs_categories as $term){?>
                         	<option value="<?php echo $term->term_id?>"><?php echo $term->name?></option>

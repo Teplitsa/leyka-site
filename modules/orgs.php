@@ -207,6 +207,10 @@ class LL_Orgs_Hooks {
             
             update_post_meta($post_id, LL_Orgs_Service::$meta_org_approved, '');
             
+            if(!empty($_POST['org_category'])) {
+                wp_set_object_terms( $post_id, (int)$_POST['org_category'], LL_Orgs_Service::$category_tax, true );
+            }
+            
             $uploadedfile = $_FILES['logo'];
             if($uploadedfile) {
                 $upload_overrides = array( 'test_form' => false );
