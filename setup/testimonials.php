@@ -15,29 +15,29 @@ if($term === false) {
     wp_insert_term( $fundraising_advices_tag['name'], 'post_tag', $fundraising_advices_tag );
 }
 
-$post_list = array(
+$post_data_list = array(
+    array(
+        'post_title' => 'Дарья Кузнецова',
+        'post_content' => 'Мы знаем, что нужно отправлять благодарности донору. Но ведь каждому не напишешь! А Лейка отправляет их автоматически. Это здорово экономит время.',
+        'post_excerpt' => 'и.о. директора "Добрый город Петербург"',
+    ),
+    array(
+        'post_title' => 'Анна Исаева',
+        'post_content' => 'Здорово, что теперь Лейку теперь можно использовать даже если у меня сайт не на WordPress. Потому что переделывать его – это долгий и мучительный процесс.',
+        'post_excerpt' => 'менеджер',
+    ),
     array(
         'post_title' => 'Константин Гришин', 
         'post_content' => 'Мне очень нравится, что я могу использовать Лейку, хотя у меня нет юридического лица. Это удобно. Спасибо разработчикам.',
         'post_excerpt' => 'Блогер',
-        'thumbnail' => 'face1.jpg',
+        'thumbnail_path' => '/data/testimonials/face1.jpg',
     ),
     array(
         'post_title' => 'Виктория Канароева',
         'post_content' => 'Нам очень нравится, что Лейка легко интегрируется с платежными системами. Всего лишь вводишь пару цифр из договора — и все работает. Замечательный продукт.',
         'post_excerpt' => 'Центр «Зеленая дверца»',
-        'thumbnail' => 'face2.jpg',
+        'thumbnail_path' => '/data/testimonials/face2.jpg',
     ),
 );
 
-foreach($post_list as $post) {
-    $post['post_type'] = LL_Testimonials_Service::$post_type;
-    $post['post_status'] = 'publish';
-    
-    $post_id = wp_insert_post($post);
-    
-    if(!empty($post['thumbnail'])) {
-        $attachment_id = TST_Import::get_instance()->maybe_import_local_file( get_template_directory() . "/data/testimonials/" . $post['thumbnail'] );
-        set_post_thumbnail($post_id, $attachment_id);
-    }
-}
+LL_Setup_Utils::setup_posts_data($post_data_list, LL_Testimonials_Service::$post_type);

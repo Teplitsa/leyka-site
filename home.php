@@ -8,7 +8,7 @@ $news_list = $news_service->get_short_list();
 $fundraising_advices = $news_service->get_short_fundraising_advices_list();
 
 $tstm_service = new LL_Testimonials_Service();
-$tstm_list = $tstm_service->get_short_list();
+$tstm_list = $tstm_service->get_short_list(100);
 
 $orgs_service = new LL_Orgs_Service();
 $orgs_list = $orgs_service->get_short_list();
@@ -26,7 +26,7 @@ get_header(); ?>
 	<p><?php echo nl2br(get_theme_mod('ll_label_intro_subheader'));?></p>
 	
 	<div class="action-and-stats">
-    	<a class="btn btn-primary" href="<?php echo get_theme_mod('ll_install_leyka_url');?>" target="_blank"><?php echo get_theme_mod('ll_label_install_leyka_caption');?><sub><?php echo get_theme_mod('ll_label_leyka_version');?></sub></a>
+    	<a class="btn btn-primary" href="<?php echo get_theme_mod('ll_install_leyka_url');?>"><?php echo get_theme_mod('ll_label_install_leyka_caption');?><sub><?php echo get_theme_mod('ll_label_leyka_version');?></sub></a>
     	
     	<div class="leyka-stats">
     		<?php echo get_theme_mod('ll_label_intro_stats_header');?>
@@ -55,7 +55,10 @@ get_header(); ?>
     	<article>
     		<?php echo apply_filters('the_content', get_post_field('post_content', $post));?>
     		<div class="author">
-    			<img src="<?php echo get_the_post_thumbnail_url( $post, 'thumbnail' );?>" alt="" />
+    			<?php $post_thumbnail = get_the_post_thumbnail_url( $post, 'thumbnail' );?>
+    			<?php if($post_thumbnail){?>
+    			<img src="<?php echo $post_thumbnail;?>" alt="" />
+    			<?php }?>
     			<div class="info">
     				<span class="name"><?php echo get_the_title($post);?>,</span>
     				<span class="org"><?php echo apply_filters('get_the_excerpt', get_post_field('post_excerpt', $post));?></span>
@@ -187,18 +190,30 @@ get_header(); ?>
     			<h3><?php echo get_theme_mod('ll_label_step1_header');?></h3>
     			<p><?php echo get_theme_mod('ll_label_step1_subheader');?></p>
     			<ul>
+    				<?php if(get_theme_mod('ll_label_step1_link1_url') && get_theme_mod('ll_label_step1_link1_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step1_link1_url');?>" target="_blank" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step1_link1_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step1_link2_url') && get_theme_mod('ll_label_step1_link2_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step1_link2_url');?>" target="_blank" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step1_link2_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step1_link3_url') && get_theme_mod('ll_label_step1_link3_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step1_link3_url');?>" target="_blank" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step1_link3_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
     			</ul>
     		</div>
     	</div>
@@ -212,12 +227,30 @@ get_header(); ?>
     			<h3><?php echo get_theme_mod('ll_label_step2_header');?></h3>
     			<p><?php echo get_theme_mod('ll_label_step2_subheader');?></p>
     			<ul>
+    				<?php if(get_theme_mod('ll_label_step2_link1_url') && get_theme_mod('ll_label_step2_link1_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step2_link1_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step2_link1_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step2_link2_url') && get_theme_mod('ll_label_step2_link2_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step2_link2_url');?>" target="_blank" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step2_link2_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step2_link3_url') && get_theme_mod('ll_label_step2_link3_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step2_link3_url');?>" target="_blank" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step2_link3_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
     			</ul>
     		</div>
     	</div>
@@ -232,12 +265,30 @@ get_header(); ?>
     			<h3><?php echo get_theme_mod('ll_label_step3_header');?></h3>
     			<p><?php echo get_theme_mod('ll_label_step3_subheader');?></p>
     			<ul>
+    				<?php if(get_theme_mod('ll_label_step3_link1_url') && get_theme_mod('ll_label_step3_link1_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step3_link1_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step3_link1_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step3_link2_url') && get_theme_mod('ll_label_step3_link2_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step3_link2_url');?>" target="_blank" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step3_link2_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step3_link3_url') && get_theme_mod('ll_label_step3_link3_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step3_link3_url');?>" target="_blank" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step3_link3_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
     			</ul>
     		</div>
     	</div>
@@ -252,24 +303,30 @@ get_header(); ?>
     			<h3><?php echo get_theme_mod('ll_label_step4_header');?></h3>
     			<p><?php echo get_theme_mod('ll_label_step4_subheader');?></p>
     			<ul>
+    				<?php if(get_theme_mod('ll_label_step4_link1_url') && get_theme_mod('ll_label_step4_link1_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step4_link1_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step4_link1_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step4_link2_url') && get_theme_mod('ll_label_step4_link2_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step4_link2_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step4_link2_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step4_link3_url') && get_theme_mod('ll_label_step4_link3_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step4_link3_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step4_link3_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
     			</ul>
     		</div>
     	</div>
@@ -283,18 +340,30 @@ get_header(); ?>
     			<h3><?php echo get_theme_mod('ll_label_step5_header');?></h3>
     			<p><?php echo get_theme_mod('ll_label_step5_subheader');?></p>
     			<ul>
+    				<?php if(get_theme_mod('ll_label_step5_link1_url') && get_theme_mod('ll_label_step5_link1_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step5_link1_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step5_link1_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step5_link2_url') && get_theme_mod('ll_label_step5_link2_title')){?>
     				<li>
     					<a href="<?php echo get_theme_mod('ll_label_step5_link2_url');?>" class="iconed-link">
     						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
     						<span><?php echo get_theme_mod('ll_label_step5_link2_title');?></span>
     					</a>
     				</li>
+    				<?php }?>
+    				<?php if(get_theme_mod('ll_label_step5_link3_url') && get_theme_mod('ll_label_step5_link3_title')){?>
+    				<li>
+    					<a href="<?php echo get_theme_mod('ll_label_step5_link3_url');?>" class="iconed-link">
+    						<svg class="svg-icon"><use xlink:href="#icon-video" /></svg>
+    						<span><?php echo get_theme_mod('ll_label_step5_link3_title');?></span>
+    					</a>
+    				</li>
+    				<?php }?>
     			</ul>
     		</div>
     	</div>
@@ -401,7 +470,7 @@ get_header(); ?>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data4_label');?></span>
 		</div>
 	</div>
-	<a href="<?php echo get_theme_mod('ll_install_leyka_url');?>" target="_blank" class="btn btn-primary"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
+	<a href="<?php echo get_theme_mod('ll_install_leyka_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
 </section>
 
 <?php get_footer();

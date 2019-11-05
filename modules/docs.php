@@ -3,6 +3,7 @@
 class LL_Docs_Service {
     static $post_type = 'document';
     static $category_tax = 'doc_cat';
+    static $term_meta_order = 'll_doc_cat_order';
     
     function get_category_docs( $cat ) {
         $params = array(
@@ -21,6 +22,14 @@ class LL_Docs_Service {
                 ),
             );
         }
+        elseif ($cat === null) {
+            $params['tax_query'] = array(
+                array(
+                    'taxonomy' => self::$category_tax,
+                    'operator' => 'NOT EXISTS'
+                ),
+            );
+        }
         
         $posts = get_posts($params);
         
@@ -30,6 +39,9 @@ class LL_Docs_Service {
     function get_categories() {
         $terms = get_terms( self::$category_tax, array(
             'hide_empty' => true,
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_key' => LL_Docs_Service::$term_meta_order,
         ) );
         return $terms;
     }
@@ -105,8 +117,31 @@ class LL_Docs_Hooks {
             //             'rewrite'           => array('slug' => 'org_category', 'with_front' => false),
         ));
     }
+
+    public static function category_order_metabox() {
+        $prefix = 'll_doc_cat_order_';
+        
+        $cmb_term = new_cmb2_box( array(
+            'id'               => $prefix . 'edit',
+            'object_types'     => array( 'term' ),
+            'taxonomies'       => array( LL_Docs_Service::$category_tax ),
+            'new_term_section' => true,
+        ) );
+        
+        $cmb_term->add_field( array(
+            'name'     => esc_html__( 'Category order', 'll' ),
+//             'description'     => '',
+            'id'       => LL_Docs_Service::$term_meta_order,
+            'type'     => 'text_small',
+            'default'  => '',
+            'on_front' => false,
+        ) );
+        
+    }
     
 } // class end
 
 add_action('init', 'LL_Docs_Hooks::register_custom_taxonomy', 20);
 add_action('init', 'LL_Docs_Hooks::register_post_type', 20);
+
+add_action( 'cmb2_admin_init', 'LL_Docs_Hooks::category_order_metabox' );

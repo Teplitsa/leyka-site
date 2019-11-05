@@ -36,7 +36,7 @@ ll_set_theme_mod_safe('ll_label_quick_start_price_submit_url', site_url("/"));
 
 ll_set_theme_mod_safe('ll_label_back_to_prices_caption', "Вернуться к тарифам");
 
-ll_set_theme_mod_safe('ll_label_order_form_privacy_policy_explain', "Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href=\"#\">политики конфиденциальности</a>");
+ll_set_theme_mod_safe('ll_label_order_form_privacy_policy_explain', "Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href=\"/personal-data-usage-terms/\" target=\"_blank\">политики конфиденциальности</a>");
 
 ll_set_theme_mod_safe('ll_message_order_submitted_ok', "Ваша заявка отправлена. Наши специалисты свяжутся с вами в ближайшее время.");
 
@@ -56,7 +56,7 @@ Email: {email}
 // quick start
 ll_set_theme_mod_safe('ll_label_quick_start_price_title', "Быстрый старт");
 
-ll_set_theme_mod_safe('ll_label_quick_start_price_price', "10 000");
+ll_set_theme_mod_safe('ll_label_quick_start_price_price', "6 900");
 
 ll_set_theme_mod_safe('ll_label_quick_start_price_point1', "Подключение и настройка Лейки");
 
@@ -68,7 +68,7 @@ ll_set_theme_mod_safe('ll_label_quick_start_price_point3', "Функционал
 // price1
 ll_set_theme_mod_safe('ll_label_price1_title', "Первая помощь");
 
-ll_set_theme_mod_safe('ll_label_price1_price', "999");
+ll_set_theme_mod_safe('ll_label_price1_price', "2 490");
 
 ll_set_theme_mod_safe('ll_label_price1_point1', "Приоритетное рассмотрение задач и вопросов");
 

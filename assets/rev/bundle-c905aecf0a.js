@@ -4559,9 +4559,30 @@ jQuery( document ).ready(function( $ ) {
 jQuery( document ).ready(function( $ ) {
   var $faqList = $('.leyka-faq-list');
   $faqList.on('click', '.btn-expand', function(e){
-    e.preventDefault();
+    if(!$(this).data('scroll-to-ask')) {
+      console.log('preventDefault...');
+      e.preventDefault();
+    }
+
     $(this).closest('li').addClass('expanded');
+
+    var $namedAsk = $faqList.find('a[name='+$(this).data('ask')+']');
+    if(!$(this).data('scroll-to-ask')) {
+      $namedAsk.attr('name', '');
+    }
+    window.location.hash = '#' + $(this).data('ask');
+    $namedAsk.attr('name', $(this).data('ask'));
+
+    if($(this).data('scroll-to-ask')) {
+      $(this).data('scroll-to-ask', '');
+    }
   });
+
+  if(window.location.hash) {
+    var $ask = $('#expand-' + window.location.hash.substr(1));
+    $ask.data('scroll-to-ask', '1');
+    $ask.trigger('click');
+  }
 }); //jQuery
 
 
@@ -4574,6 +4595,7 @@ jQuery( document ).ready(function( $ ) {
     e.preventDefault();
     $pricesInfo.show();
     $pricesSubmitOrderForm.hide();
+    window.location.hash = '';
   });
 
   $('.price-selector').change(function(e){
@@ -4587,7 +4609,15 @@ jQuery( document ).ready(function( $ ) {
     $pricesSubmitOrderForm.show();
     var priceName = $(this).data('price');
     $pricesSubmitOrderForm.find('.price-selector').val(priceName).change();
+    window.location.hash = '#make-order';
   });
+
+  if(window.location.hash) {
+    var hashParam = window.location.hash.substr(1);
+    if(hashParam == 'make-order') {
+      $('.ll-open-make-order-form').first().trigger('click');
+    }
+  }
 
 }); //jQuery
 
@@ -4644,14 +4674,23 @@ jQuery( document ).ready(function( $ ) {
     e.preventDefault();
     $orgsListSection.show();
     $formSection.hide();
+    window.location.hash = '';
   });
 
   $orgsListSection.find('.ll-add-your-org-button').click(function(e){
     e.preventDefault();
     $orgsListSection.hide();
     $formSection.show();
+    window.location.hash = '#add-org';
   });
 
+  if(window.location.hash) {
+    var hashParam = window.location.hash.substr(1);
+    if(hashParam == 'add-org') {
+      $('.ll-add-your-org-button').first().trigger('click');
+    }
+  }
+  
 }); //jQuery
 
 // custom input

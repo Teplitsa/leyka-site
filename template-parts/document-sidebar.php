@@ -11,9 +11,15 @@ else {
 }
 
 // active category
+$other_term = new WP_Term(new stdClass());
+$other_term->name = get_theme_mod("other_documents_set_title");
+$other_term->id = null;
+$categories[] = $other_term;
+
 foreach($categories as $term){
     $docs = $docs_service->get_category_docs($term->term_id);
     $term->is_active = false;
+    $term->docs = $docs;
 	foreach($docs as $post_item) {
 	   if(get_the_permalink($post_item) == $page_permalink) {
 	       $term->is_active = true;
@@ -38,15 +44,12 @@ foreach($categories as $term){
 	<?php foreach($categories as $term){?>
 	<div class="docs-category <?php if($term->is_active){?>active<?php }?>">
 		<h4><?php echo $term->name?></h4>
-		<?php 
-		$docs = $docs_service->get_category_docs($term->term_id)
-		?>
-		
 		<div class="category-docs">
-		<?php foreach($docs as $post_item){?>
+		<?php foreach($term->docs as $post_item){?>
 			<a href="<?php echo get_the_permalink($post_item);?>" class="<?php if(get_the_permalink($post_item) == $page_permalink){?>active<?php }?>"><?php echo get_the_title($post_item);?></a>
 		<?php }?>
 		</div>
 	</div>
 	<?php }?>
+	
 </div>

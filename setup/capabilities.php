@@ -12,7 +12,7 @@ ini_set('memory_limit', 268435456); // 256 Mb, just in case
 $posts_data = array(
     array(
         'post_title' => 'Откройте мир возможностей по сбору пожертвований',
-        'post_name' => 'capabilities',
+        'post_name' => 'vozmozhnosti',
         'post_excerpt' => 'Лейка — это плагин для Wordpress’a. Но установить его не трудно и у нас есть подробная видео-инструкция',
         'meta' => array('ll_page_super_title' => 'Лейка'),
     ),

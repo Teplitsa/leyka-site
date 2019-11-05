@@ -333,3 +333,69 @@
         @include ll-page-form-section;
     }    
 }
+
+@mixin post-content {
+    @include leyka-text;
+    color: $leyka-color-text;
+
+    h1, h2 {
+        color: $leyka-color-text-dark;
+        margin-top: $leyka-base * 4;
+        margin-bottom: $leyka-base * 2;
+    }
+
+    @include leyka-text-content-h;
+
+    h3, h4, h5, h6 {
+        color: $leyka-color-text-dark;
+        margin-top: $leyka-base * 2;
+        margin-bottom: $leyka-base;
+    }
+
+    img {
+        margin-top: $leyka-base * 2;
+        &:not(:last-child) {
+            margin-bottom: $leyka-base * 2;
+        }
+    }
+
+    ul, ol {
+        margin-top: $leyka-base * 4;
+        margin-left: $leyka-base * 5;
+        margin-bottom: $leyka-base * 4;
+    }
+
+    ol {
+        list-style: decimal;
+
+        ol {
+            margin-top: $leyka-base * 2;
+            margin-bottom: $leyka-base * 2;
+            list-style: lower-alpha;
+        }
+    }
+
+    ul {
+        list-style: disc;
+
+        ul {
+            margin-top: $leyka-base * 2;
+            margin-bottom: $leyka-base * 2;
+            list-style: circle;
+        }
+    }
+
+    ul > li, ol > li {
+        padding-left: $leyka-base * 2;
+
+        &:not(:last-child) {
+            margin-bottom: $leyka-base * 2;
+        }
+    }
+
+    &>p, &>ol, &>ul {
+        &:not(:last-child) {
+            margin-bottom: $leyka-base * 2;
+        }
+    }
+}

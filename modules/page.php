@@ -27,7 +27,8 @@ class LL_Page_Templates {
     
     function show_page_header($post) {
         $super_title = get_post_meta($post->ID, 'll_page_super_title', true);
-        $this->show_header(get_the_title($post), $super_title, get_the_excerpt($post));
+        $description = trim($post->post_excerpt) ? get_the_excerpt($post) : ""; 
+        $this->show_header(get_the_title($post), $super_title, $description);
     }
     
     function show_header($title, $super_title='', $description='') {

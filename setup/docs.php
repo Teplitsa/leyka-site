@@ -10,10 +10,10 @@ ini_set('memory_limit', 268435456); // 256 Mb, just in case
 
 // add categories
 $categories = array(
-    array('slug' => 'leyka-basics', 'name' => "Основа Лейки"),
-    array('slug' => 'payment-systems', 'name' => "Платежные системы"),
-    array('slug' => 'star-template', 'name' => "Шаблон «Стар»"),
-    array('slug' => 'setup-campaign', 'name' => "Настройка кампании"),
+    array('slug' => 'leyka-basics', 'name' => "Основа Лейки", 'meta' => array(LL_Docs_Service::$term_meta_order => 1),),
+    array('slug' => 'payment-systems', 'name' => "Платежные системы", 'meta' => array(LL_Docs_Service::$term_meta_order => 3),),
+    array('slug' => 'star-template', 'name' => "Шаблон «Стар»", 'meta' => array(LL_Docs_Service::$term_meta_order => 4),),
+    array('slug' => 'setup-campaign', 'name' => "Настройка кампании", 'meta' => array(LL_Docs_Service::$term_meta_order => 2),),
 );
 LL_Setup_Utils::setup_terms_data($categories, LL_Docs_Service::$category_tax);
 
@@ -193,3 +193,4 @@ ll_set_theme_mod_safe('ll_label_docs_page_sidebar_useful_link2_url', "https://t.
 // search
 ll_set_theme_mod_safe('ll_label_search_results', "Результаты поиска");
 
+ll_set_theme_mod_safe('other_documents_set_title', "Другое");

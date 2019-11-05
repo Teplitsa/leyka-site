@@ -105,8 +105,14 @@
                 }
 
                 .category-docs {
+                    &.no-category {
+                        margin-top: $leyka-base * 4;
+                    }
+
                     a {
                         @include leyka-text-sm1;
+                        display: block;
+                        margin-top: $leyka-base * 2;
                         color: $leyka-color-text;
 
                         &.active {
@@ -137,36 +143,7 @@
         }
 
         .post-content {
-            @include leyka-text;
-            color: $leyka-color-text;
-
-            h1, h2, h3 {
-                margin-top: $leyka-base * 4;
-                margin-bottom: $leyka-base * 2;
-            }
-
-            h2 {
-                @include leyka-text-lg1;
-            }
-
-            img {
-                margin-top: $leyka-base * 2;
-                &:not(:last-child) {
-                    margin-bottom: $leyka-base * 2;
-                }
-            }
-
-            ul > li, ol > li {
-                &:not(:last-child) {
-                    margin-bottom: $leyka-base;
-                }
-            }
-
-            &>p, &>ol, &>ul {
-                &:not(:last-child) {
-                    margin-bottom: $leyka-base * 2;
-                }
-            }
+            @include post-content;
         }
     }
 }

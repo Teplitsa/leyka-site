@@ -75,9 +75,25 @@ class LL_Setup_Utils {
         foreach($terms_data as $category) {
             $term = get_term_by( 'slug', $category['slug'], $tax );
             if($term === false) {
-                wp_insert_term( $category['name'], $tax, $category );
+                $term_id = wp_insert_term( $category['name'], $tax, $category );
+            }
+            else {
+                $term_id = $term->term_id;
+            }
+            
+            if(!empty($category['meta'])) {
+                foreach($category['meta'] as $k => $v) {
+                    update_term_meta($term_id, $k, $v);
+                }
             }
         }
     }
     
+}
+
+class LL_Old_Content_Cleaner {
+    public function clean_content($content) {
+        $content = preg_replace("/font-weight:\s*400;/", "", $content);
+        return $content;
+    }
 }

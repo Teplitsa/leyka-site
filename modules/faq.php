@@ -122,6 +122,7 @@ class LL_Faq_Templates {
         $learn_more_link_url = get_post_meta($post->ID, 'll_faq_learn_more_link_url', true);
         $learn_more_link_title = get_post_meta($post->ID, 'll_faq_learn_more_link_title', true);
         ?>
+        <a name="ask<?php echo $post->ID;?>"></a>
 		<li>
 			<h4><?php echo get_the_title($post);?></h4>
 			<div class="answer">
@@ -132,7 +133,7 @@ class LL_Faq_Templates {
     			</div>
     			<?php endif;?>
 			</div>
-			<a href="#" class="btn-expand"><svg><use xlink:href="#icon-galka-right" /></svg></a>
+			<a href="#ask<?php echo $post->ID;?>" data-ask="ask<?php echo $post->ID;?>" id="expand-ask<?php echo $post->ID;?>" class="btn-expand"><svg><use xlink:href="#icon-galka-right" /></svg></a>
 			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
 		</li>
 		<?php

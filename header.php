@@ -31,7 +31,7 @@
 			<?php wp_nav_menu(array('menu' => 'primary', 'container' => false, 'menu_class' => 'd-flex text-menu'));?>
 		</div>
 		
-		<a class="btn btn-outline-primary ll-install-leyka-btn" href="<?php echo get_theme_mod('ll_install_leyka_url');?>" target="_blank"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
+		<a class="btn btn-outline-primary ll-install-leyka-btn" href="<?php echo get_theme_mod('ll_install_leyka_url');?>"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
 		<a href="#" class="ll-open-mob-menu-btn"><svg class="ll-icon-mob-menu"><use xlink:href="#icon-mob-menu" /></svg></a>
 	</nav>
 

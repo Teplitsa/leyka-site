@@ -142,6 +142,8 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_step1_link1_title', esc_html__( 'Step 1 link 1 title', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step1_link2_url', esc_html__( 'Step 1 link 2 URL', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step1_link2_title', esc_html__( 'Step 1 link 2 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step1_link3_url', esc_html__( 'Step 1 link 3 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step1_link3_title', esc_html__( 'Step 1 link 3 title', 'll' ), 'll_hiw_labels' );
     
     // step2
     $ll_customizer->add_label_setting( 'll_label_step2_header', esc_html__( 'Step 2 header', 'll' ), 'll_hiw_labels',
@@ -152,6 +154,10 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     
     $ll_customizer->add_label_setting( 'll_label_step2_link1_url', esc_html__( 'Step 2 link 1 URL', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step2_link1_title', esc_html__( 'Step 2 link 1 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step2_link2_url', esc_html__( 'Step 2 link 2 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step2_link2_title', esc_html__( 'Step 2 link 2 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step2_link3_url', esc_html__( 'Step 2 link 3 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step2_link3_title', esc_html__( 'Step 2 link 3 title', 'll' ), 'll_hiw_labels' );
     
     // step4
     $ll_customizer->add_label_setting( 'll_label_step3_header', esc_html__( 'Step 3 header', 'll' ), 'll_hiw_labels',
@@ -162,6 +168,10 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     
     $ll_customizer->add_label_setting( 'll_label_step3_link1_url', esc_html__( 'Step 3 link 1 URL', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step3_link1_title', esc_html__( 'Step 3 link 1 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step3_link2_url', esc_html__( 'Step 3 link 2 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step3_link2_title', esc_html__( 'Step 3 link 2 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step3_link3_url', esc_html__( 'Step 3 link 3 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step3_link3_title', esc_html__( 'Step 3 link 3 title', 'll' ), 'll_hiw_labels' );
     
     // step4
     $ll_customizer->add_label_setting( 'll_label_step4_header', esc_html__( 'Step 4 header', 'll' ), 'll_hiw_labels',
@@ -188,6 +198,8 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_step5_link1_title', esc_html__( 'Step 5 link 1 title', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step5_link2_url', esc_html__( 'Step 5 link 2 URL', 'll' ), 'll_hiw_labels' );
     $ll_customizer->add_label_setting( 'll_label_step5_link2_title', esc_html__( 'Step 5 link 2 title', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step5_link3_url', esc_html__( 'Step 5 link 3 URL', 'll' ), 'll_hiw_labels' );
+    $ll_customizer->add_label_setting( 'll_label_step5_link3_title', esc_html__( 'Step 5 link 3 title', 'll' ), 'll_hiw_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_congrats', esc_html__( 'Congratulations', 'll' ), 'll_hiw_labels',
         array( 'type' => 'textarea' ));

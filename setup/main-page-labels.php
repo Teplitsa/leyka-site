@@ -9,22 +9,15 @@ set_time_limit(0);
 ini_set('memory_limit', 268435456); // 256 Mb, just in case
 
 $setup_on_wp_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$main_steps_cat), get_the_permalink(ll_get_post('step-setup-on-wp', LL_Steps_Service::$post_type)));
-$setup_on_tilda_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$tilda_site_cat), get_the_permalink(ll_get_post('step-setup-on-tilda-etc', LL_Steps_Service::$post_type)));
-$setup_on_knd_url = add_query_arg(array('ll-set-steps-cat' => LL_Steps_Service::$no_site_cat), get_the_permalink(ll_get_post('step-setup-on-knd', LL_Steps_Service::$post_type)));
 
-$capabilities_url = get_the_permalink(ll_get_post('capabilities', 'page'));
-$orgs_url = get_the_permalink(ll_get_post('orgs', 'page'));
-$prices_url = get_the_permalink(ll_get_post('prices', 'page'));
-$itv_paseka_url = get_the_permalink(ll_get_post('itv-paseka', 'page'));
-$faq_url = get_the_permalink(ll_get_post('faq', 'page'));
-$docs_url = get_the_permalink(ll_get_post('sistemnye-trebovaniya', LL_Docs_Service::$post_type));
+$capabilities_url = get_the_permalink(ll_get_post('vozmozhnosti', 'page'));
 
 // common
 ll_set_theme_mod_safe('ll_label_install_leyka_caption', "Установить Лейку");
 
 ll_set_theme_mod_safe('ll_label_leyka_version', "Версия 3.2.2");
 
-ll_set_theme_mod_safe('ll_install_leyka_url', "https://ru.wordpress.org/plugins/leyka/");
+ll_set_theme_mod_safe('ll_install_leyka_url', $setup_on_wp_url);
 
 // intro
 ll_set_theme_mod_safe('ll_label_intro_header', "<span>Собирай</span>

@@ -40,6 +40,7 @@ foreach (glob(get_template_directory() . '/modules/*') as $module_file) {
 // theme setup
 function ll_setup() {
     add_theme_support( 'menus' );
-    add_theme_support('post-thumbnails');
+    add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'title-tag' );
 }
 add_action( 'after_setup_theme', 'll_setup', 9 );

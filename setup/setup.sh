@@ -3,6 +3,7 @@
 wp --skip-plugins --skip-themes theme activate leyka-landing
 
 php ./setup/options.php
+php ./setup/import.php
 php ./setup/main-page-labels.php
 php ./setup/capabilities.php
 php ./setup/docs.php

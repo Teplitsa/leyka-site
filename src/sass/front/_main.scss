@@ -1124,10 +1124,10 @@
     }
 	
     ul.faq-list {
-        li {
+        & > li {
         	position: relative;
         	padding-left: $leyka-base * 8;
-        	padding-right: $leyka-base * 8;
+        	padding-right: $leyka-base * 9;
         	padding-top: $leyka-base * 4;
         	padding-bottom: $leyka-base * 5;
 			background: $leyka-color-white;
@@ -1175,6 +1175,8 @@
                 @include media-breakpoint-down(sm) {
                     text-align: center;
                 }
+
+                @include post-content;
 
                 p {
                 	margin-top: $leyka-base;
