@@ -16,7 +16,7 @@ $orgs_list = $orgs_service->get_short_list();
 $faq_tempaltes = new LL_Faq_Templates();
 
 $faq_service = new LL_Faq_Service();
-$faq_list = $faq_service->get_all();
+$faq_list = $faq_service->get_short_list();
 
 get_header(); ?>
 
