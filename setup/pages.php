@@ -8,11 +8,7 @@ ini_set('max_execution_time', 0);
 set_time_limit(0);
 ini_set('memory_limit', 268435456); // 256 Mb, just in case
 
-$itv_logo_id = TST_Import::get_instance()->maybe_import_local_file( get_template_directory() . "/data/logo/logo-itv.png" );
-$itv_logo_url = wp_get_attachment_url($itv_logo_id);
-
-$paseka_logo_id = TST_Import::get_instance()->maybe_import_local_file( get_template_directory() . "/data/logo/logo-paseka.png" );
-$paseka_logo_url = wp_get_attachment_url($paseka_logo_id);
+$prices_url = get_the_permalink(ll_get_post('prices', 'page'));
 
 //page
 $posts_data = array(
@@ -29,3 +25,14 @@ LL_Setup_Utils::setup_posts_data($posts_data, 'page');
 // sla
 $post = ll_get_post('sla', 'page');
 update_post_meta($post->ID, 'll_page_super_title', 'Лейка');
+
+// supprt
+$post = ll_get_post('support', 'page');
+update_post_meta($post->ID, 'll_page_super_title', 'Поддержка');
+$post_data = array(
+    'ID' => $post->ID,
+    'post_title' => 'Напишите нам',
+    'post_content' => str_replace("<strong>услуги по внедрению и разработке нового функционала</strong>", "<a href=\"" . $prices_url . "\">услуги по внедрению и разработке нового функционала</a>", $post->post_content),
+);
+wp_update_post($post_data);
+

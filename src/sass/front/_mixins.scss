@@ -159,6 +159,11 @@
     padding: $leyka-base $leyka-base * 2;
     color: $leyka-color-text-dark;
 
+    &:focus {
+        background-color: $leyka-color-price-quick-start;
+        border: 1px solid $leyka-color-border-light;
+    }
+
     @include ll-placeholder {
         color: $leyka-color-text-light;
     }

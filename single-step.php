@@ -14,6 +14,17 @@ $prev_step = $steps_service->get_prev_category_step($post, $step_category);
 
 $page_permalink = get_the_permalink();
 
+// calc first and last steps
+$pagen = 1;
+foreach($main_steps as $post_item){
+    if(get_the_permalink($post_item) == $page_permalink){
+        break;
+    }
+    $pagen += 1;
+}
+$is_first_step = $pagen == 1;
+$is_last_step = $pagen == count($main_steps);
+
 get_header();?>
 
 <?php $page_templates->show_page_header($post);?>
@@ -30,8 +41,12 @@ get_header();?>
 		</div>
 		
 		<div class="nav-prev-next">
+			<?php if(!$is_first_step) {?>
     		<a href="<?php echo get_the_permalink($prev_step);?>" class="prev-step"><svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg>Предыдущий шаг</a>
+    		<?php }?>
+    		<?php if(!$is_last_step) {?>
     		<a href="<?php echo get_the_permalink($next_step);?>" class="btn btn-primary next-step">Следующий шаг<svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
+    		<?php }?>
 		</div>
 	</section>
 	

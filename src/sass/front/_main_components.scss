@@ -116,3 +116,94 @@
         line-height: 20px;
     }
 }
+
+// formidable forms
+.frm_forms {
+    margin-top: $leyka-base * 6;
+    z-index: 4;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: $leyka-base * 12;
+    }
+
+    .frm_form_fields {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+
+        .frm_fields_container {
+            width: 544px;
+
+            .form-field {
+                margin-top: $leyka-base * 3;
+                color: $leyka-color-text;
+
+                & > label {
+                    display: none;
+                }
+
+                select {
+                    @extend .form-control;
+                    @include leyka-text();
+                    @include leyka-form-control;
+                    background-color: $leyka-color-price-quick-start;
+                    border: 1px solid $leyka-color-border-light;
+                    box-shadow: unset;
+                }
+
+                input:not([type=checkbox]):not([type=radio]), textarea {
+                    @extend .form-control;
+                    @include leyka-text();
+                    @include leyka-form-control;
+                    box-shadow: unset;
+                }
+
+                input[type=checkbox] {
+                    background-color: $leyka-color-price-quick-start;
+                    border: 1px solid $leyka-color-border-light;
+                    box-shadow: unset;
+                }
+
+                .frm_opt_container {
+                    label {
+                        @include leyka-text-sm2;
+                        color: $leyka-color-text-light;
+
+                        a {
+                            color: $leyka-color-main;
+                        }
+                    }
+                }
+            }
+
+            .frm_submit {
+                margin-top: $leyka-base * 4;
+                text-align: center;
+
+                input {
+                    @extend .btn;
+                    width: 100%;
+
+                    cursor: pointer;
+                    border-radius: 100px;
+                    
+                    @include button-variant($leyka-color-main, $leyka-color-main);
+                    color: $leyka-color-white;
+
+                    box-shadow: none;
+                }
+
+                @include media-breakpoint-up(md) {
+                    text-align: left;
+
+                    input {
+                        width: 256px;
+                    }
+                }
+
+            }
+        }
+
+    }    
+}

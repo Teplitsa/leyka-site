@@ -476,7 +476,7 @@
     }
 }
 
-// 
+// default page
 .leyka-landing.page.page-template-default {
 
     .ll-page-content .ll-content {
@@ -492,4 +492,26 @@
             @include post-content;
         }
     }
+}
+
+// single post
+.leyka-landing.single.single-post {
+
+    .ll-page-header {
+        h1.ll-header, p.ll-header {
+            max-width: 80%;
+        }
+
+    }
+
+    .ll-page-content {
+        .ll-content {
+            padding-left: 0px;
+
+            .post-content {
+                @include post-content;
+            }
+        }
+    }
+
 }

@@ -18,6 +18,7 @@ $prices_url = get_the_permalink(ll_get_post('prices', 'page'));
 $itv_paseka_url = get_the_permalink(ll_get_post('itv-paseka', 'page'));
 $faq_url = get_the_permalink(ll_get_post('faq', 'page'));
 $sla_url = get_the_permalink(ll_get_post('sla', 'page'));
+$support_url = get_the_permalink(ll_get_post('support', 'page'));
 $docs_url = get_the_permalink(ll_get_post('what-is-leyka', LL_Docs_Service::$post_type));
 
 $menu_service = new LL_Menu_Service();
@@ -123,14 +124,14 @@ $item_data = array(
 );
 wp_update_nav_menu_item($menu_id, 0, $item_data);
 
-$item_data = array(
-    'menu-item-title' => "Новости",
-    'menu-item-url' => "/",
-    'menu-item-status' => 'publish',
-    'menu-item-type' => 'custom',
-    'menu-item-position' => 20,
-);
-wp_update_nav_menu_item($menu_id, 0, $item_data);
+// $item_data = array(
+//     'menu-item-title' => "Новости",
+//     'menu-item-url' => "/",
+//     'menu-item-status' => 'publish',
+//     'menu-item-type' => 'custom',
+//     'menu-item-position' => 20,
+// );
+// wp_update_nav_menu_item($menu_id, 0, $item_data);
 
 // footer menu3
 $menu_id = $menu_service->setup_and_clean_menu('footer3');
@@ -211,6 +212,15 @@ $item_data = array(
     'menu-item-status' => 'publish',
     'menu-item-type' => 'custom',
     'menu-item-position' => 20,
+);
+wp_update_nav_menu_item($menu_id, 0, $item_data);
+
+$item_data = array(
+    'menu-item-title' => "Написать нам",
+    'menu-item-url' => $support_url,
+    'menu-item-status' => 'publish',
+    'menu-item-type' => 'custom',
+    'menu-item-position' => 30,
 );
 wp_update_nav_menu_item($menu_id, 0, $item_data);
 
