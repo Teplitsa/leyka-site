@@ -4,7 +4,7 @@
 class LL_Faq_Service {
     static $post_type = 'faq';
     
-    function get_short_list( $num = 4 ) {
+    function get_short_list( $num = 100 ) {
         $posts = get_posts( array(
             'post_type' => self::$post_type,
             'posts_per_page' => $num,
