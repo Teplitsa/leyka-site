@@ -129,6 +129,7 @@ get_header();?>
                 <div class="form-group">
                     <select class="form-control price-selector">
                         <option value="quick-start"><?php echo get_theme_mod('ll_label_quick_start_price_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price_price'));?><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></option>
+                        <option value="quick-start-no-wp"><?php echo get_theme_mod('ll_label_quick_start_price2_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price2_price'));?><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></option>
                         <option value="first-aid"><?php echo get_theme_mod('ll_label_price1_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price1_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
                         <option value="priority"><?php echo get_theme_mod('ll_label_price2_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price2_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
                         <option value="analyst"><?php echo get_theme_mod('ll_label_price3_title');?> - <?php echo $prices_service->format_price(get_theme_mod('ll_label_price3_price'));?><?php echo get_theme_mod('ll_label_other_prices_currency');?></option>
