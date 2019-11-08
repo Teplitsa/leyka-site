@@ -47,6 +47,10 @@
         fill: #F2F9FD;
     }
 
+    &.color007 {
+        fill: rgba(242, 249, 253, 0.8);
+    }
+    
     &.color-intro-drop-lg {
         fill: #E8F9F8;
         @include media-breakpoint-down(sm) {

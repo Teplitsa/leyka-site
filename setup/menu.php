@@ -21,6 +21,9 @@ $sla_url = get_the_permalink(ll_get_post('sla', 'page'));
 $support_url = get_the_permalink(ll_get_post('support', 'page'));
 $docs_url = get_the_permalink(ll_get_post('what-is-leyka', LL_Docs_Service::$post_type));
 
+$demo_page = ll_get_post('demo-zone', 'page');
+$demo_zone_url = get_the_permalink($demo_page);
+
 $menu_service = new LL_Menu_Service();
 
 $menu_id = $menu_service->setup_and_clean_menu('primary');
@@ -49,6 +52,15 @@ $item_data = array(
     'menu-item-status' => 'publish',
     'menu-item-type' => 'custom',
     'menu-item-position' => 20,
+);
+wp_update_nav_menu_item($menu_id, 0, $item_data);
+
+$item_data = array(
+    'menu-item-title' => "Демо-зона",
+    'menu-item-url' => $demo_zone_url,
+    'menu-item-status' => 'publish',
+    'menu-item-type' => 'custom',
+    'menu-item-position' => 25,
 );
 wp_update_nav_menu_item($menu_id, 0, $item_data);
 

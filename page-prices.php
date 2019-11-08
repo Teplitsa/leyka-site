@@ -40,7 +40,7 @@ get_header();?>
     
     <div class="ll-page-content container">
     	<section class="ll-sidebar">
-    		<div class="ll-prices-description"><?php echo nl2br(get_theme_mod('ll_label_quick_start_price_description'));?></div>
+    		<div class="ll-prices-description"><?php echo nl2br(get_theme_mod('ll_label_other_prices_description'));?></div>
     	</section>
     	
     	<section class="ll-content other-prices">

@@ -18,6 +18,12 @@ $faq_tempaltes = new LL_Faq_Templates();
 $faq_service = new LL_Faq_Service();
 $faq_list = $faq_service->get_short_list();
 
+$cap_service = new LL_Capability_Service();
+$main_capabilites = $cap_service->get_capabilities(LL_Capability_Service::$main_capabilites_cat);
+
+$demo_page = ll_get_post('demo-zone', 'page');
+$demo_zone_url = get_the_permalink($demo_page);
+
 get_header(); ?>
 
 <section class="leyka-intro container">
@@ -102,11 +108,9 @@ get_header(); ?>
 
 <section class="leyka-features container">
 	<div class="screen">
-		<img alt="" src="<?php echo get_template_directory_uri();?>/assets/img/screen-24pm.png" class="active" />
-		<img alt="" src="<?php echo get_template_directory_uri();?>/assets/img/screen-fizur.png" />
-		<img alt="" src="<?php echo get_template_directory_uri();?>/assets/img/screen-recur-single.png" />
-		<img alt="" src="<?php echo get_template_directory_uri();?>/assets/img/screen-donor-acc.png" />
-		<img alt="" src="<?php echo get_template_directory_uri();?>/assets/img/screen-donat-report.png" />
+		<?php foreach($main_capabilites as $i => $post){?>
+			<img alt="<?php echo esc_html($post->post_title);?>" src="<?php echo get_the_post_thumbnail_url( $post, 'medium_large' );?>" <?php if(!$i){?>class="active"<?php }?> />
+		<?php }?>
 	</div>
 	
 	<div class="features-bar">
@@ -374,6 +378,9 @@ get_header(); ?>
 
 <section class="leyka-congrats">
 	<p><?php echo get_theme_mod('ll_label_congrats');?></p>
+	<div class="ll-visit-demo-zone">
+		<?php echo get_theme_mod('ll_label_demo_want_to_see');?> <a href="<?php echo $demo_zone_url;?>"><?php echo get_theme_mod('ll_label_demo_watch_demo');?></a>
+	</div>
 </section>
 
 <section class="leyka-faq-list container">
@@ -387,24 +394,21 @@ get_header(); ?>
     	<div class="subscription">
     		<span><?php echo get_theme_mod('ll_label_news_be_informed');?></span>
         	<ul>
+        		<?php for($i = 1; $i <= 3; $i++) {
+        		    $url = get_theme_mod('ll_label_news_channel'.$i.'_url');
+        		    $title = get_theme_mod('ll_label_news_channel'.$i.'_title');
+        		    
+        		    if(!$url || !$title) {
+        		        continue;
+        		    }
+        		?>
         		<li>
-        			<a href="<?php echo get_theme_mod('ll_label_news_channel1_url');?>">
+        			<a href="<?php echo $url;?>">
         				<svg><use xlink:href="#icon-arrow-circle-right" /></svg>
-        				<span><?php echo get_theme_mod('ll_label_news_channel1_title');?></span>
+        				<span><?php echo $title;?></span>
         			</a>
         		</li>
-        		<li>
-        			<a href="<?php echo get_theme_mod('ll_label_news_channel2_url');?>">
-        				<svg><use xlink:href="#icon-arrow-circle-right" /></svg>
-        				<span><?php echo get_theme_mod('ll_label_news_channel2_title');?></span>
-        			</a>
-        		</li>
-        		<li>
-        			<a href="<?php echo get_theme_mod('ll_label_news_channel3_url');?>" target="_blank">
-        				<svg><use xlink:href="#icon-arrow-circle-right" /></svg>
-        				<span><?php echo get_theme_mod('ll_label_news_channel3_title');?></span>
-        			</a>
-        		</li>
+        		<?php }?>
         	</ul>
     	</div>
     	
@@ -470,7 +474,10 @@ get_header(); ?>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data4_label');?></span>
 		</div>
 	</div>
-	<a href="<?php echo get_theme_mod('ll_install_leyka_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
+	<div class="ll-stats-actions">
+		<a href="<?php echo get_theme_mod('ll_install_leyka_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>
+		<a href="<?php echo $demo_zone_url;?>" class="btn btn-outline-primary"><?php echo get_theme_mod('ll_label_demo_access');?></a>
+	</div>
 </section>
 
 <?php get_footer();

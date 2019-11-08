@@ -218,6 +218,61 @@
             }
         }
     }
+
+    // new capabilities
+    .ll-new-cap-content {
+        margin-top: $leyka-base * 11;
+
+        h3 {
+            @include leyka-text-lg2;
+            color: $leyka-color-text-dark;
+            margin-bottom: $leyka-base * 6;
+            text-align: center;
+        }
+    }
+
+    .ll-new-cap-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .ll-new-cap {
+        display: flex;
+        width: 50%;
+        max-width: 448px;
+        margin-bottom: $leyka-base * 6;
+
+        .ll-cap-icon {
+            width: 96px;
+            height: 90px;
+            margin-right: $leyka-base * 4;
+            position: relative;
+
+            .icon-drop {
+                width: 96px;
+                height: 90px;
+            }
+
+            img {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .ll-info {
+            h2 {
+                @include leyka-text-lg1-fixed;
+                color: $leyka-color-text-dark;
+            }
+
+            p {
+                @include leyka-text-sm1;
+                color: $leyka-color-text;
+            }
+        }
+    }
 }
 
 // orgs

@@ -204,6 +204,10 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_congrats', esc_html__( 'Congratulations', 'll' ), 'll_hiw_labels',
         array( 'type' => 'textarea' ));
 
+    $ll_customizer->add_label_setting( 'll_label_demo_want_to_see', esc_html__( 'Want to see demo', 'll' ), 'll_hiw_labels');
+    $ll_customizer->add_label_setting( 'll_label_demo_watch_demo', esc_html__( 'Try it', 'll' ), 'll_hiw_labels');
+    $ll_customizer->add_label_setting( 'll_label_demo_access', esc_html__( 'Demo access', 'll' ), 'll_hiw_labels');
+    
     
     // news
     $wp_customize->add_section(
@@ -414,12 +418,14 @@ function ll_customize_register_capabilities_page_labels($wp_customize, $ll_custo
         ));
     
     
-    for($i = 1; $i <= LL_Capability_Service::$number; $i++) {
-        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_title', esc_html__( 'Capability title', 'll' ), 'll_capabilities_labels' );
-        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_description', esc_html__( 'Capability description', 'll' ), 'll_capabilities_labels', array( 'type' => 'textarea' ) );
-        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_title', esc_html__( 'Link title', 'll' ), 'll_capabilities_labels' );
-        $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_url', esc_html__( 'Link URL', 'll' ), 'll_capabilities_labels' );
-    }
+//     for($i = 1; $i <= LL_Capability_Service::$number; $i++) {
+//         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_title', esc_html__( 'Capability title', 'll' ), 'll_capabilities_labels' );
+//         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_description', esc_html__( 'Capability description', 'll' ), 'll_capabilities_labels', array( 'type' => 'textarea' ) );
+//         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_title', esc_html__( 'Link title', 'll' ), 'll_capabilities_labels' );
+//         $ll_customizer->add_label_setting( 'll_label_capability' . $i . '_link_url', esc_html__( 'Link URL', 'll' ), 'll_capabilities_labels' );
+//     }
+
+    $ll_customizer->add_label_setting( 'll_label_capability_new_caps_title', esc_html__( 'New capabilities title', 'll' ), 'll_capabilities_labels' );
     
 }
 
@@ -444,12 +450,12 @@ function ll_customize_register_orgs_page_labels($wp_customize, $ll_customizer) {
         ));
     
     $ll_customizer->add_label_setting( 'll_label_orgs_what_category', esc_html__( 'What category select item', 'll' ), 'll_orgs_page_labels_common_section' );
-    $ll_customizer->add_label_setting( 'll_label_upload_org_logo_file_details', esc_html__( 'File format details', 'll' ), 'll_capabilities_labels', array( 'type' => 'textarea' ) );
+    $ll_customizer->add_label_setting( 'll_label_upload_org_logo_file_details', esc_html__( 'File format details', 'll' ), 'll_orgs_page_labels_common_section', array( 'type' => 'textarea' ) );
     $ll_customizer->add_label_setting( 'll_label_orgs_upload_file', esc_html__( 'Upload file button caption', 'll' ), 'll_orgs_page_labels_common_section' );
     $ll_customizer->add_label_setting( 'll_label_orgs_submit_new', esc_html__( 'Submit button caption', 'll' ), 'll_orgs_page_labels_common_section' );
-    $ll_customizer->add_label_setting( 'll_label_back_to_orgs_list_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );
-    $ll_customizer->add_label_setting( 'll_message_org_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_common_prices_labels' );
-    $ll_customizer->add_label_setting( 'll_message_org_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_common_prices_labels' );
+    $ll_customizer->add_label_setting( 'll_label_back_to_orgs_list_caption', esc_html__( 'Go back button caption', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_orgs_page_labels_common_section' );
     
 }
 

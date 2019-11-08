@@ -1064,15 +1064,17 @@
                     	width: 24px;
                     	height: 24px;
                     	fill: $leyka-color-main;
+                        display: none;
 
                     	@include media-breakpoint-down(sm) {
-                    		display: block;
+                    		//display: block;
+                            display: none;
                     	}
                     }
 
                     span {
                     	color: $leyka-color-link;
-                    	margin-left: 12px;
+                    	//margin-left: 12px;
 
                     	@include media-breakpoint-down(sm) {
                     		@include leyka-text-sm1;
@@ -1100,8 +1102,20 @@
 	height: 211px;
 	overflow: visible;
 	display: flex;
+    flex-flow: column;
 	align-items: center;
 	justify-content: center;
+    padding-top: $leyka-base * 2;
+
+    &>p {
+
+    }
+
+    .ll-visit-demo-zone {
+        margin-top: $leyka-base * 2;
+        @include leyka-text;
+        color: $leyka-color-text-dark;
+    }
 
     @include media-breakpoint-down(sm) {
     	text-align: center;
@@ -1518,6 +1532,15 @@
             	margin-top: $leyka-base;
             	display: block;
             	text-align: center;
+            }
+        }
+    }
+
+    .ll-stats-actions {
+        .btn {
+            width: 264px;
+            &:not(:last-child) {
+                margin-right: $leyka-base * 4;
             }
         }
     }
