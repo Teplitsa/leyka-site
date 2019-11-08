@@ -311,7 +311,7 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_title', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_case', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_case', esc_html__( 'Case', 'll' ), 'll_quick_start_price_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_price', esc_html__( 'Price', 'll' ), 'll_quick_start_price_labels' );
     
@@ -320,6 +320,22 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_point2', esc_html__( 'Point 2', 'll' ), 'll_quick_start_price_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_point3', esc_html__( 'Point 3', 'll' ), 'll_quick_start_price_labels' );
+    
+    
+    // case2
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_title', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_case', esc_html__( 'Case', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_price', esc_html__( 'Price', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_point0', esc_html__( 'Point 0', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_point1', esc_html__( 'Point 1', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_point2', esc_html__( 'Point 2', 'll' ), 'll_quick_start_price_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price2_point3', esc_html__( 'Point 3', 'll' ), 'll_quick_start_price_labels' );
     
     
     // subscriptions
