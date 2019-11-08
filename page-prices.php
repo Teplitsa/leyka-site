@@ -52,7 +52,7 @@ get_header();?>
         			<div class="points">
         				<h4><?php echo get_theme_mod('ll_label_quick_start_price2_case');?></h4>
             			<ul>
-            				<li class="extra-work"><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point1');?></span></li>
+            				<li class="extra-work"><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point0');?></span></li>
             				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point1');?></span></li>
             				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point2');?></span></li>
             				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point3');?></span></li>
