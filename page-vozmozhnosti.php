@@ -20,7 +20,9 @@ get_header();?>
 	    $cap_link_url = get_post_meta($post->ID, LL_Capability_Service::$meta_capability_link_url, true);
 	?>
 		<div class="ll-capability">
-			<img alt="<?php echo esc_html($post->post_title);?>" src="<?php echo get_the_post_thumbnail_url( $post, 'medium_large' );?>" />
+			<div class="ll-img">
+				<img alt="<?php echo esc_html($post->post_title);?>" src="<?php echo get_the_post_thumbnail_url( $post, 'medium_large' );?>" />
+			</div>
 			<div class="ll-info">
         		<h2><?php echo esc_html($post->post_title);?></h2>
         		<p><?php echo esc_html($post->post_content);?></p>

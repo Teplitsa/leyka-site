@@ -311,6 +311,8 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_title', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
     
+    $ll_customizer->add_label_setting( 'll_label_quick_start_price_case', esc_html__( 'Title', 'll' ), 'll_quick_start_price_labels' );
+    
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_price', esc_html__( 'Price', 'll' ), 'll_quick_start_price_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_point1', esc_html__( 'Point 1', 'll' ), 'll_quick_start_price_labels' );

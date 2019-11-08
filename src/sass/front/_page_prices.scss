@@ -45,11 +45,27 @@
         z-index: 2;
         background-color: $leyka-color-white;
 
-        &.quick-start-price {
-            background-color: $leyka-color-price-quick-start;
-            padding-top: $leyka-base * 5;
-            padding-bottom: $leyka-base * 6;
-            border-radius: 10px;
+        &.quick-start-prices {
+            padding-left: 0;
+
+            .quick-start-price {
+                background-color: $leyka-color-price-quick-start;
+                padding-top: $leyka-base * 5;
+                padding-bottom: $leyka-base * 6;
+                border-radius: 10px;
+                padding-left: $leyka-base * 4;
+
+                &:not(:last-child) {
+                    margin-bottom: $leyka-base * 4;
+                }
+
+                &.extra-work-needed {
+                    li.extra-work {
+                        color: $leyka-color-link;
+                    }
+                }
+            }
+
         }
 
         &.other-prices {
@@ -114,6 +130,10 @@
 
                 .points {
                     margin-left: 0;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-top: $leyka-base * 3;
+                    }
                 }
             }
         }
@@ -211,8 +231,19 @@
                 margin-top: $leyka-base * 4;                
 
                 @include media-breakpoint-up(lg) {
-                    margin-top: 8px;
+                    margin-top: $leyka-base;
                     margin-left: $leyka-base * 9;
+                }
+
+                h4 {
+                    @include leyka-text-sm1;
+                    color: $leyka-color-text;
+                    margin-bottom: $leyka-base * 1.5;
+                    margin-top: -$leyka-base;
+
+                    &:empty {
+                        display: none;
+                    }
                 }
 
                 li {
@@ -222,7 +253,7 @@
                     min-height: $leyka-base * 4;
 
                     &:not(:last-child) {
-                        margin-bottom: $leyka-base * 2;
+                        margin-bottom: $leyka-base * 1.5;
                     }
 
                     span {

@@ -50,8 +50,8 @@ $posts_data = array(
         ),
     ),
     array(
-        'post_title' => 'Dashboard: Вся отчетность на одном экране',
-        'post_name' => 'capability-reports',
+        'post_title' => 'Регулярные и разовые платежи',
+        'post_name' => 'capability-recurring-donations',
         'post_excerpt' => '',
         'post_content' => 'Лейка – это плагин для Wordpress’a. Но установить его не трудно, тем более у нас есть подробная видео-инструкция',
         'thumbnail_path' => '/data/capabilities/screen-cap3.png',
@@ -72,8 +72,8 @@ $posts_data = array(
         ),
     ),
     array(
-        'post_title' => 'Регулярные и разовые платежи',
-        'post_name' => 'capability-recurring-donations',
+        'post_title' => 'Dashboard: Вся отчетность на одном экране',
+        'post_name' => 'capability-reports',
         'post_excerpt' => '',
         'post_content' => 'Лейка – это плагин для Wordpress’a. Но установить его не трудно, тем более у нас есть подробная видео-инструкция',
         'thumbnail_path' => '/data/capabilities/screen-cap5.png',

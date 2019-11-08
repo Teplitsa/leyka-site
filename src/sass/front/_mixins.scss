@@ -357,8 +357,10 @@
         margin-bottom: $leyka-base;
     }
 
-    img {
+    & > img,
+    & > figure {
         margin-top: $leyka-base * 2;
+        
         &:not(:last-child) {
             margin-bottom: $leyka-base * 2;
         }

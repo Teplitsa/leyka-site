@@ -56,6 +56,8 @@ Email: {email}
 // quick start
 ll_set_theme_mod_safe('ll_label_quick_start_price_title', "Быстрый старт");
 
+ll_set_theme_mod_safe('ll_label_quick_start_price_case', "У вас уже сайт на WordPress и подключенный домен");
+
 ll_set_theme_mod_safe('ll_label_quick_start_price_price', "6 900");
 
 ll_set_theme_mod_safe('ll_label_quick_start_price_point1', "Подключение и настройка Лейки");
@@ -63,6 +65,21 @@ ll_set_theme_mod_safe('ll_label_quick_start_price_point1', "Подключени
 ll_set_theme_mod_safe('ll_label_quick_start_price_point2', "Рекурентные платежи для одного из платежных методов");
 
 ll_set_theme_mod_safe('ll_label_quick_start_price_point3', "Функционал постоянной кампании и доведением до стиля сайта");
+
+// quick start case2
+ll_set_theme_mod_safe('ll_label_quick_start_price2_title', "Быстрый старт +");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_case', "Ваш сайт на другой системе");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_price', "11 900");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_point0', "Настройка поддомена и установка WordPress");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_point1', "Подключение и настройка Лейки");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_point2', "Рекурентные платежи для одного из платежных методов");
+
+ll_set_theme_mod_safe('ll_label_quick_start_price2_point3', "Функционал постоянной кампании и доведением до стиля сайта");
 
 // other prices
 // price1
