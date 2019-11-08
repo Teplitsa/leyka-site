@@ -47,7 +47,7 @@ get_header();?>
         			<div class="price">
             			<h4><?php echo get_theme_mod('ll_label_quick_start_price2_title');?></h4>
             			<h3><?php echo $prices_service->format_price(get_theme_mod('ll_label_quick_start_price2_price'));?><sup><?php echo get_theme_mod('ll_label_quick_start_price_currency');?></sup></h3>
-            			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start" class="btn btn-primary desktop ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+            			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start-no-wp" class="btn btn-primary desktop ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
         			</div>
         			<div class="points">
         				<h4><?php echo get_theme_mod('ll_label_quick_start_price2_case');?></h4>
@@ -58,7 +58,7 @@ get_header();?>
             				<li><svg class="svg-icon"><use xlink:href="#icon-check-lite" /></svg><span><?php echo get_theme_mod('ll_label_quick_start_price2_point3');?></span></li>
             			</ul>
         			</div>
-        			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start" class="btn btn-primary mobile ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
+        			<a href="<?php echo get_theme_mod('ll_label_quick_start_price_submit_url');?>" data-price="quick-start-no-wp" class="btn btn-primary mobile ll-open-make-order-form"><?php echo get_theme_mod('ll_label_quick_start_price_submit_caption');?></a>
         		</div>
     		</div>
     		
