@@ -23,3 +23,7 @@ function wpdocs_excerpt_more( $more ) {
     return '...';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+add_filter('wp_mail_content_type', function(){
+    return 'text/html';
+});
