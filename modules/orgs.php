@@ -80,7 +80,7 @@ class LL_Orgs_Templates {
         $url = get_the_excerpt($post);
         ?>
 		<div class="ll-org">
-			<a class="org-logo" href="<?php echo $url;?>" target="_blank"><img alt="<?php echo $title;?>" title="<?php echo $title;?>" src="<?php echo get_the_post_thumbnail_url( $post, 'thumbnail' );?>" /></a>
+			<a class="org-logo" href="<?php echo $url;?>" target="_blank"><img alt="<?php echo $title;?>" title="<?php echo $title;?>" src="<?php echo get_the_post_thumbnail_url( $post, 'medium' );?>" /></a>
 		</div>
         <?php
     }
@@ -224,6 +224,15 @@ class LL_Orgs_Hooks {
                 }
             }
             
+            $org_params['edit_url'] = admin_url('/post.php?post='.$post_id.'&action=edit');
+            
+            $email_body = preg_replace_callback("/\{(\w*?)\}/", function($match) use ($org_params) {
+                return !empty($org_params[$match[1]]) ? $org_params[$match[1]] : "";
+            }, get_theme_mod('ll_message_org_submitted_email_body'));
+                
+            $email_subject = get_theme_mod('ll_message_org_submitted_email_subject');
+                
+            wp_mail(get_option('admin_email'), $email_subject, $email_body);
             
             $submit_status = 'success';
             $message = 'll_message_org_submitted_ok';

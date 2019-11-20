@@ -474,6 +474,8 @@ function ll_customize_register_orgs_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_back_to_orgs_list_caption', esc_html__( 'Go back button caption', 'll' ), 'll_orgs_page_labels_common_section' );
     $ll_customizer->add_label_setting( 'll_message_org_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_orgs_page_labels_common_section' );
     $ll_customizer->add_label_setting( 'll_message_org_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_email_subject', esc_html__( 'Admin notif subject', 'll' ), 'll_orgs_page_labels_common_section' );
+    $ll_customizer->add_label_setting( 'll_message_org_submitted_email_body', esc_html__( 'Admin notif text', 'll' ), 'll_orgs_page_labels_common_section', array( 'type' => 'textarea' ) );
     
 }
 

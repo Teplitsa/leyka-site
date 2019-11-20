@@ -8,6 +8,23 @@ if ( ! defined( 'WPINC' ) ) {
 	die();
 }
 
+# old pages redirects
+if(preg_match("/\/instruction\/?$/", $_SERVER['REQUEST_URI'])) {
+    wp_redirect('/docs/what-is-leyka/', 301);
+    exit;
+}
+
+if(preg_match("/\/leyka-standalone\/?$/", $_SERVER['REQUEST_URI'])) {
+    wp_redirect('/step/step-setup-on-wp/', 301);
+    exit;
+}
+
+if(preg_match("/\/for-developers\/?$/", $_SERVER['REQUEST_URI'])) {
+    wp_redirect('/docs/sistemnye-trebovaniya/', 301);
+    exit;
+}
+
+# set conts
 const LL_FUNDRAIZING_ADVICES_SLUG = 'fundraising_advices';
 const LL_FORCE_THEME_MOD_SETUP = false;
 

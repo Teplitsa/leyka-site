@@ -157,8 +157,8 @@ ll_set_theme_mod_safe('ll_label_orgs_submit_new', "Отправить");
 ll_set_theme_mod_safe('ll_label_orgs_upload_file', "Загрузить логотип");
 ll_set_theme_mod_safe('ll_label_orgs_what_category', "Категория вашей организации");
 ll_set_theme_mod_safe('ll_label_back_to_orgs_list_caption', "Вернуться к списку");
-ll_set_theme_mod_safe('ll_label_upload_org_logo_file_details', "Загрузите файл в формате .jpg, .png
-Размер файла не больше 8Мб");
+ll_set_theme_mod_safe('ll_label_upload_org_logo_file_details', "Загрузите лого в формате .jpg, .png
+Рекомендуемый размер картинки 320х200. Размер файла не больше 8Мб.");
 
 ll_set_theme_mod_safe('ll_label_all_organizations', "Все организации");
 ll_set_theme_mod_safe('ll_label_add_your_org', "Добавьте свой ресурс");
@@ -166,6 +166,15 @@ ll_set_theme_mod_safe('ll_label_show_more_orgs', "Показать ещё");
 
 ll_set_theme_mod_safe('ll_message_org_submitted_error', "При отправке формы произошла ошибка. Попробуйте еще раз позднее.");
 ll_set_theme_mod_safe('ll_message_org_submitted_ok', "Информация о вашей организации сохранена. Спасибо!");
+
+ll_set_theme_mod_safe('ll_message_org_submitted_email_subject', "Новая организация на сайте Лейки");
+
+ll_set_theme_mod_safe('ll_message_org_submitted_email_body', "Детали организации:
+    
+Название: {post_title}
+Сайт: {post_excerpt}
+Ссылка на пост: {edit_url}
+");
 
 // ll_set_theme_mod_safe('', "");
 // ll_set_theme_mod_safe('', "");

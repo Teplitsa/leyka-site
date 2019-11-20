@@ -92,7 +92,7 @@ get_header(); ?>
 		<div class="orgs-row">
 			<div class="row-inner" id="orgs_row_inner">
         		<?php foreach($orgs_list as $post):?>
-    			<div class="org-logo"><img alt="<?php echo get_the_title($post);?>" src="<?php echo get_the_post_thumbnail_url( $post, 'thumbnail' );?>" /></div>
+    			<div class="org-logo"><img alt="<?php echo get_the_title($post);?>" src="<?php echo get_the_post_thumbnail_url( $post, 'medium' );?>" /></div>
             	<?php endforeach;?>
     		</div>
 		</div>
