@@ -68,7 +68,7 @@ class LL_Faq_Service {
             'hierarchical'        => false,
             'menu_position'       => 5,
             'menu_icon'           => 'dashicons-editor-help',
-            'supports'            => array('title', 'editor'),
+            'supports'            => array('title', 'editor', 'page-attributes'),
             'taxonomies'          => array(),
         ) );
         
