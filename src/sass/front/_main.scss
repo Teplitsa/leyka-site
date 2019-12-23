@@ -1136,6 +1136,14 @@
     @include media-breakpoint-down(sm) {
     	margin-top: $leyka-base * 7;
     }
+
+    .ll-faq-view-all {
+        text-align: center;
+
+        a {
+
+        }
+    }
 	
     ul.faq-list {
         & > li {
@@ -1277,7 +1285,7 @@
 .site-content section.leyka-news {
     // display: none !important;    
 
-	margin-top: $leyka-base * 10;
+	margin-top: $leyka-base * 8;
 
     @include media-breakpoint-down(sm) {
     	margin-top: 101px;

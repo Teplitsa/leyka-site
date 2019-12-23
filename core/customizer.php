@@ -208,6 +208,16 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
     $ll_customizer->add_label_setting( 'll_label_demo_watch_demo', esc_html__( 'Try it', 'll' ), 'll_hiw_labels');
     $ll_customizer->add_label_setting( 'll_label_demo_access', esc_html__( 'Demo access', 'll' ), 'll_hiw_labels');
     
+    $wp_customize->add_section(
+        'll_faq_labels',
+        array(
+            'title' => esc_html__( 'Faq', 'll' ),
+            'capability' => 'edit_theme_options',
+            'panel' => 'll_main_page_labels' ) );
+    
+    $ll_customizer->add_label_setting( 'll_label_faq_view_all_faq', esc_html__( 'View all faq', 'll' ), 'll_faq_labels');
+    
+    
     
     // news
     $wp_customize->add_section(
@@ -255,6 +265,7 @@ function ll_customize_register_home_page_labels($wp_customize, $ll_customizer) {
 
     $ll_customizer->add_label_setting( 'll_label_footer_menu_title1', esc_html__( 'Menu title 1', 'll' ), 'll_footer_labels' );
     $ll_customizer->add_label_setting( 'll_label_footer_menu_title2', esc_html__( 'Menu title 2', 'll' ), 'll_footer_labels' );
+    $ll_customizer->add_label_setting( 'll_label_footer_menu_title3', esc_html__( 'Menu title 3', 'll' ), 'll_footer_labels' );
     $ll_customizer->add_label_setting( 'll_label_footer_created_by', esc_html__( 'Created by', 'll' ), 'll_footer_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_footer_created_by_explanation', esc_html__( 'Created by explanation', 'll' ), 'll_footer_labels',
@@ -299,6 +310,8 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
     
     $ll_customizer->add_label_setting( 'll_label_back_to_prices_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );    
+
+    $ll_customizer->add_label_setting( 'll_label_i_need_installation_assistance', esc_html__( 'Link in steps label', 'll' ), 'll_common_prices_labels' );
     
     // quick start
     $wp_customize->add_section(

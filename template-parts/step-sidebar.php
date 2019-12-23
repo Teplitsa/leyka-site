@@ -3,6 +3,9 @@
 $steps_service = new LL_Steps_Service();
 $other_steps_cats = $steps_service->get_other_categories($steps_service->get_current_category());
 
+$prices_page = ll_get_post('prices', 'page');
+$prices_page_url = get_the_permalink($prices_page);
+
 ?>
 
 <div class="steps-sidebar-inner">
@@ -14,5 +17,6 @@ $other_steps_cats = $steps_service->get_other_categories($steps_service->get_cur
 		?>
 		<a href="<?php echo $url;?>"><?php echo $term->name;?></a>
 		<?php }?>
+		<a href="<?php echo $prices_page_url;?>"><?php echo get_theme_mod('ll_label_i_need_installation_assistance');?></a>
 	</div>
 </div>	

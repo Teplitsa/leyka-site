@@ -17,6 +17,8 @@ $faq_tempaltes = new LL_Faq_Templates();
 
 $faq_service = new LL_Faq_Service();
 $faq_list = $faq_service->get_short_list();
+$faq_page = ll_get_post('faq', 'page');
+$faq_view_all_url = get_the_permalink($faq_page);
 
 $cap_service = new LL_Capability_Service();
 $main_capabilites = $cap_service->get_capabilities(LL_Capability_Service::$main_capabilites_cat);
@@ -385,6 +387,9 @@ get_header(); ?>
 
 <section class="leyka-faq-list container">
 	<?php $faq_tempaltes->show_list($faq_list);?>
+	<div class="ll-faq-view-all">
+		<a href="<?php echo $faq_view_all_url;?>"><?php echo get_theme_mod('ll_label_faq_view_all_faq');?></a>
+	</div>	
 </section>
 
 <section class="leyka-news container">

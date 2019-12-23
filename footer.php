@@ -29,7 +29,7 @@ $cc_link = '<a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_bl
 
 		<div class="col-lg-2 col-6">
             <div class="widget widget_nav_menu">
-            	<h2 class="widget-title"></h2>
+            	<h2 class="widget-title"><?php echo get_theme_mod('ll_label_footer_menu_title2');?></h2>
             	<div>
             		<?php wp_nav_menu(array('menu' => 'footer2', 'container' => false, 'menu_class' => 'menu'));?>
             	</div>
@@ -37,12 +37,12 @@ $cc_link = '<a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_bl
 		</div>
 
 		<div class="col-12 ll-mobile-menu-title">
-        	<h2 class="widget-title"><?php echo get_theme_mod('ll_label_footer_menu_title2');?></h2>
+        	<h2 class="widget-title"><?php echo get_theme_mod('ll_label_footer_menu_title3');?></h2>
 		</div>
 
 		<div class="col-lg-2 col-6">
             <div class="widget widget_nav_menu">
-            	<h2 class="widget-title"><?php echo get_theme_mod('ll_label_footer_menu_title2');?></h2>
+            	<h2 class="widget-title"><?php echo get_theme_mod('ll_label_footer_menu_title3');?></h2>
             	<div>
             		<?php wp_nav_menu(array('menu' => 'footer3', 'container' => false, 'menu_class' => 'menu'));?>
             	</div>
