@@ -462,22 +462,30 @@ get_header(); ?>
 
 <section class="leyka-general-stats container-fluid">
 	<div class="stats-list">
+		<?php if(get_theme_mod('ll_label_stats_data1_value')){?>
 		<div class="stats-item">
 			<span class="data"><?php echo get_theme_mod('ll_label_stats_data1_value');?></span>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data1_label');?></span>
 		</div>
+		<?php }?>
+		<?php if(get_theme_mod('ll_label_stats_data2_value')){?>
 		<div class="stats-item">
 			<span class="data"><?php echo get_theme_mod('ll_label_stats_data2_value');?></span>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data2_label');?></span>
 		</div>
+		<?php }?>
+		<?php if(get_theme_mod('ll_label_stats_data3_value')){?>
 		<div class="stats-item">
 			<span class="data"><?php echo get_theme_mod('ll_label_stats_data3_value');?></span>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data3_label');?></span>
 		</div>
+		<?php }?>
+		<?php if(get_theme_mod('ll_label_stats_data4_value')){?>
 		<div class="stats-item">
 			<span class="data"><?php echo get_theme_mod('ll_label_stats_data4_value');?></span>
 			<span class="label"><?php echo get_theme_mod('ll_label_stats_data4_label');?></span>
 		</div>
+		<?php }?>
 	</div>
 	<div class="ll-stats-actions">
 		<a href="<?php echo get_theme_mod('ll_install_leyka_url');?>" class="btn btn-primary"><?php echo get_theme_mod('ll_label_install_leyka_caption');?></a>

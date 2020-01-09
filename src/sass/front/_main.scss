@@ -1545,10 +1545,15 @@
     }
 
     .ll-stats-actions {
+        text-align: center;
+        
         .btn {
             width: 264px;
-            &:not(:last-child) {
-                margin-right: $leyka-base * 4;
+
+            @include media-breakpoint-up(lg) {
+                &:not(:last-child) {
+                    margin-right: $leyka-base * 4;
+                }
             }
         }
     }

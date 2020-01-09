@@ -35,8 +35,13 @@ class LL_Prices_Hooks {
             }, get_theme_mod('ll_message_order_submitted_email_body'));
             
             $email_subject = get_theme_mod('ll_message_order_submitted_email_subject');
-                
-            wp_mail(get_option('admin_email'), $email_subject, $email_body);
+            
+            $email_to = get_option('admin_email');
+            $extra_order_recipients = trim(get_theme_mod('ll_message_order_submitted_email_extra_recipients'));
+            if($extra_order_recipients) {
+                $email_to .= "," . $extra_order_recipients;
+            }
+            wp_mail($email_to, $email_subject, $email_body);
 
             $submit_status = 'success';
             $message = 'll_message_order_submitted_ok';

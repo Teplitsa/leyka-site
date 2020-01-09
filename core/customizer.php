@@ -410,7 +410,7 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $wp_customize->add_section(
         'll_submit_order_form_labels',
         array(
-            'title' => esc_html__( 'Submit order labels', 'll' ),
+            'title' => esc_html__( 'Submit order options', 'll' ),
             'capability' => 'edit_theme_options',
             'panel' => 'll_prices_page_labels'
         ));
@@ -419,6 +419,8 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $ll_customizer->add_label_setting( 'll_message_order_submitted_ok', esc_html__( 'Success message', 'll' ), 'll_submit_order_form_labels' );
     
     $ll_customizer->add_label_setting( 'll_message_order_submitted_error', esc_html__( 'Fail message', 'll' ), 'll_submit_order_form_labels' );
+    
+    $ll_customizer->add_label_setting( 'll_message_order_submitted_email_extra_recipients', esc_html__( 'Extra order recipients', 'll' ), 'll_submit_order_form_labels' );
     
     $ll_customizer->add_label_setting( 'll_message_order_submitted_email_subject', esc_html__( 'Email subject', 'll' ), 'll_submit_order_form_labels' );
     

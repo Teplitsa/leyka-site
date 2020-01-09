@@ -53,7 +53,13 @@
                 padding-top: $leyka-base * 5;
                 padding-bottom: $leyka-base * 6;
                 border-radius: 10px;
-                padding-left: $leyka-base * 4;
+                padding-left: $leyka-base * 3;
+                padding-right: $leyka-base * 3;
+
+                @include media-breakpoint-up(lg) {
+                    padding-left: $leyka-base * 4;
+                    padding-right: 0px;
+                }
 
                 &:not(:last-child) {
                     margin-bottom: $leyka-base * 4;
@@ -276,18 +282,18 @@
     }
 
     .leyka-howtostart {
+        .container {
+            & > p, & > a {
+                display: none;
+            }
+        }
+
         @include media-breakpoint-up(lg) {
             margin-top: -150px;
             z-index: 1;
 
             svg {
                 margin-left: -54px;
-            }
-
-            .container {
-                & > p, & > a {
-                    display: none;
-                }
             }
         }
     }
