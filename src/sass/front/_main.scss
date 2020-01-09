@@ -1501,6 +1501,7 @@
 
 		@include media-breakpoint-down(md) {
 			flex-wrap: wrap;
+            align-items: stretch;
 			justify-content: space-between;
 		}
 
@@ -1546,7 +1547,7 @@
 
     .ll-stats-actions {
         text-align: center;
-        
+
         .btn {
             width: 264px;
 
