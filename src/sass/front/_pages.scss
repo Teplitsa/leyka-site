@@ -284,6 +284,10 @@
                 @include leyka-text-sm1;
                 color: $leyka-color-text;
             }
+
+            & > a {
+                font-size: 16px;
+            }
         }
     }
 }

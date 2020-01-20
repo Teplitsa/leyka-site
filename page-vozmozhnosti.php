@@ -40,7 +40,10 @@ get_header();?>
 	<div class="ll-content ll-new-cap-content">
 		<h3><?php echo get_theme_mod('ll_label_capability_new_caps_title');?></h3>
 		<div class="ll-new-cap-list">
-	<?php foreach($new_capabilites as $i => $post){	?>
+	<?php foreach($new_capabilites as $i => $post){
+	    $cap_link_title = get_post_meta($post->ID, LL_Capability_Service::$meta_capability_link_title, true);
+	    $cap_link_url = get_post_meta($post->ID, LL_Capability_Service::$meta_capability_link_url, true);
+	?>
 		<div class="ll-new-cap">
 			<div class="ll-cap-icon">
 				<svg class="svg-icon icon-drop color007"><use xlink:href="#icon-drop-006" /></svg>
@@ -49,6 +52,9 @@ get_header();?>
 			<div class="ll-info">
         		<h2><?php echo esc_html($post->post_title);?></h2>
         		<p><?php echo esc_html($post->post_content);?></p>
+        		<?php if($cap_link_title && $cap_link_url) {?>
+        		<a href="<?php echo $cap_link_url;?>"><?php echo $cap_link_title;?></a>
+        		<?php }?>
 			</div>
 		</div>
 	<?php }?>
