@@ -107,6 +107,20 @@
         margin-top: $leyka-base * 9;
     }
 
+    .leyka-faq-list {
+
+        .faq-category {
+            margin-bottom: $leyka-base * 8;
+
+            h2 {
+                @include leyka-text-category-section-h;
+                color: $leyka-color-text-dark;
+                text-align: center;
+                margin-bottom: $leyka-base * 4;
+            }
+        }
+    }
+
     section.leyka-howtostart {
         margin-top: $leyka-base * 13;
         margin-bottom: -$leyka-base;

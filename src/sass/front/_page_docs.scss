@@ -1,5 +1,6 @@
 // docs
 .leyka-landing.single.single-document .ll-page-content,
+.leyka-landing.slug-docs-faq .ll-page-content,
 .leyka-landing.search .ll-page-content {
     margin-bottom: $leyka-base * 16;
 
@@ -93,7 +94,34 @@
             .docs-category {
                 margin-bottom: $leyka-base * 4;
 
+                .icon-doc-cat-arrow {
+                    fill: $leyka-color-main;
+                    width: 32px;
+                    height: 32px;
+                    margin-top: -6px;
+
+                    &.arrow-right {
+                        display: inline-block;
+                    }
+
+                    &.arrow-down {
+                        display: none;
+                    }
+                }
+
                 &.active {
+                    .icon-doc-cat-arrow.arrow-right {
+                        display: none;
+                    }
+
+                    .icon-doc-cat-arrow.arrow-down {
+                        display: inline-block;
+                    }
+
+                    .category-docs {
+                        display: block;
+                    }
+
                     @include media-breakpoint-up(lg) {
                         margin-bottom: $leyka-base * 13;
                     }
@@ -102,9 +130,13 @@
                 h4 {
                     @include leyka-text-lg1;
                     color: $leyka-color-text-dark;
+                    cursor: pointer;
                 }
 
                 .category-docs {
+                    display: none;
+                    margin-left: $leyka-base * 4;
+
                     &.no-category {
                         margin-top: $leyka-base * 4;
                     }
@@ -185,5 +217,113 @@
                 }
             }
         }
+    }
+}
+
+// docs faq
+.leyka-landing.slug-docs-faq .ll-page-content {
+    .leyka-faq-list {
+        margin-top: 56px;
+
+        ul.faq-list {
+            & > li {
+                position: relative;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-top: 0px;
+                padding-bottom: $leyka-base * 4;
+                box-shadow: none;
+                border-radius: unset;
+                border-bottom: 1px solid $leyka-custom-file-input-button;
+                margin-bottom: $leyka-base * 4;
+
+                @include media-breakpoint-down(sm) {
+                    padding-left: $leyka-base * 2;
+                    padding-right: $leyka-base * 2;
+                    padding-top: $leyka-base * 3;
+                    padding-bottom: $leyka-base * 4;
+                    margin-bottom: $leyka-base * 2;
+                }       
+
+                &.expanded {
+                    padding-bottom: $leyka-base * 3;
+
+                    h4 {
+                        margin-bottom: 0px;
+                    }
+                    
+                    .answer {
+                        display: block;
+                    }
+
+                    a.btn-expand {
+                        visibility: visible;
+
+                        svg.faq-plus {
+                            display: none;
+                        }
+
+                        svg.faq-minus {
+                            display: inline-block;                        
+                        }
+
+                        &.expand-sm {
+                            display: none;
+                        }
+                    }
+
+                }
+
+                h4 {
+                    @include leyka-text-lg1-fixed;
+                    margin-bottom: 0px;
+                }
+
+                & > a.btn-expand {
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 32px;
+                    background-color: $leyka-color-main;
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    }
+
+                    &.expand-sm {
+                        width: 24px;
+                        height: 24px;
+                        display: none;
+                        position: unset;
+
+                        @include media-breakpoint-down(sm) {
+                            display: block;
+                            margin: $leyka-base auto 0 auto;
+                        }
+
+                        svg {
+                            width: 32px;
+                            height: 32px;
+                            fill: $leyka-color-white;
+                            display: block;
+                        }
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                        fill: $leyka-color-white;
+                    }
+                }
+
+            }
+        }        
     }
 }

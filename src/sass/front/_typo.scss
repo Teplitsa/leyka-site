@@ -156,6 +156,11 @@ $body-font-family-condensed-bold: dinpro-condensed-bold, arial;
     text-transform: uppercase;
 }
 
+@mixin leyka-text-category-section-h {
+    @include leyka-text-lg3;
+    letter-spacing: -0.01em;
+}
+
 // page elements
 @mixin leyka-text-body {
     @include leyka-text;

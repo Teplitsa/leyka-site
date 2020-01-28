@@ -3,6 +3,8 @@
 // core
 class LL_Faq_Service {
     static $post_type = 'faq';
+    static $category_tax = 'faq_cat';
+    static $term_meta_order = 'll_faq_cat_order';
     
     function get_short_list( $num = 100 ) {
         $posts = get_posts( array(
@@ -24,16 +26,61 @@ class LL_Faq_Service {
         return $posts;
     }
     
-    function get_all() {
-        $posts = get_posts( array(
+    function get_all($cat = null) {
+        $params = array(
             'post_type' => self::$post_type,
             'posts_per_page' => -1,
             'orderby' => array(
                 'menu_order'  => 'ASC',
                 'ID'     => 'DESC',
-            )
-        ) );
+            ),
+        );
+        
+        if($cat) {
+            $params['tax_query'] = array(
+                array(
+                    'taxonomy' => self::$category_tax,
+                    'field' => 'id',
+                    'terms' => $cat,
+                ),
+            );
+        }
+        elseif ($cat === null) {
+            $params['tax_query'] = array(
+                array(
+                    'taxonomy' => self::$category_tax,
+                    'operator' => 'NOT EXISTS'
+                ),
+            );
+        }
+        
+        $posts = get_posts($params);
+        
         return $posts;
+    }
+
+    function get_categories() {
+        $terms = get_terms(array(
+            'taxonomy' => self::$category_tax,
+            'hide_empty' => true,
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => [
+                'relation' => 'OR',
+                [
+                    'key' => self::$term_meta_order,
+                    'compare' => 'NOT EXISTS',
+                ],
+                [
+                    'key' => self::$term_meta_order,
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ) );
+        
+        $terms[] = get_term_by('slug', 'other', self::$category_tax);
+        
+        return $terms;
     }
     
     // static methods
@@ -74,6 +121,36 @@ class LL_Faq_Service {
         
     }
     
+    public static function register_custom_taxonomy() {
+        register_taxonomy(LL_Faq_Service::$category_tax, array(LL_Faq_Service::$post_type,), array(
+            'labels' => array(
+                'name'                       => 'Категории вопросов',
+                'singular_name'              => 'Категория',
+                'menu_name'                  => 'Категории вопросов',
+                'all_items'                  => 'Все категории',
+                'edit_item'                  => 'Редактировать категорию',
+                'view_item'                  => 'Просмотреть',
+                'update_item'                => 'Обновить категорию',
+                'add_new_item'               => 'Добавить новую категорию',
+                'new_item_name'              => 'Название новой категории',
+                'parent_item'                => 'Родительская категория',
+                'parent_item_colon'          => 'Родительская категория:',
+                'search_items'               => 'Искать категории',
+                'popular_items'              => 'Часто используемые',
+                'separate_items_with_commas' => 'Разделять запятыми',
+                'add_or_remove_items'        => 'Добавить или удалить категории',
+                'choose_from_most_used'      => 'Выбрать из часто используемых',
+                'not_found'                  => 'Не найдено'
+            ),
+            'hierarchical'      => true,
+            'show_ui'           => true,
+            'show_in_nav_menus' => true,
+            'show_tagcloud'     => false,
+            'show_admin_column' => true,
+            'query_var'         => true,
+        ));
+    }
+    
     public static function register_cmb2_metabox() {
         $cmb2_box = new_cmb2_box( array(
             'id'            => 'll_faq_metabox',
@@ -100,13 +177,46 @@ class LL_Faq_Service {
         ) );
     }
     
+    public static function category_order_metabox() {
+        $prefix = 'll_faq_cat_order_';
+        
+        $cmb_term = new_cmb2_box( array(
+            'id'               => $prefix . 'edit',
+            'object_types'     => array( 'term' ),
+            'taxonomies'       => array( LL_Faq_Service::$category_tax ),
+            'new_term_section' => true,
+        ) );
+        
+        $cmb_term->add_field( array(
+            'name'     => esc_html__( 'Category order', 'll' ),
+            //             'description'     => '',
+            'id'       => LL_Faq_Service::$term_meta_order,
+            'type'     => 'text_small',
+            'default'  => '',
+            'on_front' => false,
+        ) );
+        
+    }
+    
 } // class end
 
 add_action('init', 'LL_Faq_Service::register_post_type', 20);
+add_action('init', 'LL_Faq_Service::register_custom_taxonomy', 20);
 add_action( 'cmb2_admin_init', 'LL_Faq_Service::register_cmb2_metabox' );
+add_action( 'cmb2_admin_init', 'LL_Faq_Service::category_order_metabox' );
 
 // templates
 class LL_Faq_Templates {
+    
+    function show_faq_category_questions($category, $faq_service) {
+        $faq_list = $faq_service->get_all($category->slug == 'other' ? null : $category->term_id);
+        ?>
+        <div class="faq-category">
+        <h2><?php echo $category->name;?></h2>
+        <?php $this->show_list($faq_list);?>
+        </div>
+        <?php
+    }
     
     function show_list($list) {
         ?>

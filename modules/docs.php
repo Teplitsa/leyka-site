@@ -4,6 +4,7 @@ class LL_Docs_Service {
     static $post_type = 'document';
     static $category_tax = 'doc_cat';
     static $term_meta_order = 'll_doc_cat_order';
+    static $docs_faq_slug = 'docs-faq';
     
     function get_category_docs( $cat ) {
         $params = array(
@@ -36,13 +37,28 @@ class LL_Docs_Service {
         return $posts;
     }
     
-    function get_categories() {
+    function get_categories($parent_cat = 0) {
+        $docs_faq_term = get_term_by('slug', self::$docs_faq_slug, self::$category_tax);
+        
         $terms = get_terms( self::$category_tax, array(
             'hide_empty' => true,
+            'parent' => $parent_cat,
             'orderby' => 'meta_value_num',
             'order' => 'ASC',
             'meta_key' => LL_Docs_Service::$term_meta_order,
-        ) );
+            'exclude' => array($docs_faq_term->term_id),
+        ) ); 
+        
+        if(!$parent_cat) {
+            // active category
+            $other_term = new WP_Term(new stdClass());
+            $other_term->name = get_theme_mod("other_documents_set_title");
+            $other_term->id = null;
+            $terms[] = $other_term;
+            
+            $terms[] = $docs_faq_term;
+        }
+        
         return $terms;
     }
     
@@ -139,9 +155,85 @@ class LL_Docs_Hooks {
         
     }
     
+    public static function register_cmb2_metabox() {
+        $cmb2_box = new_cmb2_box( array(
+            'id'            => 'll_doc_metabox',
+            'title'         => esc_html__( 'Doc options', 'll' ),
+            'object_types'  => array( LL_Docs_Service::$post_type ), // Post type
+        ) );
+        
+        $cmb2_box->add_field( array(
+            'name' => esc_html__( 'Learn more link title', 'll' ),
+            'id'   => 'll_faq_learn_more_link_title',
+            'type' => 'text',
+        ) );
+        
+        $cmb2_box->add_field( array(
+            'name' => esc_html__( 'Learn more link URL', 'll' ),
+            'id'   => 'll_faq_learn_more_link_url',
+            'type' => 'text',
+        ) );
+    }
+    
+    public static function insert_rewrite_rules(array $rules) {
+        $rules = array(
+            '^' . LL_Docs_Service::$docs_faq_slug . '/([^/]+)/?$' => 'index.php?pagename=docs-faq&ll_docs_faq_cat=$matches[1]',
+        ) + $rules;
+        
+        return $rules;
+    }
+    
+    public static function insert_rewrite_query_vars(array $vars) {
+        array_push($vars, 'll_docs_faq_cat');
+        return $vars;
+    }
+    
+    public static function init_routing() {
+        add_filter('rewrite_rules_array', 'LL_Docs_Hooks::insert_rewrite_rules');
+        add_filter('query_vars', 'LL_Docs_Hooks::insert_rewrite_query_vars');
+    }
+
 } // class end
 
 add_action('init', 'LL_Docs_Hooks::register_custom_taxonomy', 20);
 add_action('init', 'LL_Docs_Hooks::register_post_type', 20);
+add_action('init', 'LL_Docs_Hooks::init_routing', 20);
 
 add_action( 'cmb2_admin_init', 'LL_Docs_Hooks::category_order_metabox' );
+add_action( 'cmb2_admin_init', 'LL_Docs_Hooks::register_cmb2_metabox' );
+
+// templates
+class LL_Docs_Templates {
+    
+    function show_list($list) {
+        ?>
+    	<ul class="faq-list">
+    		<?php foreach($list as $post):?>
+    			<?php $this->show_list_item($post);?>
+    		<?php endforeach;?>
+    	</ul>
+        <?php
+    }
+    
+    function show_list_item($post) {
+        $learn_more_link_url = get_post_meta($post->ID, 'll_faq_learn_more_link_url', true);
+        $learn_more_link_title = get_post_meta($post->ID, 'll_faq_learn_more_link_title', true);
+        ?>
+        <a name="ask<?php echo $post->ID;?>"></a>
+		<li>
+			<h4><?php echo get_the_title($post);?></h4>
+			<div class="answer">
+				<?php echo apply_filters('the_content', get_post_field('post_content', $post));?>
+				<?php if($learn_more_link_url && $learn_more_link_title):?>
+    			<div class="link">
+    				<a href="<?php echo $learn_more_link_url?>" target="_blank"><?php echo $learn_more_link_title;?><svg class="svg-icon"><use xlink:href="#icon-arrow-line-right" /></svg></a>
+    			</div>
+    			<?php endif;?>
+			</div>
+			<a href="#ask<?php echo $post->ID;?>" data-ask="ask<?php echo $post->ID;?>" id="expand-ask<?php echo $post->ID;?>" class="btn-expand"><svg class="faq-plus"><use xlink:href="#icon-faq-plus" /></svg><svg class="faq-minus"><use xlink:href="#icon-faq-minus" /></svg></a>
+			<a href="#" class="btn-expand expand-sm"><svg><use xlink:href="#icon-galka-down" /></svg></a>
+		</li>
+		<?php
+    }
+    
+}

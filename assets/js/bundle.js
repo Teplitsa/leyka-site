@@ -4564,7 +4564,12 @@ jQuery( document ).ready(function( $ ) {
       e.preventDefault();
     }
 
-    $(this).closest('li').addClass('expanded');
+    var isOpen = $(this).closest('li').hasClass('expanded');
+    $faqList.find('li.expanded').removeClass('expanded');
+
+    if(!isOpen) {
+      $(this).closest('li').addClass('expanded');
+    }
 
     var $namedAsk = $faqList.find('a[name='+$(this).data('ask')+']');
     if(!$(this).data('scroll-to-ask')) {
@@ -4717,5 +4722,17 @@ jQuery( document ).ready(function( $ ) {
 jQuery( document ).ready(function( $ ) {
   $('.post-content > p:first-child iframe').each(function(i, el){
     $(el).closest('.post-content > p:first-child').addClass('ll-iframe-wrapper');
+  });
+});
+
+// docs accordion
+jQuery( document ).ready(function( $ ) {
+  $('.docs-category h4').on('click', function(){
+    var $category = $(this).closest('.docs-category');
+    var isOpen = $category.hasClass('active');
+    $(this).closest('.docs-categories').find('.docs-category.active').removeClass('active');
+    if(!isOpen) {
+      $category.addClass('active');
+    }    
   });
 });
