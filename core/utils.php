@@ -97,3 +97,53 @@ class LL_Old_Content_Cleaner {
         return $content;
     }
 }
+
+function leyka_get_teplycha_posts( $args = array() ) {
+    $posts = false;
+
+    $per_page = isset( $args['per_page'] ) ? $args['per_page'] : '10';
+    $tags     = ( isset( $args['tags'] ) ? $args['tags'] : false );
+
+    $posts_url = 'https://te-st.ru/wp-json/wp/v2/posts';
+
+    $posts_args = array( 'timeout' => 120 );
+
+    $query_args = array();
+    if ( $per_page ) {
+        $query_args['per_page'] = $per_page;
+    }
+    if ( $tags ) {
+        $query_args['tags'] = $tags;
+    }
+
+    $url = add_query_arg( $query_args, $posts_url );
+
+    $response = wp_remote_get( $url, $args );
+
+    if( !is_wp_error( $response ) && $response['response']['code'] == 200 ) {
+
+        $body  =  wp_remote_retrieve_body( $response );
+        $posts = json_decode( $body );
+
+    }
+
+    return $posts;
+}
+
+function leyka_get_teplycha_post_tag( $tag_id = null ) {
+    $tag = false;
+
+    $tags_url = 'https://te-st.ru/wp-json/wp/v2/tags/';
+    $tags_args = array( 'timeout' => 120 );
+
+    if ( $tag_id ) {
+        $tags_url = $tags_url . $tag_id;
+        $response = wp_remote_get( $tags_url, $tags_args );
+        if( !is_wp_error( $response ) && $response['response']['code'] == 200 ) {
+            $body  =  wp_remote_retrieve_body( $response );
+            $tag = json_decode( $body );
+        }
+    }
+
+    return $tag;
+}

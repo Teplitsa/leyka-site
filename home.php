@@ -416,25 +416,33 @@ get_header(); ?>
         		<?php }?>
         	</ul>
     	</div>
-    	
-    	<div class="news-list container">
-    		<div class="row">
-    			<?php foreach($news_list as $post):?>
-    			<?php
-    			$category = $news_service->get_news_category($post);
-                    $categoryKind = $news_service->get_news_category_kind($category);
-    			?>
-    			<article class="col-md-4 news-item">
-    				<span class="news-tag <?php echo $categoryKind;?>"><?php echo $category->name;?></span>
-    				<a href="<?php echo get_the_permalink($post);?>"><?php echo get_the_title($post);?></a>
-    				<time><?php echo get_the_date( '', $post );?></time>
-    			</article>
-    			<?php endforeach;?>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-12 news-underline"></div>
-    		</div>
-    	</div>
+
+        <div class="news-list container">
+            <div class="row">
+               <?php
+               
+                $release_posts = leyka_get_teplycha_posts( array( 'per_page' => 3, 'tags' => 21348 ) );
+
+                if ( $release_posts ) {
+                    $tag = leyka_get_teplycha_post_tag( 21348 );
+                    foreach( $release_posts as $post ) { ?>
+                        <article class="col-md-4 news-item">
+                            <?php if ( $tag ) { ?>
+                                 <span class="news-tag"><?php echo esc_html( $tag->name );?></span>
+                            <?php } ?>
+                            <a href="<?php echo esc_url( $post->link );?>" target="_blank"><?php echo esc_html( $post->title->rendered ); ?></a>
+                            <?php //echo $remote_post->date;?>
+                            <time><?php echo mysql2date('d F Y', $post->date ); ?></time>
+                        </article>
+                    <?php }
+                }
+                ?>
+            </div>
+            <div class="row">
+                <div class="col-md-12 news-underline"></div>
+            </div>
+        </div>
+
 	</div>
 </section>
 
@@ -444,17 +452,23 @@ get_header(); ?>
     	
     	<div class="news-list container">
     		<div class="row">
-    			<?php foreach($fundraising_advices as $news):?>
-    			<?php
-                    $category = $news_service->get_news_category($news);
-                    $categoryKind = $news_service->get_news_category_kind($category);
-    			?>
-    			<article class="col-md-4 news-item">
-    				<span class="news-tag <?php echo $categoryKind;?>"><?php echo $category->name;?></span>
-    				<a href="<?php echo get_the_permalink($news);?>"><?php echo get_the_title($news);?></a>
-    				<time><?php echo get_the_date( '', $news );?></time>
-    			</article>
-    			<?php endforeach;?>
+                <?php 
+                $release_posts = leyka_get_teplycha_posts( array( 'per_page' => 3, 'tags' => 5411 ) );
+
+                if ( $release_posts ) {
+                    $tag = leyka_get_teplycha_post_tag( 5411 );
+                    foreach( $release_posts as $post ) { ?>
+                        <article class="col-md-4 news-item">
+                            <?php if ( $tag ) { ?>
+                                 <span class="news-tag"><?php echo esc_html( $tag->name );?></span>
+                            <?php } ?>
+                            <a href="<?php echo esc_url( $post->link );?>" target="_blank"><?php echo esc_html( $post->title->rendered ); ?></a>
+                            <?php //echo $remote_post->date;?>
+                            <time><?php echo mysql2date('d F Y', $post->date ); ?></time>
+                        </article>
+                    <?php }
+                }
+                ?>
     		</div>
     	</div>
 	</div>
