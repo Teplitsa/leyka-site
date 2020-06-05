@@ -185,7 +185,8 @@
                 margin-top: $leyka-base * 4;
                 text-align: center;
 
-                input {
+                input,
+                button {
                     @extend .btn;
                     width: 100%;
 
@@ -209,5 +210,14 @@
             }
         }
 
-    }    
+    }
+
+    .frm_message {
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.25rem;
+
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
 }
