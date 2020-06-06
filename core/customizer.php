@@ -305,13 +305,15 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     
     $ll_customizer->add_label_setting( 'll_label_other_prices_currency', esc_html__( 'Other prices currency', 'll' ), 'll_common_prices_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_order_form_privacy_policy_explain', esc_html__( 'Order form privacy policy explanation', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
+    //$ll_customizer->add_label_setting( 'll_label_order_form_privacy_policy_explain', esc_html__( 'Order form privacy policy explanation', 'll' ), 'll_common_prices_labels', array( 'type' => 'textarea' ) );
     
-    $ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
+    //$ll_customizer->add_label_setting( 'll_label_quick_start_price_submit_caption', esc_html__( 'Submit button caption', 'll' ), 'll_common_prices_labels' );
     
-    $ll_customizer->add_label_setting( 'll_label_back_to_prices_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );    
+    //$ll_customizer->add_label_setting( 'll_label_back_to_prices_caption', esc_html__( 'Go back button caption', 'll' ), 'll_common_prices_labels' );    
 
     $ll_customizer->add_label_setting( 'll_label_i_need_installation_assistance', esc_html__( 'Link in steps label', 'll' ), 'll_common_prices_labels' );
+
+    $ll_customizer->add_label_setting( 'll_price_form_id', esc_html__( 'Price form id', 'll' ), 'll_common_prices_labels' );
     
     // quick start
     $wp_customize->add_section(
@@ -407,7 +409,7 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $ll_customizer->add_label_setting( 'll_label_price3_point4', esc_html__( 'Extra Point 4', 'll' ), 'll_price3_labels' );
     
     // submit order
-    $wp_customize->add_section(
+    /*$wp_customize->add_section(
         'll_submit_order_form_labels',
         array(
             'title' => esc_html__( 'Submit order options', 'll' ),
@@ -425,7 +427,7 @@ function ll_customize_register_prices_page_labels($wp_customize, $ll_customizer)
     $ll_customizer->add_label_setting( 'll_message_order_submitted_email_subject', esc_html__( 'Email subject', 'll' ), 'll_submit_order_form_labels' );
     
     $ll_customizer->add_label_setting( 'll_message_order_submitted_email_body', esc_html__( 'Email body', 'll' ), 'll_submit_order_form_labels', array( 'type' => 'textarea' ) );
-    
+    */
 }
 
 function ll_customize_register_capabilities_page_labels($wp_customize, $ll_customizer) {

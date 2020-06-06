@@ -176,7 +176,10 @@ jQuery( document ).ready(function( $ ) {
     $pricesInfo.hide();
     $pricesSubmitOrderForm.show();
     var priceName = $(this).data('price');
-    $pricesSubmitOrderForm.find('.price-selector').val(priceName).change();
+    var priceIndex = priceName - 1;
+    console.log(priceName)
+    //$pricesSubmitOrderForm.find('.price-selector').val(priceName).change();
+    $pricesSubmitOrderForm.find('#field_select_tarifs').prop('selectedIndex', priceIndex );
     window.location.hash = '#make-order';
   });
 
