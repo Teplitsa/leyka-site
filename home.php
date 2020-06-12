@@ -419,9 +419,41 @@ get_header(); ?>
 
         <div class="news-list container">
             <div class="row">
-               <?php
-               
-                $release_posts = leyka_get_teplycha_posts( array( 'per_page' => 3, 'tags' => 21348 ) );
+			<?php
+			$release_posts = leyka_get_teplycha_posts( array( 'per_page' => 3, 'tags' => 21348 ) );
+			$release_count = count( $release_posts );
+
+			$additional_count = 3 - $release_count;
+
+			if ( $release_count <= 3 ) {
+				$additional_posts_ids = array( 3390, 3391 );
+				$i = 1;
+				foreach ( $additional_posts_ids as $post_id ) {
+					if ( $i <= $additional_count ) {
+						$additional_post = leyka_get_post( $post_id );
+						if ( $additional_post ) {
+							$categories = leyka_get_post_categories( $post_id );
+							?>
+							<article class="col-md-4 news-item">
+								<?php
+								if ( $categories ) {
+									foreach ( $categories as $category ) {
+										?>
+										<span class="news-tag"><?php echo esc_html( $category->name ); ?></span>
+										<?php
+									}
+								}
+								?>
+								<a href="<?php echo esc_url( $additional_post->link ); ?>"><?php echo esc_html( $additional_post->title->rendered ); ?></a>
+								<time><?php echo mysql2date('d F Y', $additional_post->date ); ?></time>
+							</article>
+							<?php
+						}
+					}
+					$i++;
+				}
+			}
+
 
                 if ( $release_posts ) {
                     $tag = leyka_get_teplycha_post_tag( 21348 );
@@ -431,11 +463,11 @@ get_header(); ?>
                                  <span class="news-tag"><?php echo esc_html( $tag->name );?></span>
                             <?php } ?>
                             <a href="<?php echo esc_url( $post->link );?>" target="_blank"><?php echo esc_html( $post->title->rendered ); ?></a>
-                            <?php //echo $remote_post->date;?>
                             <time><?php echo mysql2date('d F Y', $post->date ); ?></time>
                         </article>
                     <?php }
                 }
+
                 ?>
             </div>
             <div class="row">
@@ -463,7 +495,6 @@ get_header(); ?>
                                  <span class="news-tag"><?php echo esc_html( $tag->name );?></span>
                             <?php } ?>
                             <a href="<?php echo esc_url( $post->link );?>" target="_blank"><?php echo esc_html( $post->title->rendered ); ?></a>
-                            <?php //echo $remote_post->date;?>
                             <time><?php echo mysql2date('d F Y', $post->date ); ?></time>
                         </article>
                     <?php }
