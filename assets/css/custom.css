@@ -3,6 +3,9 @@
  */
 
 /* Video Course */
+.ll-section-video-course {
+	padding-top: 50px;
+}
 .ll-section-video-course h3 {
 	font-family: dinpro, arial;
 	font-size: 18px;
@@ -48,6 +51,24 @@
 }
 .ll-video-course-button svg {
 	margin-left: 8px;
+}
+@media (min-width: 768px) {
+	.ll-section-video-course {
+		padding-top: 90px;
+	}
+}
+@media (max-width: 767px) {
+	.ll-video-course-button {
+		position: absolute;
+		display: block;
+		width: 70px;
+		height: 70px;
+		line-height: 66px;
+	}
+	.ll-video-course-button svg {
+		width: 25px;
+		height: 25px;
+	}
 }
 
 /* Slick Slider */

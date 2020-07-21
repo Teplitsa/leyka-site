@@ -28,7 +28,7 @@ if ( $term ) {
 			<div class="ll-video-course-list slick-slider">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 					<div class="ll-video-course-item">
-						<a href="<?php echo get_post_meta( get_the_ID(), 'll_capability_link_url', true ); ?>" class="ll-video-course-link" targe="_blank">
+						<a href="<?php echo get_post_meta( get_the_ID(), 'll_capability_link_url', true ); ?>" class="ll-video-course-link" target="_blank">
 							<?php the_post_thumbnail(); ?>
 							<span class="ll-video-course-button">
 								<svg width="44" height="50" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
