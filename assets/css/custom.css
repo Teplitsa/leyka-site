@@ -1,0 +1,91 @@
+/**
+ * Custom Styles
+ */
+
+/* Video Course */
+.ll-section-video-course h3 {
+	font-family: dinpro, arial;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 500;
+	color: #3D414D;
+	margin-bottom: 48px;
+	text-align: center;
+}
+.ll-video-course-list {
+	max-width: 920px;
+	margin: 0 auto;
+}
+.ll-video-course-item {
+	text-align: center;
+}
+.ll-video-course-link {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+.ll-video-course-button {
+	position: absolute;
+	display: block;
+	width: 114px;
+	height: 114px;
+	line-height: 114px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,.3);
+	opacity: .5;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	transition: opacity .3s;
+}
+.ll-video-course-link:hover .ll-video-course-button {
+	opacity: .7;
+}
+.ll-video-course-button svg {
+	margin-left: 8px;
+}
+
+/* Slick Slider */
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+		position: absolute;
+		top: 50%;
+		display: block;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		transform: translate(0, -50%);
+		color: #3d414d;
+		outline: none;
+		text-align: center;
+		z-index: 101;
+}
+.slick-prev:hover,
+.slick-next:hover {
+		color: #14bc1f;
+		outline: none;
+		background: transparent;
+		cursor: pointer;
+}
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled {
+		opacity: .25;
+		pointer-events: none;
+}
+.slick-prev {
+	left: 0;
+}
+.slick-next {
+	right: 0;
+}
+.slick-prev svg,
+.slick-next svg {
+	margin: auto;
+}

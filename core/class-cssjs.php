@@ -71,6 +71,9 @@ class LKL_CssJs {
 			$url . '/assets/rev/' . $this->get_rev_filename( 'bundle.css' ), 
 			$style_dependencies, 
 			null );
+
+			wp_enqueue_style( 'lkl-custom', get_theme_file_uri( '/assets/css/custom.css' ), $style_dependencies, 
+			null );
 	}
 
 	/* front */
@@ -88,7 +91,10 @@ class LKL_CssJs {
 			$script_dependencies, 
 			null, 
 			true );
-		
+
+		// custom
+		wp_enqueue_script( 'lkl-custom', get_theme_file_uri( '/assets/js/custom.js' ), $script_dependencies, '1.0.0', true );
+
 		wp_localize_script( 'lkl-front', 'leykaSiteFrontend', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'lang' => array(
