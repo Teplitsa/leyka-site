@@ -421,8 +421,7 @@ get_header(); ?>
 			<div class="row">
 			<?php
 			$release_posts = leyka_get_teplycha_posts( array( 'per_page' => 3, 'tags' => 21348 ) );
-			$release_count = count( $release_posts );
-
+			$release_count = is_object( $release_posts ) ? count( $release_posts ) : 0;
 			$additional_count = 3 - $release_count;
 
 			if ( $release_posts ) {
