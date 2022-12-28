@@ -533,8 +533,8 @@
                         margin-bottom: $leyka-base * 7;
 
                         a {
-                            &[href*="//itv.te-st.ru"],
-                            &[href*="//paseka.te-st.ru"], {
+                            &[href*="//itvist.org"],
+                            &[href*="//paseka.te-st.org"], {
                                 @include leyka-text-sm4;
                                 color: $leyka-color-link;
                                 background-color: $leyka-color-tstm-nav;

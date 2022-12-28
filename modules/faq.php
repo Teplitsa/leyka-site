@@ -115,7 +115,7 @@ class LL_Faq_Service {
             'hierarchical'        => false,
             'menu_position'       => 5,
             'menu_icon'           => 'dashicons-editor-help',
-            'supports'            => array('title', 'editor', 'page-attributes'),
+            'supports'            => array('title', 'editor', 'page-attributes','custom-fields'),
             'taxonomies'          => array(),
         ) );
         
@@ -209,10 +209,19 @@ add_action( 'cmb2_admin_init', 'LL_Faq_Service::category_order_metabox' );
 class LL_Faq_Templates {
     
     function show_faq_category_questions($category, $faq_service) {
-        $faq_list = $faq_service->get_all($category->slug == 'other' ? null : $category->term_id);
+        $category_id = null;
+        if ( isset( $category->term_id ) ) {
+            $category_id = $category->term_id;
+            if ( isset( $category->slug ) && $category->slug == 'other' ) {
+                $category_id = null;
+            }
+        }
+        $faq_list = $faq_service->get_all($category_id);
         ?>
         <div class="faq-category">
-        <h2><?php echo $category->name;?></h2>
+        <?php if ( isset( $category->name ) ) { ?>
+            <h2><?php echo esc_html( $category->name ); ?></h2>
+        <?php } ?>
         <?php $this->show_list($faq_list);?>
         </div>
         <?php

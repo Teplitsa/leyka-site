@@ -16,7 +16,7 @@ get_header();?>
 
 <section class="leyka-faq-list container">
 	<?php foreach($faq_categories as $faq_category) {
-	    $faq_tempaltes->show_faq_category_questions($faq_category, $faq_service);
+		$faq_tempaltes->show_faq_category_questions($faq_category, $faq_service);
 	}?>
 </section>
 

@@ -99,7 +99,7 @@ class LL_Old_Content_Cleaner {
 }
 
 /**
- * Get posts from rest api site te-st.ru
+ * Get posts from rest api site te-st.org
  */
 function leyka_get_teplycha_posts( $args = array() ) {
 	$posts = false;
@@ -107,7 +107,7 @@ function leyka_get_teplycha_posts( $args = array() ) {
 	$per_page = isset( $args['per_page'] ) ? $args['per_page'] : '10';
 	$tags     = ( isset( $args['tags'] ) ? $args['tags'] : false );
 
-	$posts_url = 'https://te-st.ru/wp-json/wp/v2/posts';
+	$posts_url = 'https://te-st.org/wp-json/wp/v2/posts';
 
 	$posts_args = array( 'timeout' => 120 );
 
@@ -134,12 +134,12 @@ function leyka_get_teplycha_posts( $args = array() ) {
 }
 
 /**
- * Get tags from rest api site te-st.ru
+ * Get tags from rest api site te-st.org
  */
 function leyka_get_teplycha_post_tag( $tag_id = null ) {
 	$tag = false;
 
-	$tags_url = 'https://te-st.ru/wp-json/wp/v2/tags/';
+	$tags_url = 'https://te-st.org/wp-json/wp/v2/tags/';
 	$tags_args = array( 'timeout' => 120 );
 
 	if ( $tag_id ) {
@@ -156,7 +156,7 @@ function leyka_get_teplycha_post_tag( $tag_id = null ) {
 }
 
 /**
- * Get posts from rest api site leyka.te-st.ru
+ * Get posts from rest api site leyka.org
  *
  * @param string $post_id string.
  */
@@ -164,7 +164,7 @@ function leyka_get_post( $post_id = null ) {
 	$post = false;
 
 	if ( $post_id ) {
-		$url           = 'https://leyka.te-st.ru//wp-json/wp/v2/posts/' . $post_id;
+		$url           = 'https://leyka.org/wp-json/wp/v2/posts/' . $post_id;
 		$response      = wp_remote_get( $url );
 		$response_code = $response['response']['code'];
 		if ( ! is_wp_error( $response ) && $response_code === 200 ) {
@@ -177,7 +177,7 @@ function leyka_get_post( $post_id = null ) {
 }
 
 /**
- * Get post categories from rest api site leyka.te-st.ru
+ * Get post categories from rest api site leyka.org
  *
  * @param string $post_id string.
  */
@@ -185,7 +185,7 @@ function leyka_get_post_categories( $post_id = null ) {
 	$categories = false;
 
 	if ( $post_id ) {
-		$url                = 'https://leyka.te-st.ru/wp-json/wp/v2/categories';
+		$url                = 'https://leyka.org/wp-json/wp/v2/categories';
 		$query_args['post'] = $post_id;
 		$url                = add_query_arg( $query_args, $url );
 		$response           = wp_remote_get( $url );

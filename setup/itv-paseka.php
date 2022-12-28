@@ -33,7 +33,7 @@ $posts_data = array(
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"project-link"} -->
-<p class="project-link"><a rel="noreferrer noopener" aria-label="itv.te-st.ru (откроется в новой вкладке)" href="https://itv.te-st.ru/" target="_blank">itv.te-st.ru</a></p>
+<p class="project-link"><a rel="noreferrer noopener" aria-label="itvist.org (откроется в новой вкладке)" href="https://itvist.org/" target="_blank">itvist.org</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":'.$paseka_logo_id.'} -->
@@ -49,7 +49,7 @@ $posts_data = array(
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"project-link"} -->
-<p class="project-link"><a rel="noreferrer noopener" aria-label="paseka.te-st.ru (откроется в новой вкладке)" href="https://paseka.te-st.ru/" target="_blank">paseka.te-st.ru</a></p>
+<p class="project-link"><a rel="noreferrer noopener" aria-label="paseka.te-st.org (откроется в новой вкладке)" href="https://paseka.te-st.org/" target="_blank">paseka.te-st.org</a></p>
 <!-- /wp:paragraph -->',
         'meta' => array('ll_page_super_title' => 'Помощь'),
     ),

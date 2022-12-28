@@ -9,6 +9,9 @@ $page_title = get_theme_mod('ll_label_docs_page_title');
 $page_super_title = get_theme_mod('ll_label_docs_page_super_title');
 
 $docs_faq_term_slug = get_query_var('ll_docs_faq_cat');
+if ( ! $docs_faq_term_slug ) {
+	$docs_faq_term_slug = 'leyka-basics';
+}
 $docs_faq_term = $docs_faq_term_slug ? get_term_by('slug', $docs_faq_term_slug, LL_Docs_Service::$category_tax) : null;
 
 $docs_service = new LL_Docs_Service();

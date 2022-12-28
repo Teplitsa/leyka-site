@@ -62,7 +62,7 @@ $cc_link = '<a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_bl
             <div class="about-tst">
             	<div class="logo-set">
                     <svg class="ll-logo-label-vert"><use xlink:href="#pic-logo-label-vert" /></svg>
-                    <a href="https://te-st.ru/" target="_blank"><svg class="ll-test-logo-label-hor"><use xlink:href="#pic-tst-logo-label-hor" /></svg></a>
+                    <a href="https://te-st.org/" target="_blank"><svg class="ll-test-logo-label-hor"><use xlink:href="#pic-tst-logo-label-hor" /></svg></a>
             	</div>
             	<p class="leyka-created-by"><?php echo get_theme_mod('ll_label_footer_created_by');?></p>
             	<p><?php echo get_theme_mod('ll_label_footer_created_by_explanation');?></p>

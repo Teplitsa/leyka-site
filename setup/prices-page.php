@@ -116,4 +116,4 @@ ll_set_theme_mod_safe('ll_label_price3_point3', "4 часа (раз в неде�
 ll_set_theme_mod_safe('ll_label_price3_point4', "Помощь в настройке и аналитике пожертвований");
 
 // order extra recipients
-ll_set_theme_mod_safe('ll_message_order_submitted_email_extra_recipients', "olga@te-st.ru");
+ll_set_theme_mod_safe('ll_message_order_submitted_email_extra_recipients', "olga@te-st.org");
