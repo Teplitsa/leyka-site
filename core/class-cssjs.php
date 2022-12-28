@@ -93,7 +93,7 @@ class LKL_CssJs {
 			true );
 
 		// custom
-		wp_enqueue_script( 'lkl-custom', get_theme_file_uri( '/assets/js/custom.js' ), $script_dependencies, '1.0.0', true );
+		wp_enqueue_script( 'lkl-custom', get_theme_file_uri( '/assets/js/custom.js' ), $script_dependencies, '1.0.1', true );
 
 		wp_localize_script( 'lkl-front', 'leykaSiteFrontend', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
